@@ -1,0 +1,29 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>TeamBrewery</h1>
+    <p class="lead">Tasty pokemon teams at your fingertips</p>
+
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+      <div ng-controller="TeamCtrl">
+        <pokemon-card ng-repeat="pokemon in team" pokemon="pokemon">
+        </pokemon-card>
+    </div>
+         
+
+    
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p>By <tt>pascal</tt> for Pokemon Showdown |
+        <a href="https://twitter.com/ninetyfourJS">Follow me @ninetyfourJS</a> |
+         <a href="https://github.com/posixpascal/TeamBreweryIO">SourceCode</a></p>
+  </div>
+</footer>
