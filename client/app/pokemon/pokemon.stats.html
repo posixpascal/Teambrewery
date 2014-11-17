@@ -1,0 +1,59 @@
+<div>
+    <table class="stat-table" style="width: 100%">
+        <thead>
+            <tr>
+                <th>Stat</th>
+                <th>Base</th>
+                <th>Min</th>
+                <th>Max</th>
+                <th>Max+</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>HP</td>
+                <td>{{pokemon.baseHP}}</td>
+                <td>{{calcStat(pokemon.baseHP, 'hp', 0)}}</td>
+                <td>{{calcStat(pokemon.baseHP, 'hp', 255)}}</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>ATK</td>
+               <td>{{pokemon.baseHP}}</td>
+               <td>{{calcStat(pokemon.baseHP, 'atk', 0)}}</td>
+               <td>{{calcStat(pokemon.baseHP, 'atk', 255)}}</td>
+               <td>{{calcStat(pokemon.baseHP, 'atk', 255, 1.1)}}</td>
+            </tr>
+            <tr>
+                <td>DEF</td>
+                <td>{{pokemon.baseDEF}}</td>
+                <td>{{calcStat(pokemon.baseDEF, 'def', 0)}}</td>
+                <td>{{calcStat(pokemon.baseDEF, 'def', 255)}}</td>
+                <td>{{calcStat(pokemon.baseDEF, 'def', 255, 1.1)}}</td>
+            </tr>
+            <tr>
+                <td>SPA</td>
+                <td>{{pokemon.baseSPA}}</td>
+                <td>{{calcStat(pokemon.baseSPA, 'spa', 0)}}</td>
+                <td>{{calcStat(pokemon.baseSPA, 'spa', 255)}}</td>
+                <td>{{calcStat(pokemon.baseSPA, 'spa', 255, 1.1)}}</td>
+            </tr>
+            <tr>
+                <td>SPD</td>
+                <td>{{pokemon.baseSPD}}</td>
+                <td>{{calcStat(pokemon.baseSPD, 'spd', 0)}}</td>
+                <td>{{calcStat(pokemon.baseSPD, 'spd', 255)}}</td>
+                <td>{{calcStat(pokemon.baseSPD, 'spd', 255, 1.1)}}</td>
+            </tr>
+            <tr>
+                <td>SPE</td>
+                <td>{{pokemon.baseSPE}}</td>
+                <td>{{calcStat(pokemon.baseSPE, 'spe', 0)}}</td>
+                <td>{{calcStat(pokemon.baseSPE, 'spe', 255)}}</td>
+                <td>{{calcStat(pokemon.baseSPE, 'spe', 255, 1.1)}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+</div>

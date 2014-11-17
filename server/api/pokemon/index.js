@@ -7,6 +7,7 @@ var controller = require('./pokemon.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/by-name/:name', controller.byName)
 router.get('/:id', controller.show);
 router.post('/', controller.create);
 router.put('/:id', controller.update);

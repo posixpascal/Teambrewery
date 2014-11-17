@@ -7,18 +7,68 @@
 
   </div>
 </header>
-
-<div class="container">
-  <div class="row">
-      <div ng-controller="TeamCtrl">
-        <pokemon-card ng-repeat="pokemon in team" pokemon="pokemon">
-        </pokemon-card>
+<div ng-controller="TeamCtrl">
+    <div class="toolbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <li>
+                            <a ng-click="addPokemon()">
+                                <i class="glyphicon glyphicon-plus" />
+                                Add Pokemon
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a ng-click="exportTeam()">
+                                <i class="glyphicon glyphicon-export" />
+                                Export Team
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a ng-click="importTeam()">
+                                <i class="glyphicon glyphicon-import" />
+                                Import Team
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a ng-click="randomizeTeam()">
+                                <i class="glyphicon glyphicon-random" />
+                                Randomize
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a ng-click="saveTeam()">
+                                <i class="glyphicon glyphicon-floppy-save" />
+                                Save Team
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a ng-click="team = []">
+                                <i class="glyphicon glyphicon-remove" />
+                                Clear team
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-         
-
-    
-  </div>
+    <div class="container">
+      <div class="row">
+          <div>
+            <pokemon-card ng-repeat="pokemon in team" pokemon="pokemon">
+            </pokemon-card>
+          </div>
+      </div>
+    </div>
 </div>
+
 
 <footer class="footer">
   <div class="container">

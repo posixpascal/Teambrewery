@@ -1,50 +1,59 @@
-<div class="col-md-4 col-sm-6">
+<div class="col-md-4 col-sm-4">
     <div class="card-container">
         <div class="card">
             <div class="front">
                 <div class="cover">
-                    <img src="images/rotating_card_thumb2.png"/>
+
                 </div>
                 <div class="user">
-                    <img class="img-circle" src="images/rotating_card_profile3.png"/>
+                    <img ng-src="/assets/pokemon_sprites/{{pokemon.image}}"/>
                 </div>
                 <div class="content">
                     <div class="main">
                         <h3 class="name">{{pokemon.name}}</h3>
-                        <p class="profession">
-                            <pokemon-type primary-type="fire" secondary-type="flying">
+                        <p class="typing">
+                            <pokemon-typing />
                         </p>
-                        <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Paris, France</h5>
-                        <h5><i class="fa fa-building-o fa-fw text-muted"></i> Creative Tim Inc. </h5>
-                        <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> john@creative-tim.com</h5>
+                        <hr />
+                        <stat-distribution />
                     </div>
                     <div class="footer">
                         <div class="rating">
                             <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                           
                         </div>
                     </div>
                 </div>
             </div> <!-- end front panel -->
             <div class="back">
                 <div class="header">
-                    <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                    <h5 class="motto">Details</h5>
                 </div> 
                 <div class="content">
                     <div class="main">
-                        <h4 class="text-center">Experince</h4>
-                        <p>In the project since 2011</p>
-                        <h4 class="text-center">Areas of Expertise</h4>
-                        <p>Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+                        <table ng-if="!!pokemon.moveset" class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>{{pokemon.moveset[0]}}</td>
+                                    <td>{{pokemon.moveset[1]}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{pokemon.moveset[2]}}</td>
+                                    <td>{{pokemon.moveset[3]}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            No moveset for {{pokemon.name}} yet.
+                            <br/><br/>
+                            <a ng-click="addMoveset()" class="btn btn-xs btn-primary">Add Moveset</a>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="footer">
                     <div class="social-links text-center">
-                        <a href="http://cretive-tim.com" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
-                        <a href="http://cretive-tim.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
-                        <a href="http://cretive-tim.com" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                       <a ng-click="editPokemon()" class="btn btn-default btn-xs">Edit Pokemon</a>
                     </div>
                 </div>
             </div> <!-- end back panel -->

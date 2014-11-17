@@ -21,8 +21,8 @@ for (var i = 0, len = pokemons.length; i < len; i++){
     
     var pokemonAbilities = [];
     for (var j = 0, _len = Object.keys(pokemon.abilities).length; j < _len; j++){
-        var k = "-"; // pokemon.abilities[Object.keys(pokemon.abilities)[j]];
-        pokemonAbilities.push(k);
+        var k = "-"; 
+        pokemonAbilities.push(0);
     }
     
 

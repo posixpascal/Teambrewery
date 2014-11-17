@@ -1,11 +1,12 @@
 <div class="modal-header">
   <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
-  <h4 ng-if="modal.title" ng-bind="modal.title" class="modal-title"></h4>
+  <h4>Add Pokemon</h4>
 </div>
 <div class="modal-body">
-  <p ng-if="modal.text" ng-bind="modal.text"></p>
-  <div ng-if="modal.html" ng-bind-html="modal.html"></div>
+  <p>Pokemon Name</p>
+  <input type="text" ng-model="newPokemon.name" placeholder="Enter a Pokemon name (Auto-Complete supported)" typeahead="pokemon as pokemon.name for pokemon in getPokemonByName($viewValue)" typeahead-loading="loadingLocations" typeahead-wait-ms="300" typeahead-template-url="/app/autocomplete_template.html" class="form-control">
+  <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
 </div>
 <div class="modal-footer">
-  <button ng-repeat="button in modal.buttons" ng-class="button.classes" ng-click="button.click($event)" ng-bind="button.text" class="btn"></button>
+  <button class="btn btn-success" ng-click="addPokemon(pokemon)">Add Pokemon</button>
 </div>

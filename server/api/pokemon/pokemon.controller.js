@@ -20,12 +20,21 @@ exports.index = function(req, res) {
   });
 };
 
+// get pokemons by name
+exports.byName = function(req, res){
+    Pokemon.find({name: new RegExp('^.*' + req.params.name + '.*$', 'i')}, function(err, pokemons){
+       if (err) { return handleError(res, err); }
+       return res.json(200, pokemons); 
+    });
+}
+
 // Get a single pokemon
 exports.show = function(req, res) {
-  Pokemon.findById(req.params.id, function (err, pokemon) {
+  Pokemon.find({pokedex: parseInt(req.params.id, 10)}, function (err, pokemon) {
+      if (Array.isArray(pokemon)){ pokemon = pokemon[0]; }
     if(err) { return handleError(res, err); }
     if(!pokemon) { return res.send(404); }
-    return res.json(thing);
+    return res.json(pokemon);
   });
 };
 
