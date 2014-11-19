@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/teambrewery-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };

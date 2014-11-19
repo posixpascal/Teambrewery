@@ -7,7 +7,9 @@
 
   </div>
 </header>
+
 <div ng-controller="TeamCtrl">
+    <ui-view>
     <div class="toolbar">
         <div class="container">
             <div class="row">
@@ -66,7 +68,12 @@
             </pokemon-card>
           </div>
       </div>
+      <div ng-if="team.length > 0">
+          <weakness-table />
+          
+      </div>
     </div>
+    </ui-view>
 </div>
 
 

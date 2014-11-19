@@ -7,5 +7,8 @@ angular.module('teambreweryApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
+      }).state('main.saveState', {
+          url: 't/:id',
+          controller: 'MainCtrl'
       });
   });

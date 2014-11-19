@@ -1,0 +1,25 @@
+<div class="well">
+    <table class="type-table table table-bordered">
+        <thead>
+            <tr>
+                <td>Typing</td>
+                <td>Immunity</td>
+                <td>Quad Resistent (1/4x)</td>
+                <td>Resistent (1/2x)</td>
+                <td>Neutral</td>
+                <td>Effective (2x)</td>
+                <td>Super Effective (4x)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="type in types" ng-class="type.toLowerCase()">
+                <td>{{type}}</td>
+                <td>{{getImmunity(type)}}</td>
+                <td>{{getQuadResistance(type)}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </table>
+</div>
