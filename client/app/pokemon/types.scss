@@ -9,6 +9,16 @@
 }
 
 .type-table {
+    tr td {
+        vertical-align: middle;
+    }
+    img {
+        height: 30px;
+        max-width: 50px;
+    }
+}
+
+.type-table {
     td {
         text-align: center;
     }
@@ -43,7 +53,7 @@
 }
 
 .flying {
-    color: #fff;
+    color: #333;
     background-color: #7FDBFF;
 
 }
@@ -61,6 +71,7 @@
 
 .rock {
     background-color: #A7A37E;
+    color: #fff;
 }
 
 .ground {
