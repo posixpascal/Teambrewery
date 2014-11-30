@@ -15,4 +15,6 @@
 
 class Ability < ActiveRecord::Base
     attr_protected :key, :desc, :desc_short, :name, :rating, :num, :created_at, :updated_at
+    has_many :pokemon, :through => :pokemon_abilities
+    has_many :pokemon_abilities
 end

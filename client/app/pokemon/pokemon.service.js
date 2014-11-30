@@ -1,11 +1,10 @@
-angular.module("teambreweryApp").service("Pokemon", ["$http", function($http){
-    return {
-        byPokedexID: function(id){
-            return $http.get("/api/pokemon/" + id).success(function(pokemon){
-               return pokemon; 
-            });
-        }
+angular.module("teambreweryApp").factory("Pokemon", ["$resource", function($resource){
+    var Pokemon = $resource('//localhost:3000/api/pokemon/:id');
+    Pokemon.prototype.getTyping = function(){
+        return this.typing;
     }
+    
+    return Pokemon;
 }]).value('EVStats', {
 	HP: 'hp',
 	hp: 'hp',

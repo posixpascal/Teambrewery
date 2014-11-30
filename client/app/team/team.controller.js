@@ -57,9 +57,8 @@ angular.module('teambreweryApp')
           };
           $scope.team = [];
           for (var i = 0, len = randomTeam.length; i < len; i++){
-              Pokemon.byPokedexID(randomTeam[i]).success(function(pokemon){
-                  $scope.team.push(pokemon);
-              });
+             
+              
           }
       }
       
@@ -202,8 +201,9 @@ angular.module('teambreweryApp')
               // for each pokemon in team
               angular.forEach($scope.team, function(pokemon){
                   var types = [];
-                  types.push(pokemon.types[0]);
-                  if (typeof pokemon.types[1] !== "undefined") types.push(pokemon.types[1]);
+                  console.log(pokemon.getTyping());
+                  types.push(pokemon.getTyping()[0]);
+                  if (typeof pokemon.getTyping()[1] !== "undefined") types.push(pokemon.types[1]);
                   else types.push('Bird');
                   
                   

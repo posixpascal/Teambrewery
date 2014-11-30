@@ -22,5 +22,5 @@
 
 class EvSpread < ActiveRecord::Base
     attr_protected :team_pokemon, :hp, :atk, :def, :spa, :spd, :spe, :hp_ivs, :atk_ivs, :def_ivs, :spa_ivs, :spd_ivs, :spe_ivs, :created_at, :updated_at
-    belongs_to :team_pokemon
+    belongs_to :moveset
 end

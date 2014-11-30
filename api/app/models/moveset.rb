@@ -10,6 +10,20 @@
 
 class Moveset < ActiveRecord::Base
     attr_protected :team_pokemon, :created_at, :updated_at
-    belongs_to :team_pokemon
-    has_many :moves
+    belongs_to :pokemon
+    has_many :moveslots
+    has_many :items
+    has_one :nature
+    has_many :ev_spreads
+    has_one :author, :class_name => "User"
+    
+    has_many :items, :through => :moveset_items
+    has_many :moveset_items
+    
+    has_many :abilities, :through => :moveset_abilities
+    has_many :moveset_abilities
+    
+    has_many :moves, :through => :moveslots
+    
+
 end

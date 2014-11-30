@@ -21,8 +21,12 @@ class Pokemon < ActiveRecord::Base
     attr_protected :created_at, :updated_at
     has_one :typing
     has_one :learnset
-    has_many :abilities
+    has_many :abilities, :through => :pokemon_abilities
+    has_many :pokemon_abilities
     has_one :basestat
+    has_many :evolutions
+    belongs_to :family
+    has_many :movesets
     
-    attr_protected
+    mount_uploader :sprite, SpriteUploader
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130091650) do
+ActiveRecord::Schema.define(version: 20141130181202) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -85,6 +85,21 @@ ActiveRecord::Schema.define(version: 20141130091650) do
     t.integer  "spe_ivs"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "moveset_id"
+  end
+
+  create_table "evolutions", force: true do |t|
+    t.string   "kind"
+    t.integer  "pokemon_id"
+    t.integer  "evolution_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "families", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "item_details", force: true do |t|
@@ -141,8 +156,62 @@ ActiveRecord::Schema.define(version: 20141130091650) do
     t.datetime "updated_at"
   end
 
+  create_table "moveset_abilities", force: true do |t|
+    t.integer  "moveset_id"
+    t.integer  "ability_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moveset_items", force: true do |t|
+    t.integer  "moveset_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "movesets", force: true do |t|
     t.integer  "team_pokemon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_recommended"
+    t.string   "author"
+    t.string   "name"
+    t.integer  "nature_id"
+    t.text     "description"
+    t.integer  "author_id"
+    t.integer  "pokemon_id"
+  end
+
+  create_table "moveslot_moves", force: true do |t|
+    t.integer  "moveslot_id"
+    t.integer  "move_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moveslots", force: true do |t|
+    t.integer  "slot"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "moveset_id"
+  end
+
+  create_table "natures", force: true do |t|
+    t.float    "pdef"
+    t.float    "hp"
+    t.float    "patk"
+    t.float    "spdef"
+    t.float    "spatk"
+    t.float    "spe"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "moveset_id"
+  end
+
+  create_table "pokemon_abilities", force: true do |t|
+    t.integer  "ability_id"
+    t.integer  "pokemon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -160,6 +229,8 @@ ActiveRecord::Schema.define(version: 20141130091650) do
     t.string   "mega_forme"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sprite"
+    t.integer  "family_id"
   end
 
   create_table "team_pokemons", force: true do |t|

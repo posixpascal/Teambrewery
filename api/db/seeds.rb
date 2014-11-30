@@ -2,18 +2,22 @@
 
 require 'yaml'
 require 'json'
+require 'open-uri'
+require 'uri'
 
 def import_hash(json, group)
     
     if group == :pokedex
         $pokemon_types = Hash.new
+        $pokemon_abilities = Hash.new
         errorPokes = Hash.new
         json.each do |key, data|
             if Pokemon.find_by_species(data["species"]).nil?
                pokemon = Pokemon.new
                pokemon.pokedex = data["num"]
                pokemon.species = data["species"]
-           
+               pokemon.key = key.to_s
+               
                basestats = Basestat.new()
                basestats.hp = data["baseStats"]["hp"]
                basestats.atk = data["baseStats"]["atk"]
@@ -25,9 +29,13 @@ def import_hash(json, group)
                pokemon.height = data["height"]
                pokemon.weight = data["weight"]
                pokemon.color = data["color"]
-               if data["forme"] && data["forme"] == "Mega"
+               if data["forme"] and data["forme"] == "Mega"
                   pokemon.mega = true
                   pokemon.mega_forme = data["formeLetter"] unless data[":formeLetter"].nil? 
+               end
+                $pokemon_abilities[pokemon.species] = Hash.new
+               data["abilities"].each do |identifier, ability_name|
+                   $pokemon_abilities[pokemon.species][identifier] = ability_name
                end
                
                basestats.save()
@@ -201,6 +209,260 @@ if File.exists?(showdown_yaml)
           puts "Error when setting type for #{pokemon.species} - check manually."
       end
    end
+   
+   puts "Fixing pokemon abilities"
+   $pokemon_abilities.each do |pokemon_key, data|
+       pokemon = Pokemon.find_by_species(pokemon_key)
+       
+       data.each do |identifier, ability_name|
+          begin
+              pokemon.abilities.push Ability.find_by_name(ability_name)
+          rescue 
+          end 
+      end
+      pokemon.save()
+   end
+   
+   puts Dir.getwd
+   sprite_dir = "app/assets/images/sprites/"
+   puts "Adding Sprites to Pokemon"
+   Pokemon.all.each do |pokemon|
+       pokemon_sprite = pokemon.key
+       pokemon_sprite =  pokemon_sprite.downcase.gsub(/mega/, "-mega").gsub(/-mega-x/, "-megax").gsub(/-mega-y/, "-megay")
+       pokemon_sprite.gsub!(/-meganium/, "meganium")
+       pokemon_sprite.gsub!(/nidoranf/, "nidoran-f")
+       pokemon_sprite.gsub!(/nidoranm/, "nidoran-m")
+       pokemon_sprite.gsub!(/(rotom).+/, "rotom-")
+       if pokemon_sprite[-1] == '/'
+          pokemon_sprite = pokemon_sprite.split("")
+          pokemon_sprite.pop()
+          pokemon_sprite = pokemon_sprite.join("") 
+       end
+       sprite_path = "./" + sprite_dir + pokemon_sprite.to_s + ".gif"
+       if File.exists?(sprite_path)
+           pokemon.sprite = File.open(sprite_path)
+           pokemon.save! 
+       else
+           puts "Sprite not found for: #{pokemon.species} - path: #{sprite_path}"
+       end
+       
+
+   end
+   
+   puts "Importing smogon data when possible..."
+   puts "Creating author: pokedex@smogon.com"
+   User.create(:email => "pokedex@smogon.com", :password => "yourchoiceok?")
+   base_query = Hash.new
+   base_query[:pokemon] = {
+       :gen => "xy",
+   }
+   base_query[:"$"] = [
+       "name", 
+       "alias",
+       "gen", {
+           :genfamily => ['alias', 'gen']
+       },
+       {:alts => [
+           'alias', 
+           'suffix',
+           'height',
+           'weight',
+           'gkpower',
+           {:types => ['alias', 'name', 'gen']},
+           {
+               :"$groupby" => 'modifier',
+               :effectives => [
+                   'modifier',
+                   {:type => [
+                       'alias', 'name', 'gen'
+                   ]}
+               ],
+           },
+           {:abilities => [
+               'alias', 'name', 'gen', 'description'
+           ]},
+       
+           {:tags =>  ['name', 'alias', 'shorthand', 'gen']},
+           'hp',
+           'patk',
+           'pdef',
+           'spatk',
+           'spdef',
+           'spe'   
+        
+       ]},   
+       {:family => [
+           'root',
+           {:members => ['name', 'alias', 'gen']},
+           {
+               :evolutions => ['preevo', 'evo']
+           }
+           ]},
+       {:"$tree" => [
+           'root',
+           ['members', 'name'],
+           ['evolutions', 'preevo', 'evo'],
+           ]},
+       {:movesets => [
+           'name',
+           {:tags => ['alias', 'shorthand', 'name', 'gen']},
+           {:items => ['alias', 'name', 'gen', 'description']},
+           {:abilities => ['alias', 'name', 'gen']},
+           {:evconfigs => ['hp', 'patk', 'pdef', 'spatk', 'spdef', 'spe']},
+           {:natures => ['hp', 'patk', 'pdef', 'spatk', 'spdef', 'spe']},
+           {
+               :"$groupby" => "slot",
+               :moveslots => ['slot', {
+                       :move => ['name', 'alias', 'gen']
+               }],
+           },
+           'description'
+       ]},
+       
+       {:moves => [
+             'name',
+             'alias', 
+             'category',
+             'power',
+             'accuracy',
+             'pp',
+             'description',
+             {:type => ['alias', 'name', 'gen']}
+        ]}
+   ]
+   
+   
+   
+   Pokemon.all.each do |pokemon|
+       base_query[:pokemon][:alias] = pokemon.key
+       query_json = URI.encode base_query.to_json
+       query_path = "http://www.smogon.com/dex/api/query?q=#{query_json}"
+
+       open(query_path) do |query_result|
+           result_hash = JSON.parse(query_result.read())
+           if result_hash["result"].size > 0
+               result_hash = result_hash["result"][0]
+               begin
+                   
+                   # starting with the evolutions
+                   family = result_hash["family"][0]
+                   if not family.nil?
+                       if !family["preevo"].nil?
+                           puts "Saving preevo of: #{pokemon.species}"
+                           evo = Evolution.new
+                           evo.pokemon = Pokemon.find_by_species(family["preevo"]["alias"])
+                           evo.kind = "preevo"
+                           evo.evolution = pokemon
+                           if evo.save()
+                               puts "#{pokemon.species} Evolution successfully saved."
+                           else
+                               puts "Could not save evolution for #{pokemon.species}"
+                           end
+                       end
+                   
+                       if !family["evos"].nil?
+                           family["evos"].each do |evohash|
+                              evohash.each do |kind, data|
+                                  if kind == "preevo" and data.is_a?(Hash)
+                                     evo = Evolution.new
+                                     evo.kind = "preevo"
+                                     evo.pokemon = Pokemon.find_by_species(family["preevo"]["alias"])
+                                     evo.evolution = pokemon
+                                     evo.save()
+                                     puts "Saved evo for: #{evo.pokemon.species}"
+                                  end 
+                              end
+                           end
+                       end
+                   end
+                   
+                   # lets get to the movesets
+                   puts "Saving movesets..."
+                   movesets = result_hash["movesets"]
+                   movesets.each do |moveset|
+                       m = Moveset.new
+                       #moveset nature
+                       puts "Processing natures..."
+                       moveset["natures"].each do |nature_hash|
+                           query = Hash.new
+                           nature_hash.each do |property, value|
+                                query[property.to_sym] = value.to_f
+                           end
+                           
+                           if Nature.where(query)[0].nil?
+                              n = Nature.new()
+                              n.hp = nature_hash["hp"]
+                              n.patk = nature_hash["patk"]
+                              n.pdef = nature_hash["pdef"]
+                              n.spatk = nature_hash["spatk"]
+                              n.spdef = nature_hash["spdef"]
+                              n.spe = nature_hash["spe"]
+                              n.save()
+                              m.nature = n
+                              m.nature_id = n.id
+                          else
+                              m.nature = Nature.where(query)[0]
+                              m.nature_id = Nature.where(query)[0].id
+                          end
+                          puts "Nature successfully saved."
+                       end
+                      
+                       m.pokemon = pokemon
+                       m.author = User.where(:email => "pokedex@smogon.com")[0]
+                       m.description = moveset["description"]
+                       m.name = moveset["name"]
+                       puts "Saving abilities..."
+                       moveset["abilities"].each do |ability_hash|
+                           m.abilities.push Ability.find_by_name(ability_hash["name"])
+                       end
+                       puts "Saving moveslots..."
+                       
+                       # processing move slots
+                       moveset["moveslots"].each do |moveslot_hash|
+                          moveslot = Moveslot.new
+                          moveslot.slot = moveslot_hash["slot"]
+                          moveslot_hash["moves"].each do |move_hash|
+                             moveslot.moves.push Move.find_by_name(move_hash["name"]) 
+                          end
+                          moveslot.save()
+                          m.moveslots.push moveslot
+                       end
+                       
+                       puts "Saving items..."
+                       moveset['items'].each do |item_hash|
+                          m.items.push Item.find_by_name(item_hash["name"]) 
+                       end
+                       
+
+                       puts "Saving EVSpread"
+                       moveset['evconfigs'].each do |evconfig|
+
+                           ev = EvSpread.new
+                           ev.hp = evconfig["hp"]
+                           ev.atk = evconfig["patk"]
+                           ev.def = evconfig["pdef"]
+                           ev.spa = evconfig["spatk"]
+                           ev.spd = evconfig["spdef"]
+                           ev.spe = evconfig["spe"] 
+                           ev.save()
+                           m.ev_spreads.push ev
+                       end
+                       if m.save()
+                           pokemon.movesets.add(m)
+                          puts "Successfully saved pokemon: #{pokemon.species}" 
+                       end
+                   end
+               rescue Exception => e
+                   puts "Could not save pokemon #{pokemon.species} - not found or error happend."
+                   puts e.message
+                   puts e.backtrace.inspect
+               end
+           end
+       end
+       
+   end
+   
+   
    puts "done setting types... here is a summary... lul"
    sleep 2
    # summary
@@ -221,3 +483,12 @@ if File.exists?(showdown_yaml)
    puts "====================================="
    puts "Done! :)"
 end
+
+if Rails.env.development? 
+    
+    if AdminUser.create(email: 'pascal@teambrewery.io', :password => 'local')
+       puts "Created admin: pascal@teambrewery.io - password: local - (development only)" 
+    end
+    
+end
+
