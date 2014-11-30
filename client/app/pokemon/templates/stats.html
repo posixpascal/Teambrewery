@@ -2,7 +2,7 @@
     <table class="stat-table" style="width: 100%">
         <thead>
             <tr>
-                <th>Stat</th>
+                <th></th>
                 <th>Base</th>
                 <th>Min</th>
                 <th>Max</th>
@@ -10,47 +10,47 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr ng-class="{'text-success': pokemon.baseStats.hp >= 100, 'text-danger': pokemon.baseStats.hp < 60}">
                 <td>HP</td>
-                <td>{{pokemon.baseHP}}</td>
-                <td>{{calcStat(pokemon.baseHP, 'hp', 0)}}</td>
-                <td>{{calcStat(pokemon.baseHP, 'hp', 255)}}</td>
+                <td>{{pokemon.baseStats.hp}}</td>
+                <td>{{calcStat(pokemon.baseStats.hp, 'hp', 0)}}</td>
+                <td>{{calcStat(pokemon.baseStats.hp, 'hp', 255)}}</td>
                 <td>-</td>
             </tr>
-            <tr>
+            <tr ng-class="{'text-success': pokemon.baseStats.atk >= 105, 'text-danger': pokemon.baseStats.atk < 50}">
                 <td>ATK</td>
-               <td>{{pokemon.baseATK}}</td>
-               <td>{{calcStat(pokemon.baseATK, 'atk', 0)}}</td>
-               <td>{{calcStat(pokemon.baseATK, 'atk', 255)}}</td>
-               <td>{{calcStat(pokemon.baseATK, 'atk', 255, 1.1)}}</td>
+               <td>{{pokemon.baseStats.atk}}</td>
+               <td>{{calcStat(pokemon.baseStats.atk, 'atk', 0)}}</td>
+               <td>{{calcStat(pokemon.baseStats.atk, 'atk', 255)}}</td>
+               <td>{{calcStat(pokemon.baseStats.atk, 'atk', 255, 1.1)}}</td>
             </tr>
-            <tr>
+            <tr ng-class="{'text-success': pokemon.baseStats.def >= 105, 'text-danger': pokemon.baseStats.def < 50}">
                 <td>DEF</td>
-                <td>{{pokemon.baseDEF}}</td>
-                <td>{{calcStat(pokemon.baseDEF, 'def', 0)}}</td>
-                <td>{{calcStat(pokemon.baseDEF, 'def', 255)}}</td>
-                <td>{{calcStat(pokemon.baseDEF, 'def', 255, 1.1)}}</td>
+                <td>{{pokemon.baseStats.def}}</td>
+                <td>{{calcStat(pokemon.baseStats.def, 'def', 0)}}</td>
+                <td>{{calcStat(pokemon.baseStats.def, 'def', 255)}}</td>
+                <td>{{calcStat(pokemon.baseStats.def, 'def', 255, 1.1)}}</td>
             </tr>
-            <tr>
+            <tr ng-class="{'text-success': pokemon.baseStats.spa >= 105, 'text-danger': pokemon.baseStats.spa < 50}">
                 <td>SPA</td>
-                <td>{{pokemon.baseSPA}}</td>
-                <td>{{calcStat(pokemon.baseSPA, 'spa', 0)}}</td>
-                <td>{{calcStat(pokemon.baseSPA, 'spa', 255)}}</td>
-                <td>{{calcStat(pokemon.baseSPA, 'spa', 255, 1.1)}}</td>
+                <td>{{pokemon.baseStats.spa}}</td>
+                <td>{{calcStat(pokemon.baseStats.spa, 'spa', 0)}}</td>
+                <td>{{calcStat(pokemon.baseStats.spa, 'spa', 255)}}</td>
+                <td>{{calcStat(pokemon.baseStats.spa, 'spa', 255, 1.1)}}</td>
             </tr>
-            <tr>
+            <tr ng-class="{'text-success': pokemon.baseStats.spd >= 105, 'text-danger': pokemon.baseStats.spd < 50}">
                 <td>SPD</td>
-                <td>{{pokemon.baseSPD}}</td>
-                <td>{{calcStat(pokemon.baseSPD, 'spd', 0)}}</td>
-                <td>{{calcStat(pokemon.baseSPD, 'spd', 255)}}</td>
-                <td>{{calcStat(pokemon.baseSPD, 'spd', 255, 1.1)}}</td>
+                <td>{{pokemon.baseStats.spd}}</td>
+                <td>{{calcStat(pokemon.baseStats.spd, 'spd', 0)}}</td>
+                <td>{{calcStat(pokemon.baseStats.spd, 'spd', 255)}}</td>
+                <td>{{calcStat(pokemon.baseStats.spd, 'spd', 255, 1.1)}}</td>
             </tr>
-            <tr>
+            <tr ng-class="{'text-success': pokemon.baseStats.spe >= 105, 'text-danger': pokemon.baseStats.spe < 50}">
                 <td>SPE</td>
-                <td>{{pokemon.baseSPE}}</td>
-                <td>{{calcStat(pokemon.baseSPE, 'spe', 0)}}</td>
-                <td>{{calcStat(pokemon.baseSPE, 'spe', 255)}}</td>
-                <td>{{calcStat(pokemon.baseSPE, 'spe', 255, 1.1)}}</td>
+                <td>{{pokemon.baseStats.spe}}</td>
+                <td>{{calcStat(pokemon.baseStats.spe, 'spe', 0)}}</td>
+                <td>{{calcStat(pokemon.baseStats.spe, 'spe', 255)}}</td>
+                <td>{{calcStat(pokemon.baseStats.spe, 'spe', 255, 1.1)}}</td>
             </tr>
         </tbody>
     </table>

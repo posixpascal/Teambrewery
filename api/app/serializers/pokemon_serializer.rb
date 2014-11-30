@@ -2,7 +2,23 @@ class PokemonSerializer < ActiveModel::Serializer
   attributes :id, :sprite_url, :species, :typing
   attributes :basestats
   attributes :abilities
+  attributes :movesets
   
+  def movesets
+      ms = []
+      object.movesets.each do |moveset|
+          pokemon_moveset = Hash.new
+          pokemon_moveset[:name] = moveset.name
+          pokemon_moveset[:description] = moveset.description
+          pokemon_moveset[:item] = moveset.items.select(:name, :desc)[0];
+          pokemon_moveset[:item][:key] = pokemon_moveset[:item][:name].downcase
+          pokemon_moveset[:moves] = moveset.moves.all.map {|i| {:name => i.name, :desc => i.desc, :type => i.type.name }}
+          pokemon_moveset[:ev_spread] = moveset.ev_spreads.first() unless moveset.ev_spreads.first.nil?
+          pokemon_moveset[:nature] = Nature.find(moveset.nature_id) unless moveset.nature_id.nil?
+          ms.push pokemon_moveset
+      end
+      ms
+  end
   
   def basestats
      b = Hash.new

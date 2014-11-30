@@ -50,16 +50,13 @@ angular.module('teambreweryApp')
       }
       
       $scope.randomizeTeam = function(){
-          var randomTeam = [];
-          var i = 6;
-          while (_.unique(randomTeam).length != 6){
-              randomTeam.push( Math.round( 750 * Math.random() ));
-          };
           $scope.team = [];
-          for (var i = 0, len = randomTeam.length; i < len; i++){
-             
-              
+          for (var i = 0; i < 6; i++){
+              Pokemon.get("random").success(function(data){
+                  $scope.team.push(new Pokemon(data.pokemon));
+              });
           }
+          
       }
       
       $scope.clearTeam = function(){
@@ -140,121 +137,123 @@ angular.module('teambreweryApp')
               return $scope.teamImmunities(type);
           }
       }
-      
-      $scope.getWeaknessesFor = function(pokemon){
-          var weaknesses = {};
-
-          var types = [];
-          types.push(pokemon.types[0]);
-          if (typeof pokemon.types[1] !== "undefined") types.push(pokemon.types[1]);
-          else types.push('Bird');
-          
-          angular.forEach(types, function(pokeType){
-              if (pokeType == 'Bird') return; // luls. bird.
-              angular.forEach(Object.keys(typeChart[pokeType].damageTaken), function(theType){
-                  var weaknessLevel = typeChart[pokeType].damageTaken[theType];
-                  if (weaknessLevel == 1){
-                      weaknesses[theType] = true;
-                  } 
-              });
-          });
-              
-
-          var realWeaknesses = [];
-          
-          // premodify weakness object, because types overwrite each other. so we have to check that.
-          angular.forEach(Object.keys(weaknesses), function(weaknessType){
-              
-              var isRealWeakness = true;
-
-              angular.forEach(types, function(pokeType){
-                  var damageTaken = typeChart[pokeType].damageTaken[weaknessType];
-                  if (damageTaken >= 2){
-                      isRealWeakness = false;
-                  }
-              });
-              
-              if (isRealWeakness){
-                  realWeaknesses.push(weaknessType);
-              }
-          });
-
-
-          return realWeaknesses;
-              
-      }
-      
-      $scope.getTeamWeakness = function(){
-          var weakness = {};
-          
-          // for each type:
-          angular.forEach(Object.keys(typeChart), function(type){
-              weakness[type] = {
-                  immunity: [],
-                  quadResist: [],
-                  resist: [],
-                  neutral: [],
-                  effective: [],
-                  superEffective: []
-              };
-              
-              // for each pokemon in team
-              angular.forEach($scope.team, function(pokemon){
-                  var types = [];
-                  console.log(pokemon.getTyping());
-                  types.push(pokemon.getTyping()[0]);
-                  if (typeof pokemon.getTyping()[1] !== "undefined") types.push(pokemon.types[1]);
-                  else types.push('Bird');
-                  
-                  
-                  var type1 = (typeChart[types[0]].damageTaken[type]);
-                  var type2 = (typeChart[types[1]].damageTaken[type]);
-                  var immunity = (type1 == 3 || type2 == 3)
-                      
-                 // check for immunity:
-                 if (immunity){
-                     weakness[type]['immunity'].push(pokemon);
-                 }
-                 
-                 // check for quad resist
-                 if ( !immunity && (
-                     type1 == 2 && 
-                     type2 == 2)
-                 ) weakness[type]['quadResist'].push(pokemon);
-                 
-                 // resist
-                 var resistent = false;
-                 if ( !immunity && (
-                     (type1 == 2 && type2 == 0) ||
-                     (type2 == 2 && type1 == 0))) resistent = true;
-
-                 if (resistent)
-                         weakness[type]['resist'].push(pokemon);
-                     
-                 // neutral
-                 var neutral = (type1 == 0 && type2 == 0);
-                 if ( !immunity &&
-                     (type1 == 0 && type2 == 0)
-                 ) weakness[type]['neutral'].push(pokemon);
-                 
-                 
-                 // check for super effective
-                 if ( !immunity && 
-                     (type1 == 1 && type2 == 1)
-                 ) weakness[type]['superEffective'].push(pokemon);
-                 
-                 // effective
-                 if ( !immunity && (
-                     (type1 == 1 && type2 == 0) ||
-                     (type2 == 1 && type1 == 0))
-                 ) weakness[type]['effective'].push(pokemon);
-                 
-              });
-          });
-          
-          
-          $scope.weakness = weakness;
-      }
+            //
+      // $scope.getWeaknessesFor = function(pokemon){
+      //     var weaknesses = {};
+      //
+      //     var types = [];
+      //     types.push(pokemon.types[0]);
+      //     if (typeof pokemon.types[1] !== "undefined") types.push(pokemon.types[1]);
+      //     else types.push('Bird');
+      //
+      //     angular.forEach(types, function(pokeType){
+      //         if (pokeType == 'Bird') return; // luls. bird.
+      //         angular.forEach(Object.keys(typeChart[pokeType].damageTaken), function(theType){
+      //             var weaknessLevel = typeChart[pokeType].damageTaken[theType];
+      //             if (weaknessLevel == 1){
+      //                 weaknesses[theType] = true;
+      //             }
+      //         });
+      //     });
+      //
+      //
+      //     var realWeaknesses = [];
+      //
+      //     // premodify weakness object, because types overwrite each other. so we have to check that.
+      //     angular.forEach(Object.keys(weaknesses), function(weaknessType){
+      //
+      //         var isRealWeakness = true;
+      //
+      //         angular.forEach(types, function(pokeType){
+      //             var damageTaken = typeChart[pokeType].damageTaken[weaknessType];
+      //             if (damageTaken >= 2){
+      //                 isRealWeakness = false;
+      //             }
+      //         });
+      //
+      //         if (isRealWeakness){
+      //             realWeaknesses.push(weaknessType);
+      //         }
+      //     });
+      //
+      //
+      //     return realWeaknesses;
+      //
+      // }
+      //
+      // $scope.getTeamWeakness = function(){
+      //     var weakness = {};
+      //
+      //     // for each type:
+      //     angular.forEach(Object.keys(typeChart), function(type){
+      //         weakness[type] = {
+      //             immunity: [],
+      //             quadResist: [],
+      //             resist: [],
+      //             neutral: [],
+      //             effective: [],
+      //             superEffective: []
+      //         };
+      //
+      //         // for each pokemon in team
+      //         angular.forEach($scope.team, function(pokemon){
+      //             pokemon = pokemon;
+      //             var types = [];
+      //             console.log(pokemon.getTyping());
+      //
+      //             types.push(pokemon.getTyping()[0]);
+      //             if (typeof pokemon.getTyping()[1] !== "undefined") types.push(pokemon.types[1]);
+      //             else types.push('Bird');
+      //
+      //
+      //             var type1 = (typeChart[types[0]].damageTaken[type]);
+      //             var type2 = (typeChart[types[1]].damageTaken[type]);
+      //             var immunity = (type1 == 3 || type2 == 3)
+      //
+      //            // check for immunity:
+      //            if (immunity){
+      //                weakness[type]['immunity'].push(pokemon);
+      //            }
+      //
+      //            // check for quad resist
+      //            if ( !immunity && (
+      //                type1 == 2 &&
+      //                type2 == 2)
+      //            ) weakness[type]['quadResist'].push(pokemon);
+      //
+      //            // resist
+      //            var resistent = false;
+      //            if ( !immunity && (
+      //                (type1 == 2 && type2 == 0) ||
+      //                (type2 == 2 && type1 == 0))) resistent = true;
+      //
+      //            if (resistent)
+      //                    weakness[type]['resist'].push(pokemon);
+      //
+      //            // neutral
+      //            var neutral = (type1 == 0 && type2 == 0);
+      //            if ( !immunity &&
+      //                (type1 == 0 && type2 == 0)
+      //            ) weakness[type]['neutral'].push(pokemon);
+      //
+      //
+      //            // check for super effective
+      //            if ( !immunity &&
+      //                (type1 == 1 && type2 == 1)
+      //            ) weakness[type]['superEffective'].push(pokemon);
+      //
+      //            // effective
+      //            if ( !immunity && (
+      //                (type1 == 1 && type2 == 0) ||
+      //                (type2 == 1 && type1 == 0))
+      //            ) weakness[type]['effective'].push(pokemon);
+      //
+      //         });
+      //     });
+      //
+      //
+      //     $scope.weakness = weakness;
+      // }
 
 
       

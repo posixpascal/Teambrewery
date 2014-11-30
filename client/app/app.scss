@@ -49,7 +49,25 @@ body {
 
 .hero-unit {
     background-color: #252728;
+}
 
+.stat-table {
+    tr td, tr th {
+        text-align: center;
+    }
+}
+.move-table {
+    tr td {
+        border: none !important;
+        > div {
+            display: block;
+            font-size: 10px;
+            padding: 2px 4px;
+        }
+    }
+}
+.table-tiny {
+    font-size: 10px;
 }
 
 .toolbar {

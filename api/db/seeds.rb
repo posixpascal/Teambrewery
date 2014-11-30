@@ -337,7 +337,7 @@ if File.exists?(showdown_yaml)
        base_query[:pokemon][:alias] = pokemon.key
        query_json = URI.encode base_query.to_json
        query_path = "http://www.smogon.com/dex/api/query?q=#{query_json}"
-
+       begin
        open(query_path) do |query_result|
            result_hash = JSON.parse(query_result.read())
            if result_hash["result"].size > 0
@@ -448,7 +448,8 @@ if File.exists?(showdown_yaml)
                            m.ev_spreads.push ev
                        end
                        if m.save()
-                           pokemon.movesets.add(m)
+                           pokemon.movesets.push(m)
+                           pokemon.save()
                           puts "Successfully saved pokemon: #{pokemon.species}" 
                        end
                    end
@@ -458,6 +459,9 @@ if File.exists?(showdown_yaml)
                    puts e.backtrace.inspect
                end
            end
+       end
+       rescue
+           puts "Error trying to lookup #{pokemon.species} on smogon.com"
        end
        
    end
