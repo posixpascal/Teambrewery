@@ -1,16 +1,5 @@
 angular.module("teambreweryApp")
-    .directive('weaknessTable', [function(){
-           return {
-                restrict: 'E',
-                scope: true,
-                replace: true,
-                templateUrl: "app/team/team.weakness_table.html",
-                link: function(scope, element, attrs){
-
-                }
-            }
-        }
-    ]).service('Team', ['$http', '$state', function($http, $state){
+    .service('Team', ['$http', '$state', function($http, $state){
         return {
             save: function(team){
                 var json = JSON.stringify(team);

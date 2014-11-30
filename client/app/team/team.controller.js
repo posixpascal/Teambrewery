@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('teambreweryApp')
-  .controller('TeamCtrl',['$scope', '$http', 'Pokemon', '$stateParams', '$modal', '$rootScope', 'typeChart', 'Team', function ($scope, $http, Pokemon, $stateParams, $modal, $rootScope, typeChart, Team) {
+  .controller('TeamCtrl',['$scope', '$http', 'Pokemon', '$stateParams', '$modal', '$rootScope', 'typeChart', 'Team', 'text2team', function ($scope, $http, Pokemon, $stateParams, $modal, $rootScope, typeChart, Team, text2team) {
       $scope.team = []; 
       $scope.types = Object.keys(typeChart);
     
@@ -10,8 +10,11 @@ angular.module('teambreweryApp')
           $scope.settings = angular.copy(s);
           $.jStorage.set('settings', $scope.settings);
       }
-    
       $scope.load = function(){
+          console.log("TeamController loaded");
+      }
+    
+      $scope.init = function(){
           var default_settings = {
               typeChart: {
                   showPokemon: true,
@@ -49,7 +52,7 @@ angular.module('teambreweryApp')
       $scope.randomizeTeam = function(){
           var randomTeam = [];
           var i = 6;
-          while (i--){
+          while (_.unique(randomTeam).length != 6){
               randomTeam.push( Math.round( 750 * Math.random() ));
           };
           $scope.team = [];
@@ -63,7 +66,18 @@ angular.module('teambreweryApp')
       $scope.clearTeam = function(){
           $scope.team = [];
       }
+      
+      $scope.importTeam = function(){
+          
+          $scope.importModal = $modal.open({
+            templateUrl: 'components/modal/team.import.modal.html',
+            windowClass: "modal-default",
+            scope: $scope
+          });
+              
 
+      }
+      
       $scope.addPokemon = function(){
 
           var modalScope = $rootScope.$new();
@@ -86,7 +100,7 @@ angular.module('teambreweryApp')
           
           angular.extend(modalScope, scope);
           $scope.$theModal =  $modal.open({
-            templateUrl: 'components/modal/modal.html',
+            templateUrl: 'components/modal/pokemon.add.modal.html',
             windowClass: "modal-default",
             scope: modalScope
           });

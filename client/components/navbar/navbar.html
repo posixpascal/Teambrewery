@@ -7,13 +7,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">TeamBrewery.io</a>
+      <a href="/" class="navbar-brand">
+          <img src="/assets/images/logo.png" style="height: 42px; margin-top: -25px">
+      </a>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
+        
+      </ul>
+      <ul class="nav navbar-nav subnav pull-right">
+          <li>
+              <a href="//github.com/posixpascal/TeamBrewery"><i class="fa fa-github"></i> Source Code</a>
+          </li>
+          <li>
+              <a href="//twitter.com/nintyfourJS"><i class="fa fa-twitter"></i> @nintyfourJS</a>
+          </li>
       </ul>
     </div>
   </div>

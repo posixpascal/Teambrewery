@@ -4,14 +4,58 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
 @import '../assets/css/rotating-card';
+@import './loader.scss';
 
+
+.navbar-white {
+    background-color: #fff;
+    border: none;
+    .navbar-nav a {
+        color: #333;
+    }
+    border-radius: none;
+}
+
+.navbar-default {
+    .navbar-toggle {
+        background-color: #ccc;
+        &:hover {
+            background-color: #aaa;
+        }
+    }
+    border: none;
+    background-color: #111;
+    border-color: #333;
+    color: #fff;
+    margin-bottom: 0;
+    .navbar-nav a {
+        transition: color ease-in-out 0.2s;
+        -webkit-transition: color ease-in-out 0.2s;
+    }
+    .navbar-nav > .active > a {
+        color: rgb(73, 145, 228);
+        background-color: #000;
+    }
+    .navbar-nav li:hover a {
+        color: lighten(rgb(73, 145, 228), 8%);
+        background-color: #000;
+    }
+}
 
 body {
-    background-color: #DDDDDD;
+    background-color: #cdcdcd;
+    overflow-x: hidden;
+}
+
+.hero-unit {
+    background-color: #252728;
+
 }
 
 .toolbar {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
     background-color: #ccc;
     ul {
         list-style: none;
@@ -35,6 +79,13 @@ body {
             
         }
     }
+}
+
+.btn-primary {
+    padding: 5px 20px;
+
+    display: block;
+    margin: 80px auto;
 }
 
 table tr td {
@@ -61,6 +112,7 @@ table tr td {
 
 // Component styles are injected through grunt
 // injector
+@import 'loader.scss';
 @import 'main/main.scss';
 @import 'pokemon/types.scss';
 @import 'modal/modal.scss';
