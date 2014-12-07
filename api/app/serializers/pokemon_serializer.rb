@@ -1,5 +1,5 @@
 class PokemonSerializer < ActiveModel::Serializer
-  attributes :id, :sprite_url, :species, :typing
+  attributes :id, :sprite_url, :species, :typing, :random_battle_moves
   attributes :basestats
   attributes :abilities
   attributes :movesets
@@ -18,6 +18,16 @@ class PokemonSerializer < ActiveModel::Serializer
           ms.push pokemon_moveset
       end
       ms
+  end
+  
+  def random_battle_moves
+     object.random_moves.map {|m|
+         {
+             :name => m.name,
+             :type => m.type.name,
+             :desc => m.desc
+         }
+     }
   end
   
   def basestats

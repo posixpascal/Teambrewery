@@ -52,7 +52,7 @@ angular.module('teambreweryApp')
       $scope.randomizeTeam = function(){
           $scope.team = [];
           for (var i = 0; i < 6; i++){
-              Pokemon.get("random").success(function(data){
+              Pokemon.getRandomOU().success(function(data){
                   $scope.team.push(new Pokemon(data.pokemon));
               });
           }

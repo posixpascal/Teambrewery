@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130181202) do
+ActiveRecord::Schema.define(version: 20141202074701) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -97,6 +97,19 @@ ActiveRecord::Schema.define(version: 20141130181202) do
   end
 
   create_table "families", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "format_pokemons", force: true do |t|
+    t.integer  "pokemon_id"
+    t.integer  "format_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "formats", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -231,6 +244,13 @@ ActiveRecord::Schema.define(version: 20141130181202) do
     t.datetime "updated_at"
     t.string   "sprite"
     t.integer  "family_id"
+  end
+
+  create_table "random_battle_moves", force: true do |t|
+    t.integer  "move_id"
+    t.integer  "pokemon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "team_pokemons", force: true do |t|

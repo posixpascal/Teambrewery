@@ -28,5 +28,7 @@ class Move < ActiveRecord::Base
     attr_protected :key, :num, :accuracy, :basepower, :category, :desc, :desc_short
     attr_protected :name, :pp, :priority, :secondary, :target, :type, :is_viable, :is_contact
     attr_protected :protectable, :crit_ratio, :created_at, :updated_at
+    
+
     belongs_to :type
 end

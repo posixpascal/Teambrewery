@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     
   namespace :api do
      get "pokemon/:id", :to => "pokemon#show" 
+     get "pokemon/random/ou", :to => "pokemon#random_ou"
+     get "pokemon/random/ou/:move", :to => "pokemon#random_move"
   end
       
   

@@ -9,8 +9,15 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", function($http){
             this.types = data.typing;
             this.abilities = data.abilities;
             this.moveset = {};
+            this.moves = [];
             if (typeof data.movesets !== "undefined"){
                 this.moveset = data.movesets[0];
+                if (typeof this.moveset !== "undefined"){
+                    this.moves = this.moveset.moves;
+                }
+            } 
+            if (this.moves.length == 0 && typeof data.random_battle_moves !== "undefined") { // use random moves instead.
+                this.moves = data.random_battle_moves;
             }
             if (typeof data.nature !== "undefined"){
                 this.moveset.nature = data.nature;
@@ -20,8 +27,6 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", function($http){
             }
             this.request_data = data;
         }
-        
-        
         return this;
     };
     
@@ -33,6 +38,10 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", function($http){
         return $http.get(API_PATH + identifier, function(data){
             return new Pokemon(data);
         });
+    }
+    
+    Pokemon.getRandomOU = function(){
+        return Pokemon.get('random/ou');
     }
     
     

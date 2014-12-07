@@ -27,6 +27,12 @@ class Pokemon < ActiveRecord::Base
     has_many :evolutions
     belongs_to :family
     has_many :movesets
+    has_many :random_moves, :through => :random_battle_moves, :source => "move"
+    has_many :random_battle_moves
     
+    has_one :format, :through => :format_pokemon
+    has_one :format_pokemon
+
+
     mount_uploader :sprite, SpriteUploader
 end
