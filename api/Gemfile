@@ -33,7 +33,13 @@ gem "annotate"
 gem "active_model_serializers"
 #gem "strong_parameters"
 gem "protected_attributes"
+gem "devise_token_auth"
 
+gem "omniauth"
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem "rack-cors"
+gem "activerecord-session_store"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

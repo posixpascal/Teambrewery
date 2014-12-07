@@ -1,4 +1,5 @@
 class Api::PokemonController < ApplicationController
+  after_filter :order
   def show
       if params[:id]
           if params[:id] == "random"
@@ -17,13 +18,33 @@ class Api::PokemonController < ApplicationController
       render json: @pokemon
   end
   
+  # all pokemon known a given move by name(random if none is present.)
   def random_move
-      
+    move_name = params[:move] ||= Move.all.sample(1).name
+    tier = Format.find_by_name(params[:tier])
+    if tier.nil?
+      return render json: error(:format, :resource_not_found), :status => 404
+    end
+    tier = tier.name
+    m = Move.find_by_name(move_name).pokemons
+    m = m.to_a.keep_if {|p| p.in_tier? tier}
+    
+    @pokemon = m.sample
+
+    render json: @pokemon
   end
+
+  
 
   def find
   end
 
   def index
+  end
+
+  private
+  def order
+    @order_by = params[:orderBy] ||= "id"
+    @order_direction = params[:orderDirection] ||= "ASC"
   end
 end

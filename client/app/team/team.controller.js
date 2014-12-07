@@ -4,8 +4,8 @@ angular.module('teambreweryApp')
   .controller('TeamCtrl',['$scope', '$http', 'Pokemon', '$stateParams', '$modal', '$rootScope', 'typeChart', 'Team', 'text2team', function ($scope, $http, Pokemon, $stateParams, $modal, $rootScope, typeChart, Team, text2team) {
       $scope.team = []; 
       $scope.types = Object.keys(typeChart);
-    
-     
+      
+      
       $scope.saveSettings = function(s){
           $scope.settings = angular.copy(s);
           $.jStorage.set('settings', $scope.settings);
@@ -48,7 +48,7 @@ angular.module('teambreweryApp')
               
           }
       }
-      
+
       $scope.randomizeTeam = function(){
           $scope.team = [];
           for (var i = 0; i < 6; i++){
@@ -58,6 +58,9 @@ angular.module('teambreweryApp')
           }
           
       }
+      
+      /**
+      
       
       $scope.clearTeam = function(){
           $scope.team = [];
@@ -257,6 +260,6 @@ angular.module('teambreweryApp')
 
 
       
-      
+      */
       $scope.load();
   }]);

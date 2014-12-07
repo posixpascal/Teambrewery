@@ -16,4 +16,5 @@ class Team < ActiveRecord::Base
     has_many :team_pokemon
     has_many :pokemon, :through => :team_pokemon
     has_many :typings, :through => :team_pokemon
+    has_one :format
 end

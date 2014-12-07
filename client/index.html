@@ -21,13 +21,14 @@
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
+    <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="teambreweryApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
         
-        <div ng-include="'components/navbar/navbar.html'"></div>
+    <div ng-include="'components/navbar/navbar.html'"></div>
 
 
     
@@ -64,6 +65,8 @@
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/jStorage/jstorage.js"></script>
       <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+      <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+      <script src="bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
     <script src="/assets/vendor/bootstrap.min.js"></script>
@@ -73,6 +76,9 @@
           <!-- injector:js -->
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/main/teams/teams.controller.js"></script>
+          <script src="app/pokedex/pokedex.controller.js"></script>
+          <script src="app/pokedex/pokedex.js"></script>
           <script src="app/pokemon/card/card.directive.js"></script>
           <script src="app/pokemon/card/stats.directive.js"></script>
           <script src="app/pokemon/pokemon.controller.js"></script>
@@ -83,6 +89,7 @@
           <script src="app/team/team.controller.js"></script>
           <script src="app/team/team.directive.js"></script>
           <script src="app/team/team.js"></script>
+          <script src="app/team/team.service.js"></script>
           <script src="app/team/teambuilder/typechart.directive.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>

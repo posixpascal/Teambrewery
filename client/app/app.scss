@@ -5,7 +5,14 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'font-awesome/scss/font-awesome';
 @import '../assets/css/rotating-card';
 @import './loader.scss';
+@import './shapes.scss';
 
+.spacer {
+    height: 50px;
+}
+.highlight {
+    color: rgb(73, 145, 228);
+}
 
 .navbar-white {
     background-color: #fff;
@@ -36,7 +43,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
         color: rgb(73, 145, 228);
         background-color: #000;
     }
-    .navbar-nav li:hover a {
+    .navbar-nav > li:hover > a {
         color: lighten(rgb(73, 145, 228), 8%);
         background-color: #000;
     }
@@ -133,6 +140,7 @@ table tr td {
 @import 'loader.scss';
 @import 'main/main.scss';
 @import 'pokemon/types.scss';
+@import 'shapes.scss';
 @import 'modal/modal.scss';
 // endinjector
 

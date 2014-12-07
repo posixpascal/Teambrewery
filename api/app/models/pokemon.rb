@@ -37,4 +37,16 @@ class Pokemon < ActiveRecord::Base
     has_many :move_pokemons
 
     mount_uploader :sprite, SpriteUploader
+
+
+    scope :spinner, -> { Move.get("Rapid Spin").pokemons }
+    scope :defogger, -> { Move.get("Defog").pokemons }
+    scope :baton_passer, -> { Move.get("Baton Pass").pokemons }
+    scope :momentum, -> { Move.get(["Volt Switch", "U-turn", "Parting Shot"]).map(&:pokemons).flatten! }
+    scope :most_valuables, -> { Format.most_valuables.map {|format| format.pokemons }.flatten }
+
+    
+    def in_tier? tier
+        self.format.name == tier
+    end
 end
