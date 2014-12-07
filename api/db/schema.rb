@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202074701) do
+ActiveRecord::Schema.define(version: 20141207101723) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -143,6 +143,14 @@ ActiveRecord::Schema.define(version: 20141202074701) do
 
   create_table "learnsets", force: true do |t|
     t.integer  "pokemon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "move_pokemons", force: true do |t|
+    t.integer  "move_id"
+    t.integer  "pokemon_id"
+    t.text     "options"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

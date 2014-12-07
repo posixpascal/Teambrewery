@@ -31,4 +31,8 @@ class Move < ActiveRecord::Base
     
 
     belongs_to :type
+
+    has_many :pokemons, :through => :move_pokemons
+    has_many :move_pokemons
+
 end

@@ -20,7 +20,7 @@ class Pokemon < ActiveRecord::Base
     attr_protected :key, :pokedex, :species, :basestat, :height, :weight, :color, :mega, :mega_forme
     attr_protected :created_at, :updated_at
     has_one :typing
-    has_one :learnset
+
     has_many :abilities, :through => :pokemon_abilities
     has_many :pokemon_abilities
     has_one :basestat
@@ -33,6 +33,8 @@ class Pokemon < ActiveRecord::Base
     has_one :format, :through => :format_pokemon
     has_one :format_pokemon
 
+    has_many :moves, :through => :move_pokemons
+    has_many :move_pokemons
 
     mount_uploader :sprite, SpriteUploader
 end

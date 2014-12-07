@@ -199,6 +199,25 @@ def import_hash(json, group)
         end
     end
 
+    if group == :learnsets
+      json.each do |key, data|
+        p = Pokemon.find_by_key(key)
+        if not p.nil?
+          data["learnset"].each do |move_key, data|
+            move = Move.find_by_key(move_key)
+            if not move.nil?
+              mp = MovePokemon.new
+              mp.move = move
+              mp.pokemon = p
+              mp.options = data
+              mp.save()
+              puts "Saved move: #{move.name} for #{p.species} => #{data.to_json}"
+            end
+          end
+        end
+      end
+    end
+
 
 end
 
@@ -271,7 +290,7 @@ if File.exists?(showdown_yaml)
        if pokemon_sprite == "rotom-"
         pokemon_sprite = "rotom"
       end
-      
+
        pokemon_sprite.gsub!(/therian/, "-therian")
        
        if pokemon_sprite[-1] == '/'
