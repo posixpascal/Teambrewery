@@ -31,6 +31,12 @@ class Api::PokemonController < ApplicationController
       @pokemon = pokes.sample
       render json: @pokemon
   end
+
+  def random_format
+      pokes = Format.find_by_name(params[:format]).pokemons
+      @pokemon = pokes.sample
+      render json: @pokemon
+  end
   
   # all pokemon known a given move by name(random if none is present.)
   def random_move

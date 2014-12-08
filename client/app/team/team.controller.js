@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('teambreweryApp')
-  .controller('TeamCtrl',['$scope', '$http', 'Pokemon', '$stateParams', '$modal', '$rootScope', 'typeChart', 'Team', 'text2team', function ($scope, $http, Pokemon, $stateParams, $modal, $rootScope, typeChart, Team, text2team) {
-      $scope.team = []; 
+  .controller('TeamCtrl', function ($scope, $http, Pokemon, $stateParams, $modal, $rootScope, typeChart, Team, text2team) {
+      $scope.team = new Team(); 
       $scope.types = Object.keys(typeChart);
       
       
@@ -37,9 +37,21 @@ angular.module('teambreweryApp')
               return $scope.team.length;
           }, $scope.getTeamWeakness);
           
-          if ($stateParams.id){ 
-              $http.get('/api/team/get/' + $stateParams.id).success(function(data){
-                  $scope.team = JSON.parse(data[0].team);
+          if ($stateParams.id.length > 0){ 
+
+              Team.getByID($stateParams.id).success(function(team){
+
+                  $scope.team = new Team(team.team);
+
+                  if ($scope.team.populate && $scope.team.pokemons.length == 0){
+                    $scope.randomizeTeam();
+                  }
+
+                  if ($scope.team.pokemons.length > 0){
+                    _.map($scope.team.pokemons, function(p){
+                      return new Pokemon(p);
+                    });
+                  }
               });
           }
           
@@ -50,14 +62,21 @@ angular.module('teambreweryApp')
       }
 
       $scope.randomizeTeam = function(){
-          $scope.team = [];
+          $scope.team.pokemons = [];
           for (var i = 0; i < 6; i++){
-              Pokemon.getRandomOU().success(function(data){
-                  $scope.team.push(new Pokemon(data.pokemon));
+              Pokemon.getRandomByFormat($scope.team.tier).success(function(data){
+                $scope.team.pokemons.push(new Pokemon(data.pokemon));
               });
-          }
-          
+          }    
       }
+
+
+      $scope.saveTeam = function(){
+        $scope.team.save().success(function(){
+          notify({ message: "Team successfully saved.", classes: ['alert alert-info teambrewery-alert']})
+        });
+      }
+
       
       /**
       
@@ -262,4 +281,4 @@ angular.module('teambreweryApp')
       
       */
       $scope.load();
-  }]);
+  });

@@ -45,7 +45,7 @@ angular.module('teambreweryApp')
 
   	$scope.evPercentage = function(pokemon, kind){
   		var ev = (pokemon.basestats[kind]);
-  		var evPerc = (ev * 100) / 200;
+  		var evPerc = (ev * 100) / 250;
   		if (ev > 130){ $scope.stats[kind].cssclass = "progress-bar-primary" }
   		else if (ev > 105){ $scope.stats[kind].cssclass = "progress-bar-success" }
   		else if (ev > 70){ $scope.stats[kind].cssclass = "progress-bar-warning" }

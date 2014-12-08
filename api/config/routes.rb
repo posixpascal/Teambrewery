@@ -7,10 +7,16 @@ Rails.application.routes.draw do
      match "pokemon/:id", :to => "pokemon#show", :via => [:options, :get]
      match "pokemon/id/:id", :to => "pokemon#by_id", :via => [:options, :get]
      match "pokemon/autocomplete/:species", :to => "pokemon#autocomplete", :via => [:get, :options]
-     match "pokemon/random/ou", :to => "pokemon#random_ou", :via => [:options, :get]
+     match "pokemon/random/format/ou", :to => "pokemon#random_ou", :via => [:options, :get]
+     match "pokemon/random/format/:format", :to => "pokemon#random_format", :via => [:options, :get]
      match "pokemon/random/from/:tier/with/:move", :to => "pokemon#random_move", :via => [:options, :get]
+
+     match "team/:id", :to => "team#show", :via => [:options, :get]
+     match "team/:id/update", :to => "team#update", :via => [:options, :post]
+     match "teams/create", :to => "team#create", :via => [:options, :post, :get]
   end
       
+
   
 
   get "/auth/:provider/callback", to: "session#create"

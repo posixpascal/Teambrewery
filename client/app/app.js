@@ -7,7 +7,9 @@ angular.module('teambreweryApp', [
   'ng-token-auth',
   'ui.router',
   'ui.bootstrap',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'cgNotify'
+
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

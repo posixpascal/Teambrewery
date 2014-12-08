@@ -1,5 +1,5 @@
-angular.module("teambreweryApp").factory("Pokemon", ["$http", "API_PATH", function($http, API_PATH){
-    API_PATH = API_PATH + "/pokemon/"
+angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($http, api){
+    
     var Pokemon = function(data){
         if (typeof data !== "undefined"){
 
@@ -34,12 +34,16 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "API_PATH", functi
         return this;
     };
 
+    Pokemon.getRandomByFormat = function(format){
+        return Pokemon.get('pokemon/random/format/' + format);
+    }
+
     Pokemon.prototype.getSprite = function(){
         return this.sprite;
     }
     
     Pokemon.byID = function(id){
-        return Pokemon.get('id/' + id)
+        return Pokemon.get('pokemon/id/' + id)
     }
 
     Pokemon.prototype.getTyping = function(){
@@ -47,15 +51,15 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "API_PATH", functi
     }
     
     Pokemon.get = function(identifier){
-        return $http.get(API_PATH + identifier);
+        return $http.get(api(identifier));
     }
     
     Pokemon.getRandomOU = function(){
-        return Pokemon.get('random/ou');
+        return Pokemon.get('pokemon/random/format/ou');
     }
 
     Pokemon.autocomplete = function(name){
-        return $http.get(API_PATH + "autocomplete/" + name);
+        return $http.get(api("pokemon/autocomplete/" + name));
     }
     
     

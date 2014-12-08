@@ -11,10 +11,16 @@
 #
 
 class Team < ActiveRecord::Base
-    attr_protected :name, :user_id, :synergy_level
+	#include FriendlyId
+
+	#friendly_id :name, :use => :slug
+
     belongs_to :user
-    has_many :team_pokemon
-    has_many :pokemon, :through => :team_pokemon
-    has_many :typings, :through => :team_pokemon
-    has_one :format
+    has_many :team_pokemons
+    has_many :typings, :through => :team_pokemons
+    has_one :format, :through => :team_format
+    has_one :team_format
+
+    serialize :options
+
 end

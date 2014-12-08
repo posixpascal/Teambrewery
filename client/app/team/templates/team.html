@@ -1,4 +1,4 @@
-<div ng-init="init()" ng-controller="TeamCtrl">
+<div ng-init="init()">
     <div class="navbar navbar-white" style="margin-bottom:0; border-bottom: 1px solid #ccc; border-radius: 0">
         <div class="container">
             <div class="row">
@@ -25,7 +25,7 @@
                                     Export Team
                                 </a>
                             </li>
-                            <li ng-click="saveTeam">
+                            <li ng-click="saveTeam()">
                                 <a href="#">
                                     <i class="glyphicon glyphicon-floppy-save"></i>
                                     Save Team
@@ -141,8 +141,8 @@
                     </li>
                 </ul>
                 <ul class="pull-right nav navbar-nav"  style="padding-top: 10px">
-                    <li ng-repeat="pokemon in team">
-                        <img ng-src="{{pokemon.sprite}}" style="height: 35px;">
+                    <li class="team-name">
+                        <strong><i ng-if="team.private" class="fa fa-lock"></i> {{team.name}} <span class="text-warning"><small>Format: {{team.tier}}</small></span></strong>
                     </li>
                 </ul>
                 </div>
@@ -150,10 +150,10 @@
         </div>
     </div>
     <ui-view ng-transcluded>
-        <div ng-if="team.length > 0" class="container">
+        <div ng-if="team.pokemons.length > 0" class="container">
           <div class="row">
               <div>
-                <pokemon-card ng-repeat="pokemon in team" pokemon="pokemon">
+                <pokemon-card ng-repeat="pokemon in team.pokemons" pokemon="pokemon">
                 </pokemon-card>
               </div>
           </div>
