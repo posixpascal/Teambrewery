@@ -1,5 +1,5 @@
 class Api::PokemonController < ApplicationController
-  after_filter :order
+  before_filter :order
   def show
       if params[:id]
           if params[:id] == "random"
@@ -10,6 +10,20 @@ class Api::PokemonController < ApplicationController
           end
          render json: @pokemon
       end
+  end
+
+  def by_id
+    p = Pokemon.find_by_id(params[:id].to_i)
+    if not p.nil?
+      @pokemon = p
+      render :json => @pokemon
+    end
+  end
+
+  def autocomplete
+    pokemon = Pokemon.where("species LIKE ?", "%#{params[:species]}%")
+    @pokemon = pokemon
+    render json: @pokemon
   end
   
   def random_ou
@@ -44,6 +58,7 @@ class Api::PokemonController < ApplicationController
 
   private
   def order
+    @request = request
     @order_by = params[:orderBy] ||= "id"
     @order_direction = params[:orderDirection] ||= "ASC"
   end

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     
   namespace :api do
      match "pokemon/:id", :to => "pokemon#show", :via => [:options, :get]
+     match "pokemon/id/:id", :to => "pokemon#by_id", :via => [:options, :get]
+     match "pokemon/autocomplete/:species", :to => "pokemon#autocomplete", :via => [:get, :options]
      match "pokemon/random/ou", :to => "pokemon#random_ou", :via => [:options, :get]
      match "pokemon/random/from/:tier/with/:move", :to => "pokemon#random_move", :via => [:options, :get]
   end

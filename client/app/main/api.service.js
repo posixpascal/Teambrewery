@@ -1,0 +1,1 @@
+angular.module("teambreweryApp").value("API_PATH", "http://api.teambrewery.dev/api");

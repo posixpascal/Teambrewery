@@ -1,21 +1,25 @@
-angular.module("teambreweryApp").factory("Pokemon", ["$http", function($http){
-    var API_PATH = "http://localhost:3000/api/pokemon/";
+angular.module("teambreweryApp").factory("Pokemon", ["$http", "API_PATH", function($http, API_PATH){
+    API_PATH = API_PATH + "/pokemon/"
     var Pokemon = function(data){
         if (typeof data !== "undefined"){
 
             this.baseStats = data.basestats;
+            this.basestats = data.basestats; // ugh. terrible...
+            
             this.sprite = data.sprite_url
             this.name = data.species;
             this.types = data.typing;
             this.abilities = data.abilities;
             this.moveset = {};
             this.moves = [];
+            this.id = data.id;
             if (typeof data.movesets !== "undefined"){
                 this.moveset = data.movesets[0];
                 if (typeof this.moveset !== "undefined"){
                     this.moves = this.moveset.moves;
                 }
             } 
+
             if (this.moves.length == 0 && typeof data.random_battle_moves !== "undefined") { // use random moves instead.
                 this.moves = data.random_battle_moves;
             }
@@ -29,19 +33,29 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", function($http){
         }
         return this;
     };
+
+    Pokemon.prototype.getSprite = function(){
+        return this.sprite;
+    }
     
+    Pokemon.byID = function(id){
+        return Pokemon.get('id/' + id)
+    }
+
     Pokemon.prototype.getTyping = function(){
         return this.request_data.typing;
     }
     
     Pokemon.get = function(identifier){
-        return $http.get(API_PATH + identifier, function(data){
-            return new Pokemon(data);
-        });
+        return $http.get(API_PATH + identifier);
     }
     
     Pokemon.getRandomOU = function(){
         return Pokemon.get('random/ou');
+    }
+
+    Pokemon.autocomplete = function(name){
+        return $http.get(API_PATH + "autocomplete/" + name);
     }
     
     
