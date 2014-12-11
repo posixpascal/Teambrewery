@@ -17,6 +17,7 @@
 #
 
 class Pokemon < ActiveRecord::Base
+    paginates_per 50
     attr_protected :key, :pokedex, :species, :basestat, :height, :weight, :color, :mega, :mega_forme
     attr_protected :created_at, :updated_at
     has_one :typing
@@ -45,7 +46,13 @@ class Pokemon < ActiveRecord::Base
     scope :momentum, -> { Move.get(["Volt Switch", "U-turn", "Parting Shot"]).map(&:pokemons).flatten! }
     scope :most_valuables, -> { Format.most_valuables.map {|format| format.pokemons }.flatten }
 
-    
+    def sprite_url
+     if Rails.env.development? 
+      return "http://api.teambrewery.dev#{(self.sprite.url)}" 
+     else
+      return "http://api.teambrewery.io#{self.sprite.url}"
+     end
+    end
     def in_tier? tier
         self.format.name == tier
     end

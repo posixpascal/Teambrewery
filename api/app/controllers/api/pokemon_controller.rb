@@ -12,6 +12,29 @@ class Api::PokemonController < ApplicationController
       end
   end
 
+  def all
+    if params[:page]
+      page = params[:page].to_i
+    else
+      page = 1
+    end
+
+    p = Pokemon.all
+    page_model = p.page(page)
+    result = [];
+    page_model.each {|poke|
+      data = {
+        :species => poke.species,
+        :basestats => poke.basestat.attributes.except("id", "pokemon_id", "created_at", "updated_at"),
+        :typing => poke.typing.types.map(&:name),
+        :sprite_url => poke.sprite_url
+      }
+
+      result << data
+    }
+    render :json => {:pokemons => result, :page => page, :total => page_model.total_pages, :totalPokemons => Pokemon.count}
+  end
+
   def by_id
     p = Pokemon.find_by_id(params[:id].to_i)
     if not p.nil?

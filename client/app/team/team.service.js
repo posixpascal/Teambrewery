@@ -1,7 +1,7 @@
 angular.module("teambreweryApp").factory("Team", ["$http", "api", "$q", function($http, api, $q){
     var Team = function(data){
         this.tier = "OU";
-
+        this.name = "Untitled " + Math.round(Math.random() * 10);
         // this.format_rules = Rules.byFormat("OU")... (for example)
         this.pokemons = [];
         this.id = null;

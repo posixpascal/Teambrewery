@@ -13,11 +13,22 @@ angular.module('teambreweryApp')
           templateUrl: '/app/team/templates/typechart.html'
       }).state('teambuilder.settings', {
         url: '/settings',
-        controller: 'TeamCtrl',
         templateUrl: '/app/team/templates/settings.html'
       }).state('teambuilder.publish', {
         url: '/publish',
-        controller: 'TeamCtrl',
+
         templateUrl: '/app/team/templates/publish.html'
-      })
+      }).state('teambuilder.pokemons', {
+        url: "/pokemons",
+        templateUrl: '/app/team/pokemon/templates/all.html'
+      }).state('teambuilder.pokemon.list', {
+        url: '/:group/:query',
+        templateUrl: '/app/team/pokemon/templates/list.html'
+      }).state('teambuilder.pokemon.add', {
+        url: '/:pokemon/add',
+        templateUrl: '/app/team/pokemon/templates/add.html'
+      }).state('teambuilder.pokemon.view', {
+        url: '/:pokemon',
+        templateUrl: '/app/team/pokemon/templates/view.html'
+      });
   });

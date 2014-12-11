@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
     
   namespace :api do
+    match "pokemon/all", :to => "pokemon#all", :via => [:options, :get]
      match "pokemon/:id", :to => "pokemon#show", :via => [:options, :get]
      match "pokemon/id/:id", :to => "pokemon#by_id", :via => [:options, :get]
      match "pokemon/autocomplete/:species", :to => "pokemon#autocomplete", :via => [:get, :options]

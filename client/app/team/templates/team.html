@@ -50,56 +50,68 @@
                         
                         
                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Add Pokemon <span class="caret"></span></a>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemon<span class="caret"></span></a>
                           <ul class="dropdown-menu" role="menu">
-                            <li ng-click="addPokemon('ou')">
+                           <li ng-click="addPokemon()">
+                                <a href="#">
+                                     Add Pokemon ...
+                                 </a>
+                            </li>
+                             <li class="divider"></li>
+                            <li ng-click="addPokemon({format: 'ou'})">
                                 <a href="#">
                                      OU Pokemon
                                  </a>
                             </li>
-                            <li ng-click="addSetupSweeperPokemon()">
+                             <li class="divider"></li>
+                            <li ng-click="addPokemon({group: 'setupsweeper'})">
                                 <a href="#">
                                     Setup Sweeper (Physical / Special)
                                 </a>
                             </li>
-                            <li ng-click="addSpinner()">
+                            <li ng-click="addPokemon({ group: 'specialwall'})">
+                                <a href="#">
+                                    Special Wall
+                                </a>
+                            </li>
+                            <li ng-click="addPokemon({ group: 'physicalwall'})">
+                                <a href="#">
+                                    Physical Wall
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li ng-click="addPokemon({group: 'spinner'})">
                                 <a href="#">
                                     Spinner (Rapid Spin / Defog)
                                 </a>
                             </li>
 
-                            <li ng-click="addDualScreener()">
+
+                            <li ng-click="addPokemon({ group: 'voltturn'})">
                                 <a href="#">
-                                    Dual Screener
+                                     U-Turn / Volt Switch / Parting Shot
                                 </a>
                             </li>
-
-                            <li ng-click="addMegaPokemon()">
+                           
+                            <li ng-click="addPokemon({group: 'mega'})">
                                 <a href="#">
                                     Mega Pokemon
                                 </a>
                             </li>
 
-                            <li ng-click="addSpecialWallPokemon()">
-                                <a href="#">
-                                    Special Wall
-                                </a>
-                            </li>
-                            <li ng-click="addPhysicalWallPokemon()">
-                                <a href="#">
-                                    Physical Wall
-                                </a>
-                            </li>
-                            <li ng-click="addStealthRockerPokemon()">
+                            
+                             <li class="divider"></li>
+                            <li ng-click="addPokemon({ group: 'stealthrocker'})">
                                 <a href="#">
                                      Stealth Rocker
                                 </a>
                             </li>
-                            <li ng-click="addMomentumPokemon()">
+                             <li ng-click="addPokemon({group: 'dualscreener'})">
                                 <a href="#">
-                                     U-Turn / Volt Switch / Parting Shot
+                                    Dual Screener
                                 </a>
                             </li>
+
                           </ul>
                         </li>
                         

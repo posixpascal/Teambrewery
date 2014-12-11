@@ -38,6 +38,11 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($h
         return Pokemon.get('pokemon/random/format/' + format);
     }
 
+    Pokemon.getAll = function(page){
+        if (typeof page === "undefined") page = 1;
+        return Pokemon.get('pokemon/all?page=' + page);
+    }
+
     Pokemon.prototype.getSprite = function(){
         return this.sprite;
     }

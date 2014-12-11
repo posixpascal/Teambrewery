@@ -42,11 +42,7 @@ class PokemonSerializer < ActiveModel::Serializer
   end
   
   def sprite_url
-     if Rails.env.development? 
-      return "http://api.teambrewery.dev#{(object.sprite.url)}" 
-     else
-      return "http://api.teambrewery.io#{object.sprite.url}"
-     end
+    object.sprite_url
   end
   
   def abilities
