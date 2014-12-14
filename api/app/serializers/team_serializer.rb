@@ -4,9 +4,10 @@ class TeamSerializer < ActiveModel::Serializer
   def pokemons
   	res = object.team_pokemons.map {|tp| 
   		k = tp.attributes
-  		k[:pokemon] = tp.pokemon
+  		k[:pokemon] = PokemonSerializer.new(tp.pokemon, {:root => false})
   		k
   	}
+
   	res
 
 

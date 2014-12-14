@@ -25,15 +25,20 @@ class Api::TeamController < ApplicationController
     if current_user != team.user
       return render :json => {success: false}
     end
+    team.pokemons = []
     if params[:pokemons].is_a? Array
-      pokes = params[:pokemons].map do |p|
-        return ApplicationController::Pokemon.find(p.id)
+      params[:pokemons].first(6).each do |p|
+        begin
+          team.pokemons << ApplicationController::Pokemon.find(p[:id].to_i)
+        rescue
+        end
       end
     end
-    team.pokemons = pokes
-    team.name = team.name
+   # team.pokemons = pokes
+    team.name = params[:name]
     team.format = ApplicationController::Format.find_by_name(params[:tier])
     team.save()
+    return render :json => team
   end
 
   def delete

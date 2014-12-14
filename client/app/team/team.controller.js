@@ -13,34 +13,7 @@ angular.module('teambreweryApp')
 
       $scope.load = function(){
           console.log("TeamController loaded");
-      };
-      
-      
-
-      $scope.init = function(){
-          var default_settings = {
-              typeChart: {
-                  showPokemon: true,
-                  tableMode: "types",
-                  rows: {
-                      immunity: true,
-                      neutral: true,
-                      effective: true,
-                      superEffective: true,
-                      resistant: true,
-                      quadResistant: true
-                  },
-              }
-          }
-          
-          $scope.settings = $.jStorage.get('settings', default_settings);
-          $scope.customSettings = angular.copy($scope.settings);
-          
-          $scope.$watch(function(){
-              return $scope.team.length;
-          }, $scope.getTeamWeakness);
-          
-          if ($stateParams.id.length > 0){ 
+           if ($stateParams.id){ 
 
               Team.getByID($stateParams.id).success(function(team){
 
@@ -62,6 +35,36 @@ angular.module('teambreweryApp')
               $scope.randomizeTeam();
               
           }
+      };
+      
+      $scope.showTeam = function(){
+        $state.go('teambuilder', {id: $scope.team.id || ""});
+
+      };
+
+
+
+
+      $scope.init = function(){
+          var default_settings = {
+              typeChart: {
+                  showPokemon: true,
+                  tableMode: "types",
+                  rows: {
+                      immunity: true,
+                      neutral: true,
+                      effective: true,
+                      superEffective: true,
+                      resistant: true,
+                      quadResistant: true
+                  },
+              }
+          }
+          
+          $scope.settings = $.jStorage.get('settings', default_settings);
+          $scope.customSettings = angular.copy($scope.settings);
+          
+         
       }
 
       $scope.randomizeTeam = function(){
@@ -76,7 +79,7 @@ angular.module('teambreweryApp')
 
       $scope.saveTeam = function(){
         $scope.team.save().success(function(){
-          notify({ message: "Team successfully saved.", classes: ['alert alert-info teambrewery-alert']})
+
         });
       }
 

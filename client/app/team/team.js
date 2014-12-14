@@ -10,7 +10,11 @@ angular.module('teambreweryApp')
       }).state('teambuilder.typechart', {
           url: '/typechart',
           templateUrl: '/app/team/templates/typechart.html'
-      }).state('teambuilder.settings', {
+      }).state('teambuilder.moveset_coverage', {
+        url: '/moveset-coverage',
+        templateUrl: '/app/team/templates/moveset_coverage.html'
+      })
+      .state('teambuilder.settings', {
         url: '/settings',
         templateUrl: '/app/team/templates/settings.html'
       }).state('teambuilder.publish', {

@@ -1,6 +1,8 @@
 angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($http, api){
-    
+    'use strict';
+
     var Pokemon = function(data){
+        this.moveset = {};
         if (typeof data !== "undefined"){
 
             this.baseStats = data.basestats;
@@ -10,7 +12,9 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($h
             this.name = data.species;
             this.types = data.typing;
             this.abilities = data.abilities;
-            this.moveset = {};
+            this.moveset = {
+                moves: []
+            };
             this.moves = [];
             this.id = data.id;
 
@@ -19,13 +23,11 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($h
             if (typeof data.movesets !== "undefined"){
                 this.moveset = data.movesets[0];
                 if (typeof this.moveset !== "undefined"){
-                    this.moves = this.moveset.moves;
+                    this.moveset.moves = _.sample(this.moveset.moves, 4);
                 }
             } 
-
-
-            if (this.moves.length == 0 && typeof data.random_battle_moves !== "undefined") { // use random moves instead.
-                this.moves = data.random_battle_moves;
+            else if (this.moveset.moves.length == 0 && typeof data.random_battle_moves !== "undefined") { // use random moves instead.
+                this.moveset.moves = _.sample(data.random_battle_moves, 4);
             }
             
             if (typeof data.nature !== "undefined"){

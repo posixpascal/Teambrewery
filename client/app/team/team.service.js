@@ -1,4 +1,4 @@
-angular.module("teambreweryApp").factory("Team", ["$http", "api", "$q", function($http, api, $q){
+angular.module("teambreweryApp").factory("Team", ["$http", "api", "$q", "Pokemon", function($http, api, $q, Pokemon){
     'use strict';
 
     var Team = function(data){
@@ -11,15 +11,32 @@ angular.module("teambreweryApp").factory("Team", ["$http", "api", "$q", function
         this.populate = true;
 
         if (typeof data !== "undefined"){
-            this.tier = data.format.name;
+            if (data.format && typeof data.format !== "undefined") this.tier = data.format.name;
             this.name = data.name;
             this.id = data.id;
             this.private = data.private;
             this.populate = data.populate_on_creation;
+            var _this = this;
+            _.map(data.pokemons, function(p){
+                _this.pokemons.push(new Pokemon(p.pokemon, p));
+            });
         }
-        
 
         return this;
+    };
+
+    Team.prototype.getMovesetCoverage = function(type, category){
+        var count = 0;
+        _.each(this.pokemons, function(p){
+            if (typeof p.moveset !== "undefined"){
+                _.each(p.moveset.moves, function(move){
+                    if (move.type === type && move.category === category){
+                        count++;
+                    }
+                });
+            }
+        });
+        return count;
     };
 
     Team.prototype.getResistances = function(type){
@@ -56,7 +73,8 @@ angular.module("teambreweryApp").factory("Team", ["$http", "api", "$q", function
         return $http.post(api('team/' + this.id + "/update"), {
             format: this.tier,
             pokemons: this.pokemons,
-            private: this.private
+            private: this.private,
+            name: this.name
         });
     }
 
