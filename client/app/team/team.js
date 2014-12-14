@@ -9,7 +9,6 @@ angular.module('teambreweryApp')
           controller: 'TeamCtrl'
       }).state('teambuilder.typechart', {
           url: '/typechart',
-          controller: 'TeamCtrl',
           templateUrl: '/app/team/templates/typechart.html'
       }).state('teambuilder.settings', {
         url: '/settings',

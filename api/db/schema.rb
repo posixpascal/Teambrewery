@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208213412) do
+ActiveRecord::Schema.define(version: 20141214125320) do
 
   create_table "abilities", force: true do |t|
     t.string   "key"
@@ -299,6 +299,7 @@ ActiveRecord::Schema.define(version: 20141208213412) do
     t.integer  "learnset_id"
     t.integer  "moveset_id"
     t.integer  "ev_spread_id"
+    t.integer  "team_id"
   end
 
   create_table "teams", force: true do |t|
@@ -317,11 +318,21 @@ ActiveRecord::Schema.define(version: 20141208213412) do
 
   add_index "teams", ["slug"], name: "index_teams_on_slug", unique: true
 
+  create_table "type_details", force: true do |t|
+    t.integer  "root_type_id"
+    t.integer  "target_type_id"
+    t.integer  "multiplier"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "type_id"
+  end
+
   create_table "types", force: true do |t|
     t.string   "name"
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "type_detail_id"
   end
 
   create_table "typing_types", force: true do |t|

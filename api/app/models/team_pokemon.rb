@@ -28,6 +28,7 @@ class TeamPokemon < ActiveRecord::Base
     has_one :ability
     belongs_to :team
     belongs_to :user
+
     has_one :moveset
     has_one :typing, :foreign_key => "typing"
     

@@ -56,4 +56,8 @@ class Pokemon < ActiveRecord::Base
     def in_tier? tier
         self.format.name == tier
     end
+
+    def weaknesses_and_resistances
+        self.typing.weaknesses_and_resistances
+    end
 end

@@ -6,13 +6,16 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($h
             this.baseStats = data.basestats;
             this.basestats = data.basestats; // ugh. terrible...
             
-            this.sprite = data.sprite_url
+            this.sprite = data.sprite_url;
             this.name = data.species;
             this.types = data.typing;
             this.abilities = data.abilities;
             this.moveset = {};
             this.moves = [];
             this.id = data.id;
+
+            this.typingDetails = data.type_details;
+
             if (typeof data.movesets !== "undefined"){
                 this.moveset = data.movesets[0];
                 if (typeof this.moveset !== "undefined"){
@@ -20,15 +23,19 @@ angular.module("teambreweryApp").factory("Pokemon", ["$http", "api", function($h
                 }
             } 
 
+
             if (this.moves.length == 0 && typeof data.random_battle_moves !== "undefined") { // use random moves instead.
                 this.moves = data.random_battle_moves;
             }
+            
             if (typeof data.nature !== "undefined"){
                 this.moveset.nature = data.nature;
             }
+            
             if (typeof data.ev_spread !== "undefined"){
                 this.moveset.ev_spread = data.ev_spread;
             }
+
             this.request_data = data;
         }
         return this;

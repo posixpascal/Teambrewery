@@ -9,11 +9,14 @@ angular.module('teambreweryApp')
       $scope.saveSettings = function(s){
           $scope.settings = angular.copy(s);
           $.jStorage.set('settings', $scope.settings);
-      }
+      };
+
       $scope.load = function(){
           console.log("TeamController loaded");
-      }
-    
+      };
+      
+      
+
       $scope.init = function(){
           var default_settings = {
               typeChart: {

@@ -5,6 +5,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'font-awesome/scss/font-awesome';
 @import '../assets/css/rotating-card';
 @import './loader.scss';
+@import "./scss/pokemon_table.scss";
 @import './shapes.scss';
 
 .spacer {
@@ -140,11 +141,15 @@ table tr td {
     padding: 0.2em 0;
 }
 
+
+
+
 // Component styles are injected through grunt
 // injector
 @import 'loader.scss';
 @import 'main/main.scss';
 @import 'pokemon/types.scss';
+@import 'scss/pokemon_table.scss';
 @import 'shapes.scss';
 @import 'modal/modal.scss';
 // endinjector
