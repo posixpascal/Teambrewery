@@ -1,2 +1,0 @@
-module Api::MoveHelper
-end
