@@ -5,7 +5,7 @@ angular.module('teambreweryApp')
   	$scope.newTeam = {
   		name: "Untitled",
   		tier: "OU"
-  	}
+  	};
 
     $scope.teams = [];
 
