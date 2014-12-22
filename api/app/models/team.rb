@@ -12,7 +12,7 @@
 
 class Team < ActiveRecord::Base
 	#include FriendlyId
-
+	paginates_per 10
 	#friendly_id :name, :use => :slug
 
     belongs_to :user

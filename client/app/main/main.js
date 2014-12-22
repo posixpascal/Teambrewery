@@ -14,10 +14,8 @@ angular.module('teambreweryApp')
       }).state('main.teams.new', {
       	url: '/new',
       	templateUrl: 'app/main/teams/templates/new.html',
-      	controller: 'TeamsCtrl'
       }).state('main.teams.community', {
       	url: '/community',
-      	controller: 'TeamsCtrl',
       	templateUrl: 'app/main/teams/templates/community.html'
       });
   });

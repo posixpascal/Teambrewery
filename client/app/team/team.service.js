@@ -25,6 +25,10 @@ angular.module("teambreweryApp").factory("Team", ["$http", "api", "$q", "Pokemon
         return this;
     };
 
+    Team.getAll = function(){
+        return $http.get(api('teams/list'));
+    };
+
     Team.prototype.getMovesetCoverage = function(type, category){
         var count = 0;
         _.each(this.pokemons, function(p){

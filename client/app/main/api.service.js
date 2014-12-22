@@ -1,3 +1,3 @@
-angular.module("teambreweryApp").value("API_PATH", "http://api.teambrewery.dev/api").value("api", function(path){
-	return "http://api.teambrewery.dev/api/" + path;
+angular.module("teambreweryApp").value("API_PATH", "http://teambrewery.dev:3333/api").value("api", function(path){
+	return "http://teambrewery.dev:3333/api/" + path;
 });

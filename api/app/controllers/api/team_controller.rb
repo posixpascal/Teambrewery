@@ -9,6 +9,15 @@ class Api::TeamController < ApplicationController
   def index
   end
 
+  # list your teams
+  def list
+    page = params[:page] || 2
+    if current_user
+      render :json => current_user.teams.page(page)
+    end
+
+  end
+
   def create
     team = ApplicationController::Team.new
     team.name = params[:name]
@@ -36,6 +45,7 @@ class Api::TeamController < ApplicationController
     end
    # team.pokemons = pokes
     team.name = params[:name]
+    team.private = !!params[:private]
     team.format = ApplicationController::Format.find_by_name(params[:tier])
     team.save()
     return render :json => team

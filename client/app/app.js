@@ -18,7 +18,7 @@ angular.module('teambreweryApp', [
     $locationProvider.html5Mode(true);
   }).config(function ($authProvider){
     $authProvider.configure({
-      'apiUrl': 'http://api.teambrewery.dev',
+      'apiUrl': 'http://teambrewery.dev:3333',
       'authProviderPaths': {
         facebook: '/auth/facebook',
         twitter: '/auth/twitter'

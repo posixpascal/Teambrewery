@@ -48,7 +48,7 @@ class Pokemon < ActiveRecord::Base
 
     def sprite_url
      if Rails.env.development? 
-      return "http://api.teambrewery.dev#{(self.sprite.url)}" 
+      return "http://teambrewery.dev:3333#{(self.sprite.url)}" 
      else
       return "http://api.teambrewery.io#{self.sprite.url}"
      end

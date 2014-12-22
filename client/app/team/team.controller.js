@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('teambreweryApp')
-  .controller('TeamCtrl', function ($scope, $http, Pokemon, $state, $stateParams, $modal, $rootScope, typeChart, Team, text2team) {
+  .controller('TeamCtrl', function ($scope, $http, Pokemon, $state, $stateParams, $modal, $rootScope, typeChart, Team, text2team, Toaster) {
       $scope.team = new Team(); 
       $scope.types = Object.keys(typeChart);
       
@@ -79,7 +79,7 @@ angular.module('teambreweryApp')
 
       $scope.saveTeam = function(){
         $scope.team.save().success(function(){
-
+          Toaster.success("Team successfully saved!");
         });
       }
 

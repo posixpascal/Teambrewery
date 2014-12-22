@@ -15,6 +15,7 @@ Rails.application.routes.draw do
      match "team/:id", :to => "team#show", :via => [:options, :get]
      match "team/:id/update", :to => "team#update", :via => [:options, :post]
      match "teams/create", :to => "team#create", :via => [:options, :post, :get]
+     match "teams/list", :to => "team#list", :via => [:options, :get]
   end
       
 
