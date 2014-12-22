@@ -1,0 +1,7 @@
+[submodule "api"]
+	path = api
+	url = https://posixpascal@github.com/posixpascal/Teambrewery-API
+	fetchRecurseSubmodules = true
+[submodule "client"]
+	path = client
+	url = https://posixpascal@github.com/posixpascal/Teambrewery-Client.git
