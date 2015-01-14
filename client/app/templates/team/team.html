@@ -1,0 +1,178 @@
+<div>
+
+    <!-- ==========  Team Navigation  ========== -->
+    <div class="navbar navbar-white" style="margin-bottom:0; border-bottom: 1px solid #ccc; border-radius: 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Team <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li ui-sref="team.pokemon">
+                                <a href="#">
+                                     <i class="fa fa-eye"></i>
+                                     Show Team
+                                 </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li ng-click="importTeam()">
+                                <a href="#">
+                                     <i class="glyphicon glyphicon-import"></i>
+                                     Import Team
+                                 </a>
+                            </li>
+                            <li ng-click="exportTeam()">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-export"></i>
+                                    Export Team
+                                </a>
+                            </li>
+                            <li ng-click="saveTeam()">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-floppy-save"></i>
+                                    Save Team
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li ng-click="randomizeTeam()">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-random"></i>
+                                    Randomize Team
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li ng-click="clearTeam()">
+                                <a href="#">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                    Clear Team
+                                </a>
+                            </li>
+                          </ul>
+                        </li> <!-- team -->
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pokemon<span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                           <li ng-click="addPokemon()">
+                                <a href="#">
+                                     Add Pokemon ...
+                                 </a>
+                            </li>
+                             <li class="divider"></li>
+                            <li ng-click="addPokemon({format: 'OU'})">
+                                <a href="#">
+                                     OU Pokemon
+                                 </a>
+                            </li>
+                             <li class="divider"></li>
+                            <li ng-click="addPokemon({group: 'setupsweeper'})">
+                                <a href="#">
+                                    Setup Sweeper (Physical / Special)
+                                </a>
+                            </li>
+                            <li ng-click="addPokemon({ group: 'specialwall'})">
+                                <a href="#">
+                                    Special Wall
+                                </a>
+                            </li>
+                            <li ng-click="addPokemon({ group: 'physicalwall'})">
+                                <a href="#">
+                                    Physical Wall
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li ng-click="addPokemon({group: 'spinner'})">
+                                <a href="#">
+                                    Spinner (Rapid Spin / Defog)
+                                </a>
+                            </li>
+
+
+                            <li ng-click="addPokemon({ group: 'voltturn'})">
+                                <a href="#">
+                                     U-Turn / Volt Switch / Parting Shot
+                                </a>
+                            </li>
+                           
+                            <li ng-click="addPokemon({group: 'mega'})">
+                                <a href="#">
+                                    Mega Pokemon
+                                </a>
+                            </li>
+
+                            
+                             <li class="divider"></li>
+                            <li ng-click="addPokemon({ group: 'stealthrocker'})">
+                                <a href="#">
+                                     Stealth Rocker
+                                </a>
+                            </li>
+                             <li ng-click="addPokemon({group: 'dualscreener'})">
+                                <a href="#">
+                                    Dual Screener
+                                </a>
+                            </li>
+
+                          </ul>
+                        </li>
+                        
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Team Details <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li ui-sref="team.typechart">
+                                <a href="#">
+                                     Type Resistances
+                                 </a>
+                            </li>
+                          
+                            <li ui-sref="team.moveset_coverage">
+                                <a href="#">
+                                    Moveset Coverage
+                                </a>
+                            </li>
+
+                            <li ui-sref="team.playfield">
+                                <a href="#">
+                                    Simulate Common Threats
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" ui-sref="team.publish">
+                            Publish
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" ui-sref="team.settings">
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pull-right nav navbar-nav"  style="padding-top: 10px">
+                    <li class="team-name">
+                        <strong><i ng-if="team.private" class="fa fa-lock"></i> {{team.name}} <span class="text-warning"><small>Format: {{team.tier}}</small></span></strong>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==========  End Team Navigation  ========== -->
+    <ui-view>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <h2>{{team.name}}</h2>
+                        <h3>Tier: {{team.tier}}</h3>
+                    </div>
+                    <div class="col-xs-12 col-sm-8">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+     </ui-view>
+
+</div>

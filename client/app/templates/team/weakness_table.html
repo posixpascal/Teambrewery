@@ -1,0 +1,25 @@
+<div>
+  <table class="pokemon-table table table-bordered">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th ng-repeat="pokemon in team.pokemons">
+         <img class="pokemon_sprite" ng-src="{{pokemon.getSprite()}}" />
+        </th>
+        <th>Weakness</th>
+        <th>Resistance</th>
+      </tr>
+    </thead>   
+    <tbody>
+      <tr class="type {{type.toLowerCase()}}" ng-if="type != 'Bird'" ng-repeat="type in types">
+        <td>{{type}}</td>
+        <td class="cell-number" ng-repeat="pokemon in team.pokemons">
+        <span ng-if="pokemon.typingDetails[type].multiplier != 0">{{pokemon.typingDetails[type].typechart[1]}}</span>
+        </td>
+        <td class="cell-number" ng-class="{'danger-cell': (team.getWeaknesses(type) > team.getResistances(type))}">{{team.getWeaknesses(type)}}</td>
+        <td class="cell-number">{{team.getResistances(type)}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

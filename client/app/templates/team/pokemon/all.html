@@ -1,0 +1,14 @@
+<div class="team-view">
+	<div class="container">
+		<div class="row">
+			<div class="pokemon-list">
+				<div ui-sref="team.pokemon.view({ index: $index })" class="pokemon-spot" ng-repeat="pokemon in $parent.team.pokemons">
+					<img ng-src="{{pokemon.sprite}}">
+					<span>{{pokemon.name}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ui-view></ui-view>

@@ -1,0 +1,20 @@
+---
+:files:
+
+  :abilities:
+  - data/abilities.js
+  :items:
+  - data/items.js
+  :moves:
+  - data/moves.js
+  :learnsets:
+  - data/learnsets.js
+  :pokedex:
+  - data/pokedex.js
+  :formats:
+  - data/formats-data.js
+  - data/formats.js
+  :typechart:
+  - data/typechart.js
+:target_directory: /Users/pascalraszyk/Projects/Teambrewery/api/db/showdown
+:temp_directory: /Users/pascalraszyk/Projects/Teambrewery/api/bin/showdown

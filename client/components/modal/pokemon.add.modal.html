@@ -1,0 +1,44 @@
+<div class="modal-header">
+  <button ng-if="modal.dismissable" type="button" ng-click="$dismiss()" class="close">&times;</button>
+  <h4>Add Pokemon</h4>
+</div>
+<div class="modal-body">
+  <table st-table="addPokemonsCollection"  st-pipe="addPokemonServer" class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Pokedex</th>
+      <th st-sort="species">Pokemon</th>
+      <th>Typing</th>
+      <th>Tier</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody ng-hide="addPokemonIsLoading">
+    <tr ng-repeat="pokemon in addPokemonsCollection">
+      <td><img height="25px" ng-src="{{pokemon.sprite}}"></td>
+      <td>{{pokemon.pokedex}}</td>
+      <td>{{pokemon.name}}</td>
+      <td><pokemon-typing /></pokemon-typing>
+      <td>{{pokemon.format}}</td>
+      <td><a ng-click="addPokemon({pokemon:pokemon})" class="btn btn-info">Add Pokemon</a></td>
+    </tr>
+    </tbody>
+    <tbody ng-show="addPokemonIsLoading">
+        <tr>
+          <td colspan="6" class="loader text-center">
+          <h5>Loading... Be patient</h5>
+          <ul class="bokeh">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul></td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-success" ng-click="addPokemon(activePokemon)">Add Pokemon</button>
+</div>
