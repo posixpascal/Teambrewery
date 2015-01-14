@@ -1,272 +1,296 @@
 'use strict';
 
-module.exports = function (grunt) {
-  // measure time
-  require('time-grunt')(grunt);
+module.exports = function(grunt) {
+    // measure time
+    require('time-grunt')(grunt);
 
-  require('jit-grunt')(grunt, {
-    express: 'grunt-express-server',
-    useminPrepare: 'grunt-usemin',
-    ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn',
-    protractor: 'grunt-protractor-runner',
-    injector: 'grunt-asset-injector',
-    buildcontrol: 'grunt-build-control'
-  });
-
-
-  grunt.initConfig({
-
-    // initial config
-    yeoman: {
-      client: require('./bower.json').appPath || 'client',
-      dist: 'client-dist'
-    },
+    require('jit-grunt')(grunt, {
+        express: 'grunt-express-server',
+        useminPrepare: 'grunt-usemin',
+        ngtemplates: 'grunt-angular-templates',
+        cdnify: 'grunt-google-cdn',
+        protractor: 'grunt-protractor-runner',
+        injector: 'grunt-asset-injector',
+        buildcontrol: 'grunt-build-control'
+    });
 
 
-    // compile sass scripts
-    sass: {
-      server: {
-        options: {
-          loadPath: [
-            '<%= yeoman.client %>/bower_components',
-            '<%= yeoman.client %>/app',
-            '<%= yeoman.client %>/components'
-          ],
-          compass: false
+    grunt.initConfig({
+
+        // initial config
+        yeoman: {
+            client: require('./bower.json').appPath || 'client',
+            dist: 'client-dist',
         },
-        files: {
-          '<%= yeoman.client %>/app/app.css' : '<%= yeoman.client %>/app/app.scss'
-        }
-      }
-    },
 
-    watch: {
-      injectJS: {
-        files: [
-        '<%= yeoman.client %>/{app,components}/**/*.js',
-        '!<%= yeoman.client %>/app/app.js'],
-        tasks: ['injector:scripts']
-      },
-      injectCss: {
-        files: [
-          '<%= yeoman.client %>/{app,components}/**/*.css'
-        ],
-        tasks: ['injector:css']
-      },
-      injectSass: {
-        files: [
-          '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}'],
-        tasks: ['injector:sass']
-        
-       },
+
+        // compile sass scripts
         sass: {
-          files: [
-            '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}'
-          ],
-          tasks: ['sass', 'autoprefixer']
+            server: {
+                options: {
+                    loadPath: [
+                        '<%= yeoman.client %>/bower_components',
+                        '<%= yeoman.client %>/app',
+                        '<%= yeoman.client %>/components'
+                    ],
+                    compass: false
+                },
+                files: {
+                    '<%= yeoman.client %>/app/app.css': '<%= yeoman.client %>/app/app.scss'
+                }
+            }
         },
-        gruntfile: {
-          files: ['Gruntfile.js']
+        ngtemplates: {
+            files: ['<%= yeoman.client %>/app/templates/**/*.html'],
+            dist: {
+                cwd: '<%= yeoman.client %>/app/templates/',
+                src: '**/*.html',
+                dest: '.tmp/templates.js',
+                options: {
+                    bootstrap: function(module, script) {
+                        return 'angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCache", function($templateCache){' + script + '}]);';
+                    },
+                    angular: 'teambreweryApp',
+                    htmlmin: {
+
+                        removeComments: true,
+                        removeRedundantAttributes: true,
+                        removeScriptTypeAttributes: true,
+                        removeStyleLinkTypeAttributes: true,
+                        collapseWhitespace: true
+                    }
+                }
+            }
         },
-        livereload: {
-          files: [
-            '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
-            '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
-            '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-            '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
-          ],
-          options: {
-            livereload: true
-          }
-        }
-      },
-    clean: {
-      dist: {
-        files: [{
-            dot: true,
-            src: [
-              '.tmp',
-              '<%= yeoman.dist %>/*'
-            ]
-          }]
-      }
-    },
+        watch: {
+            injectJS: {
+                files: [
+                    '<%= yeoman.client %>/{app,components}/**/*.js',
+                    '!<%= yeoman.client %>/app/app.js'
+                ],
+                tasks: ['injector:scripts']
+            },
+            injectCss: {
+                files: [
+                    '<%= yeoman.client %>/{app,components}/**/*.css'
+                ],
+                tasks: ['injector:css']
+            },
+            injectSass: {
+                files: [
+                    '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}'
+                ],
+                tasks: ['injector:sass']
 
-    autoprefixer: {
-      options: {
-        browser: ['last 1 version']
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/',
-          src: '{,*/}*.css',
-          dest: '.tmp/'
-          }]
-      }
-    },
-
-    wiredep: {
-      target: {
-        src: '<%= yeoman.client %>/index.html',
-        ignorePath: '<%= yeoman.client %>/',
-        exclude: ['/bootstrap-sass-official/', '/bootstrap.js/',  '/json3/', '/es5-shim/', /bootstrap.css/, /font-awesome.css/]
-      }
-    },
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat',
-          src: '*/**.js',
-          dest: '.tmp/concat'
-        }]
-      }
-    },
-
-    // Package all the html partials into a single javascript payload
-    ngtemplates: {
-      options: {
-        // This should be the name of your apps angular module
-        module: 'teambreweryApp',
-        htmlmin: {
-          collapseBooleanAttributes: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true,
-          removeEmptyAttributes: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true
+            },
+            sass: {
+                files: [
+                    '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}'
+                ],
+                tasks: ['sass', 'autoprefixer']
+            },
+            gruntfile: {
+                files: ['Gruntfile.js']
+            },
+            livereload: {
+                files: [
+                    '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
+                    '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
+                    '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
+                    '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
+                ],
+                options: {
+                    livereload: true
+                }
+            }
         },
-        usemin: 'app/app.js'
-      },
-      main: {
-        cwd: '<%= yeoman.client %>',
-        src: ['{app,components}/**/*.html'],
-        dest: '.tmp/templates.js'
-      },
-      tmp: {
-        cwd: '.tmp',
-        src: ['{app,components}/**/*.html'],
-        dest: '.tmp/tmp-templates.js'
-      },
-    },
-    // Copies remaining files to places other tasks can use
-    copy: {
-      dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.client %>',
-          dest: '<%= yeoman.dist %>/public',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'bower_components/**/*',
-            'assets/images/{,*/}*.{webp}',
-            'assets/fonts/**/*',
-            'index.html'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/public/assets/images',
-          src: ['generated/*']
-        }, {
-          expand: true,
-          dest: '<%= yeoman.dist %>',
-          src: [
-            'package.json',
-            'server/**/*'
-          ]
-        }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= yeoman.client %>',
-        dest: '.tmp/',
-        src: ['{app,components}/**/*.css']
-      }
-    },
-
-    injector: {
-      options: {
-
-      },
-      // Inject application script files into index.html (doesn't include bower)
-      scripts: {
-        options: {
-          transform: function(filePath) {
-            filePath = filePath.replace('/client/', '');
-            filePath = filePath.replace('/.tmp/', '');
-            return '<script src="' + filePath + '"></script>';
-          },
-          starttag: '<!-- injector:js -->',
-          endtag: '<!-- endinjector -->'
+        clean: {
+            dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= yeoman.dist %>/*'
+                    ]
+                }]
+            }
         },
-        files: {
-          '<%= yeoman.client %>/index.html': [
-              ['{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-               '!{.tmp,<%= yeoman.client %>}/app/app.js',
-               '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
-               '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js']
-            ]
-        }
-      },
 
-      // Inject component scss into app.scss
-      sass: {
-        options: {
-          transform: function(filePath) {
-            filePath = filePath.replace('/client/app/', '');
-            filePath = filePath.replace('/client/components/', '');
-            return '@import \'' + filePath + '\';';
-          },
-          starttag: '// injector',
-          endtag: '// endinjector'
+        autoprefixer: {
+            options: {
+                browser: ['last 1 version']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/',
+                    src: '{,*/}*.css',
+                    dest: '.tmp/'
+                }]
+            }
         },
-        files: {
-          '<%= yeoman.client %>/app/app.scss': [
-            '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}',
-            '!<%= yeoman.client %>/app/app.{scss,sass}'
-          ]
-        }
-      },
 
-      // Inject component css into index.html
-      css: {
-        options: {
-          transform: function(filePath) {
-            filePath = filePath.replace('/client/', '');
-            filePath = filePath.replace('/.tmp/', '');
-            return '<link rel="stylesheet" href="' + filePath + '">';
-          },
-          starttag: '<!-- injector:css -->',
-          endtag: '<!-- endinjector -->'
+        wiredep: {
+            target: {
+                src: '<%= yeoman.client %>/index.html',
+                ignorePath: '<%= yeoman.client %>/',
+                exclude: ['/bootstrap-sass-official/', '/bootstrap.js/', '/json3/', '/es5-shim/', /bootstrap.css/, /font-awesome.css/]
+            }
         },
-        files: {
-          '<%= yeoman.client %>/index.html': [
-            '<%= yeoman.client %>/{app,components}/**/*.css'
-          ]
-        }
-      }
-    },
-  });
-  
+        ngAnnotate: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/concat',
+                    src: '*/**.js',
+                    dest: '.tmp/concat'
+                }]
+            }
+        },
 
-  // load required grunt modules
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+        // Package all the html partials into a single javascript payload
+        ngtemplates: {
+            options: {
+                // This should be the name of your apps angular module
+                module: 'teambreweryApp',
+                htmlmin: {
+                    collapseBooleanAttributes: true,
+                    collapseWhitespace: true,
+                    removeAttributeQuotes: true,
+                    removeEmptyAttributes: true,
+                    removeRedundantAttributes: true,
+                    removeScriptTypeAttributes: true,
+                    removeStyleLinkTypeAttributes: true
+                },
+                usemin: 'app/app.js'
+            },
+            main: {
+                cwd: '<%= yeoman.client %>',
+                src: ['{app,components}/**/*.html'],
+                dest: '.tmp/templates.js'
+            },
+            tmp: {
+                cwd: '.tmp',
+                src: ['{app,components}/**/*.html'],
+                dest: '.tmp/tmp-templates.js'
+            },
+        },
+        // Copies remaining files to places other tasks can use
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.client %>',
+                    dest: '<%= yeoman.dist %>/public',
+                    src: [
+                        '*.{ico,png,txt}',
+                        '.htaccess',
+                        'bower_components/**/*',
+                        'assets/images/{,*/}*.{webp}',
+                        'assets/fonts/**/*',
+                        'index.html'
+                    ]
+                }, {
+                    expand: true,
+                    cwd: '.tmp/images',
+                    dest: '<%= yeoman.dist %>/public/assets/images',
+                    src: ['generated/*']
+                }, {
+                    expand: true,
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        'package.json',
+                        'server/**/*'
+                    ]
+                }]
+            },
+            styles: {
+                expand: true,
+                cwd: '<%= yeoman.client %>',
+                dest: '.tmp/',
+                src: ['{app,components}/**/*.css']
+            }
+        },
+
+        injector: {
+            options: {
+
+            },
+            // Inject application script files into index.html (doesn't include bower)
+            scripts: {
+                options: {
+                    transform: function(filePath) {
+                        filePath = filePath.replace('/client/', '');
+                        filePath = filePath.replace('/.tmp/', '');
+                        return '<script src="' + filePath + '"></script>';
+                    },
+                    starttag: '<!-- injector:js -->',
+                    endtag: '<!-- endinjector -->'
+                },
+                files: {
+                    '<%= yeoman.client %>/index.html': [
+                        ['{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
+                            '!{.tmp,<%= yeoman.client %>}/app/app.js',
+                            '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
+                            '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js'
+                        ]
+                    ]
+                }
+            },
+
+            // Inject component scss into app.scss
+            sass: {
+                options: {
+                    transform: function(filePath) {
+                        filePath = filePath.replace('/client/app/', '');
+                        filePath = filePath.replace('/client/components/', '');
+                        return '@import \'' + filePath + '\';';
+                    },
+                    starttag: '// injector',
+                    endtag: '// endinjector'
+                },
+                files: {
+                    '<%= yeoman.client %>/app/app.scss': [
+                        '<%= yeoman.client %>/{app,components}/**/*.{scss,sass}',
+                        '!<%= yeoman.client %>/app/app.{scss,sass}'
+                    ]
+                }
+            },
+
+            // Inject component css into index.html
+            css: {
+                options: {
+                    transform: function(filePath) {
+                        filePath = filePath.replace('/client/', '');
+                        filePath = filePath.replace('/.tmp/', '');
+                        return '<link rel="stylesheet" href="' + filePath + '">';
+                    },
+                    starttag: '<!-- injector:css -->',
+                    endtag: '<!-- endinjector -->'
+                },
+                files: {
+                    '<%= yeoman.client %>/index.html': [
+                        '<%= yeoman.client %>/{app,components}/**/*.css'
+                    ]
+                }
+            }
+        },
+    });
 
 
-  grunt.registerTask('default', [
-    'sass',
-    'injector:sass',
-    'injector',
-    'wiredep',
-    'autoprefixer',
-    'watch'
+    // load required grunt modules
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-  ]);
+
+    grunt.registerTask('default', [
+        'sass',
+        'injector:sass',
+        'injector',
+        'wiredep',
+        'autoprefixer',
+        'watch'
+
+    ]);
 };
