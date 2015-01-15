@@ -12,6 +12,8 @@
   <meta name="viewport" content="width=device-width">
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
   <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.css" />
   <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
@@ -19,13 +21,13 @@
   <!-- endbuild -->
   <!-- build:css styles/custom.css -->
   <!-- injector:css -->
-  <link rel="stylesheet" href="app/app.css">
+  <link rel="stylesheet" href="client/app/app.css">
   <!-- endinjector -->
   <!-- endbuild -->
   <link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css' />
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css' />
 </head>
-<body ng-app="teambreweryApp">
+<body ng-app="teambrewery">
   <!--[if lt IE 7]>
   <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
@@ -79,7 +81,21 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -97,37 +113,38 @@
     <!-- endbower -->
     <!-- endbuild -->
     
-    <script src="/assets/vendor/bootstrap.min.js"></script>
     <!-- build:js scripts/custom.js -->
     <!-- injector:js -->
-    <script src="app/main/config/routes.js"></script>
-    <script src="app/main/controllers/main.controller.js"></script>
-    <script src="app/main/controllers/teams.js"></script>
-    <script src="app/main/main.js"></script>
-    <script src="app/main/services/api.service.js"></script>
-    <script src="app/pokedex/config/routes.js"></script>
-    <script src="app/pokedex/controllers/pokedex.controller.js"></script>
-    <script src="app/pokedex/directives/stat.progress.bar.directive.js"></script>
-    <script src="app/pokedex/pokedex.js"></script>
-    <script src="app/pokemon/config/routes.js"></script>
-    <script src="app/pokemon/controllers/pokemon.controller.js"></script>
-    <script src="app/pokemon/directives/card.directive.js"></script>
-    <script src="app/pokemon/directives/pokemon.directive.js"></script>
-    <script src="app/pokemon/directives/stats.directive.js"></script>
-    <script src="app/pokemon/pokemon.js"></script>
-    <script src="app/pokemon/services/pokemon.service.js"></script>
-    <script src="app/team/config/routes.js"></script>
-    <script src="app/team/controllers/team.controller.js"></script>
-    <script src="app/team/controllers/team.pokemon.controller.js"></script>
-    <script src="app/team/controllers/team.pokemon.view.controller.js"></script>
-    <script src="app/team/directives/team.directive.js"></script>
-    <script src="app/team/directives/typechart.js"></script>
-    <script src="app/team/importer/import.directive.js"></script>
-    <script src="app/team/services/team.service.js"></script>
-    <script src="app/team/team.js"></script>
-    <script src="components/modal/modal.service.js"></script>
-    <script src="components/navbar/navbar.controller.js"></script>
-    <script src="components/toaster/toaster.service.js"></script>
+    <script src="client/app/config.js"></script>
+    <script src="client/app/app.js"></script>
+    <script src="client/app/templates.js"></script>
+    <script src="client/app/modules/core/core.js"></script>
+    <script src="client/app/modules/pokedex/pokedex.js"></script>
+    <script src="client/app/modules/pokemon/pokemon.js"></script>
+    <script src="client/app/modules/team/team.js"></script>
+    <script src="client/app/modules/core/config/routes.js"></script>
+    <script src="client/app/modules/pokedex/config/routes.js"></script>
+    <script src="client/app/modules/pokemon/config/routes.js"></script>
+    <script src="client/app/modules/team/config/routes.js"></script>
+    <script src="client/app/modules/core/services/api.js"></script>
+    <script src="client/app/modules/pokemon/services/pokemon.js"></script>
+    <script src="client/app/modules/team/services/team.js"></script>
+    <script src="client/app/modules/pokedex/directives/statProgressBars.js"></script>
+    <script src="client/app/modules/pokemon/directives/pokemon.js"></script>
+    <script src="client/app/modules/pokemon/directives/stats.js"></script>
+    <script src="client/app/modules/team/directives/typechart.js"></script>
+    <script src="client/app/modules/team/directives/weaknessTable.js"></script>
+    <script src="client/app/modules/core/controllers/main.js"></script>
+    <script src="client/app/modules/core/controllers/teams.js"></script>
+    <script src="client/app/modules/pokedex/controllers/pokedex.js"></script>
+    <script src="client/app/modules/pokemon/controllers/pokemon.js"></script>
+    <script src="client/app/modules/team/controllers/team.js"></script>
+    <script src="client/app/modules/team/controllers/team.pokemon.js"></script>
+    <script src="client/app/modules/team/controllers/team.pokemon.view.js"></script>
+    <script src="client/app/modules/team/importer/import.js"></script>
+    <script src="client/components/modal/modal.service.js"></script>
+    <script src="client/components/navbar/navbar.controller.js"></script>
+    <script src="client/components/toaster/toaster.service.js"></script>
     <!-- endinjector -->
     <!-- endbuild -->
   </body>

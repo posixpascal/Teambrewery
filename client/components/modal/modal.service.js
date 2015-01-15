@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('teambreweryApp')
+angular.module('teambrewery')
   .factory('Modal', function ($rootScope, $modal) {
     /**
      * Opens a modal

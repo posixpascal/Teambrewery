@@ -6,10 +6,10 @@ $color-highlight: #40e509;
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
 @import '../assets/css/rotating-card';
-@import './loader.scss';
-@import "./scss/pokemon_table.scss";
-@import './shapes.scss';
-@import './team/team.scss';
+@import './modules/utils/loader.scss';
+@import "./modules/pokemon/table.scss";
+@import './modules/utils/shapes.scss';
+@import './modules/team/team.scss';
 
 .spacer {
     height: 50px;
@@ -158,17 +158,6 @@ table tr td {
     padding: 20px;
 }
 
-
-// Component styles are injected through grunt
-// injector
-@import 'main/main.scss';
-@import 'pokemon/types.scss';
-@import 'scss/loader.scss';
-@import 'scss/pokemon_table.scss';
-@import 'shapes.scss';
-@import 'team/team.scss';
-@import 'modal/modal.scss';
-// endinjector
 
 .stat-table {
     font-size: 11px;

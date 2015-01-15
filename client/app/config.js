@@ -4,8 +4,8 @@
 // Init the application configuration module for AngularJS application
 var ApplicationConfiguration = (function() {
     // Init module configuration options
-    var applicationModuleName = 'qamzApp';
-    var applicationModuleVendorDependencies = ['ionic', 'ngCordova'];
+    var applicationModuleName = 'teambrewery';
+    var applicationModuleVendorDependencies = [];
 
     // Add a new vertical module
     var registerModule = function(moduleName) {
@@ -23,9 +23,9 @@ var ApplicationConfiguration = (function() {
                 'smart-table',
 
                 // teambrewery modules
+                'core',
                 'team',
                 'pokedex',
-                'main',
                 'pokemon'
             ]);
 

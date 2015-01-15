@@ -1,4 +1,4 @@
-angular.module('teambreweryApp').factory('Toaster', function(){
+angular.module('teambrewery').factory('Toaster', function(){
 	"use strict";
 	var defaultOptions = {};
 	return {

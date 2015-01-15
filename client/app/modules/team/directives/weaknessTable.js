@@ -1,4 +1,4 @@
-angular.module("teambreweryApp").directive('weaknessTable', [function(){
+angular.module("teambrewery").directive('weaknessTable', [function(){
            return {
                 restrict: 'E',
                 scope: true,

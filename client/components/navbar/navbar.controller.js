@@ -1,6 +1,6 @@
 'use strict';
-angular.module('teambreweryApp')
-  .controller('NavbarCtrl', ['$scope', '$location', '$auth', function ($scope, $location, $auth) {
+angular.module('teambrewery')
+  .controller('NavbarController', ['$scope', '$location', '$auth', function ($scope, $location, $auth) {
     $scope.$auth = $auth;
 
     $scope.menu = [{

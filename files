@@ -1,0 +1,1226 @@
+angular.module('files').run(['$templateCache', function($templateCache) {
+  'use strict';
+
+  $templateCache.put('client/app/templates/main/intro.html',
+    "<ui-view>\n" +
+    "        <header class=\"hero-unit\" id=\"banner\">\n" +
+    "          <div class=\"container\">\n" +
+    "               <img src=\"/assets/images/teaser.png\" style=\"width: 100%; max-height: 694px; max-width: 694px;\" />\n" +
+    "               <div class=\"text-center\">\n" +
+    "               \t<p>Teambrewery is a modern Teambuilder for competetive Pokémon players</p>\n" +
+    "\n" +
+    "\n" +
+    "               </div>\n" +
+    "          </div>\n" +
+    "        </header>\n" +
+    "        <div class=\"block dark-blue\">\n" +
+    "        \t<div class=\"container\">\n" +
+    "\t        \t<div class=\"row\">\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t        \t\t\t<img class=\"thumbnail\" src=\"/assets/images/intro/typechart.png\" style=\"width: 100%;\">\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t        \t\t\t<h3 class=\"text-center\">Check your teams resistances</h3>\n" +
+    "\t        \t\t\t<p class=\"big-padding\">\n" +
+    "\t        \t\t\tThe most important point in teambuilding is synergy. We provide your with simple yet detailed charts which show you where your team needs improvement. Beside the <em>Type &amp; Resistances</em> table, we also show you your teams <em>Moveset Coverage</em>.\n" +
+    "\t        \t\t\t<br/><br/>\n" +
+    "\t        \t\t\tAlso checkout our Checklist, which shows you what kind of Pokémon your teams check (eg. Spinner, Stealth Rocker, Pivot, Sweeper etc.)\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t       \t \t</div>\n" +
+    "\t       \t \t<div class=\"row row-margin\">\n" +
+    "\t        \t\t\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t        \t\t\t<h3 class=\"text-center\">Add Pokemon with ease</h3>\n" +
+    "\t        \t\t\t<p class=\"big-padding\">\n" +
+    "\t        \t\t\tWe try to make teambuilding as simple and fun as possible. We already grouped common Pokémon to make it really easy to add individual Pokémon. You need a spinner? Just click on the <em>Add Pokemon &raquo; Spinner</em> link. \n" +
+    "\t        \t\t\t<br/><br/>\n" +
+    "\t        \t\t\tSometimes you need a strong sweeper but you don't remember what Pokémon is capable of doing it? Just... <em>you already know it. ;)</em>.\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t        \t\t\t<img class=\"thumbnail\" src=\"/assets/images/intro/add-pokemon.png\" style=\"width: 100%;\">\n" +
+    "\t        \t\t</div>\n" +
+    "\t       \t \t</div>\n" +
+    "\n" +
+    "\t        </div>\n" +
+    "\t    </div>\n" +
+    "\t    <div class=\"block cinnamon-red\">\n" +
+    "        \t<div class=\"container\">\n" +
+    "        \t\t<h3 class=\"text-center\">What we offer</h3>\n" +
+    "\t        \t<div class=\"row\">\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t        \t\t\t<h4><i class=\"fa fa-users\"></i> A community behind teams</h4>\n" +
+    "\t        \t\t\t<p class=\"desc\">\n" +
+    "\t        \t\t\t\tCreate and share your team with the community. Get tips on how to improve your team. Pick a team from the community and start adding your own flavour.\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t        \t\t\t<h4><i class=\"fa fa-line-chart\"></i> A whole new level of team creation</h4>\n" +
+    "\t        \t\t\t<p class=\"desc\">\n" +
+    "\t        \t\t\tWhile other teambuilder let you add Pokémon and show you their weaknesses and resistances, we go a step further providing detailed movesets. Our Pokémon are already set-up with the most up-to-date movesets and EVSpreads.\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t        \t\t\t<h4><i class=\"fa fa-youtube-play\"></i> Show your teams in action!</h4>\n" +
+    "\t        \t\t\t<p class=\"desc\">\n" +
+    "\t        \t\t\tIf you're using a team in a Youtube Video you can link these videos. Whenever someone views your team they have direct insight on how the team compares. \n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t       \t \t</div>\n" +
+    "\t       \t \t<div class=\"row row-margin\">\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t        \t\t\t<h4><i class=\"fa fa-lock\"></i> Everything is kept secret</h4>\n" +
+    "\t        \t\t\t<p class=\"desc\">\n" +
+    "\t        \t\t\t\tDon't worry about your privacy. You don't even need to login to use our service! If you want to save your teams you can simply login with any <em>Social Network</em>. No password required. \n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t        \t\t\t<h4><i class=\"fa fa-code-fork\"></i> Export/Import your team</h4>\n" +
+    "\t        \t\t\t<p class=\"desc\">\n" +
+    "\t        \t\t\tYou can easily export your team to <em>Pokemon Showdown</em> or any other Pokemon Simulator. We also added the feature to import your existing Pokemon Simulator teams.<br/><br/>\n" +
+    "\t        \t\t\tWe're working hard to provide you with <em>Browser Extension</em>, so you can use the teams you created on <em>Teambrewery</em>\n" +
+    "\t        \t\t\ton Showdown with no effort.\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t        \t\t\t<h4><i class=\"fa fa-database\"></i> Save your Pokémon!</h4>\n" +
+    "\t        \t\t\t<p class=\"desc\">\n" +
+    "\t        \t\t\tYou know that in the original games you can simply drop your Pokémon to a Box on your Computer and reuse it whenever want? Well, now you can do as well! You can save up to 200 Pokémon to your private Box and use them in any team. How convenient is that?\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t       \t \t</div>\n" +
+    "\t        </div>\n" +
+    "\t    </div>\n" +
+    "\t    <div class=\"block light-green\">\n" +
+    "        \t<div class=\"container\">\n" +
+    "\t       \t \t<div class=\"row row-margin\">\n" +
+    "\t        \t\t\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t        \t\t\t<h3 class=\"text-center\">Extensive Tier support</h3>\n" +
+    "\t        \t\t\t<p class=\"big-padding\">\n" +
+    "\t        \t\t\tMost teambuilder don't check if your team is legit in a given tier<sup>*</sup>. We do! Every action adapts your tiers changes automatically. Don't ever worry that your team might be rejected.\n" +
+    "\t        \t\t\tWe use the latest <em>Pokemon Showdown</em> tier rules.\n" +
+    "\t        \t\t\t<br/><br/>\n" +
+    "\t        \t\t\tAt the moment we support common tiers like: <strong>OU, Uber, UU, LC, RU, NU, BL</strong>. We plan to support more tiers in the future.\n" +
+    "\t        \t\t\t<br/><br/>\n" +
+    "\t        \t\t\t*) This reflects to tier clauses as well. For example <em>Species Clause</em>.\n" +
+    "\t        \t\t\t</p>\n" +
+    "\t        \t\t</div>\n" +
+    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t        \t\t\t<img src=\"/assets/images/intro/xernias.png\" style=\"width: 100%;\">\n" +
+    "\t        \t\t</div>\n" +
+    "\t       \t \t</div>\n" +
+    "\t        </div>\n" +
+    "\t    </div>\n" +
+    "\t    \n" +
+    "</ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/main/main.html',
+    "<ui-view>\n" +
+    "        <header class=\"hero-unit\" id=\"banner\">\n" +
+    "          <div class=\"container\">\n" +
+    "               <img src=\"/assets/images/teaser.png\" />\n" +
+    "          </div>\n" +
+    "        </header>\n" +
+    "        <div class=\"block\">\n" +
+    "        \t<div class=\"row\">\n" +
+    "        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "        \t\tWhat is\n" +
+    "        \t\t</div>\n" +
+    "        \t\t<div class=\"col-xs-12 col-sm-8\">\n" +
+    "        \t\tup\n" +
+    "        \t\t</div>\n" +
+    "       \t \t</div>\n" +
+    "        </div>\n" +
+    "</ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/main/teams/community.html',
+    "<ui-view>\n" +
+    "\t<h2>Community teams</h2>\n" +
+    "</ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/main/teams/list.html',
+    "<ui-view>\n" +
+    "\t<div class=\"header-bar\">\n" +
+    "\t\t<div class=\"container\">\n" +
+    "\t\t\t<h2>Your <span class=\"highlight\">Pokemon Teams</span><span class=\"pull-right\">New Team</span></h2>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"container content-container\">\n" +
+    "\t\t<div class=\"field-bar\" ng-repeat=\"team in teams\">\n" +
+    "\t\t\t<div>\n" +
+    "\t\t\t\t\t{{team.name}} {{team.format}} \n" +
+    "\t\t\t\t\t<span style=\"float:right;\">\n" +
+    "\t\t\t\t\t\t<a ng-click=\"editTeam(team.id)\" class=\"btn btn-info\">Edit team</a>\n" +
+    "\t\t\t\t\t\t<a ng-click=\"deleteTeam(team.id)\" class=\"btn btn-danger\">Delete team</a>\n" +
+    "\t\t\t\t\t</span>\n" +
+    "\t\t\t\t\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<hr />\n" +
+    "\t\t\t<img ng-src=\"{{pokemon.getSprite()}}\" ng-repeat=\"pokemon in team.pokemons\">\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/main/teams/new.html',
+    "<ui-view>\n" +
+    "\t<div class=\"header-bar\">\n" +
+    "\t\t<div class=\"container\">\n" +
+    "\t\t\t<h2>Create a new <span class=\"highlight\">Pokemon Team</span></h2>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"container content-container\">\n" +
+    "\t\t<div class=\"field-bar\">\n" +
+    "\t\t\t<b>Team Name</b>\n" +
+    "\t\t\t<input type=\"text\" ng-model=\"newTeam.name\" class=\"form-control\">\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"container content-container\">\n" +
+    "\t\t<div class=\"field-bar\">\n" +
+    "\t\t\t<b>Tier</b>\n" +
+    "\t\t\t\n" +
+    "\t\t\t<select class=\"form-control\" ng-model=\"newTeam.tier\">\n" +
+    "\t\t\t\t<option value=\"OU\">OU (Most Used / Overused)</option>\n" +
+    "\t\t\t\t<option value=\"BL\">BL (Things to good for UU but too weak for OU)</option>\n" +
+    "\t\t\t\t<option value=\"UU\">UU (Commonly Used / Under Used)</option>\n" +
+    "\t\t\t\t<option value=\"RU\">RU (Sometimes Used / Rarely Used)</option>\n" +
+    "\t\t\t\t<option value=\"NU\">NU (Poorly Used / Never Used)</option>\n" +
+    "\t\t\t\t<option value=\"Uber\">Uber (Things too strong for OU)</option>\n" +
+    "\t\t\t</select>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\t<div class=\"container content-container\">\n" +
+    "\t\t<div class=\"field-bar\">\n" +
+    "\t\t\t<b>Options</b>\n" +
+    "\t\t\t\n" +
+    "\t\t\t<div class=\"well\">\n" +
+    "\t\t\t\t<input type=\"checkbox\" ng-model=\"newTeam.populate\"> Populate team on creation<br/><br/>\n" +
+    "\t\t\t\t<input type=\"checkbox\" ng-model=\"newTeam.private\"> Private? <span class=\"text-muted\">Do not list this team</span>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"container content-container\">\n" +
+    "\t\t<div class=\"field-bar\">\n" +
+    "\t\t\t<b>Actions</b>\n" +
+    "\t\t\t\n" +
+    "\t\t\t<div class=\"well\">\n" +
+    "\t\t\t\t<a href=\"#\" ng-click=\"createTeam(newTeam)\" class=\"btn btn-block btn-success\">Create &amp; Edit</a>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"spacer\"></div>\n" +
+    "</ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/pokedex/pokedex.html',
+    "<ui-view>\n" +
+    "\t<div class=\"header-bar\">\n" +
+    "\t\t<div class=\"container\">\n" +
+    "\t\t\t<h2>Pokedex</h2>\n" +
+    "\t\t\t<input type=\"text\" ng-model=\"query\" placeholder=\"Search for a Pokemon\" typeahead=\"pokemon as pokemon.name for pokemon in getPokemonByName($viewValue)\" typeahead-on-select=\"setActivePokemon($item, $model, $label)\" typeahead-loading=\"loadingLocations\" typeahead-wait-ms=\"300\" typeahead-template-url=\"/app/autocomplete_template.html\"  name=\"q\" class=\"form-control input-lg\">\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/pokedex/pokemon.view.html',
+    "<div class=\"header-bar\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h2><a ui-sref=\"pokedex\">&lt; Back</a></h2>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div ng-if=\"pokemon\" class=\"container\">\n" +
+    "\t<div class=\"field-bar\">\n" +
+    "\t\t<hr/>\n" +
+    "\t\t<h3 class=\"text-center\">Details For {{pokemon.name }}</h3>\n" +
+    "\t\t<hr/>\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<center>\n" +
+    "\t\t\t\t\t<img ng-src=\"{{pokemon.getSprite()}}\" class=\"thumbnail img-responsive\">\n" +
+    "\t\t\t\t\t<h2>{{pokemon.name}}</h2>\n" +
+    "\t\t\t\t\t<pokemon-typing></pokemon-typing>\n" +
+    "\t\t\t\t</center>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div ng-show=\"pokemon\" class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<div class=\"progress_bars\">\n" +
+    "\t\t\t\t\t<div class=\"progress\">\n" +
+    "\t\t\t\t\t  <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" ng-class=\"stats.atk.cssclass\" ng-style=\"{'width': evPercentage(pokemon, 'hp')}\">HP ({{pokemon.basestats.hp}})\n" +
+    "\t\t\t\t\t  </div>\n" +
+    "\t\t\t\t\t </div>\n" +
+    "\t\t\t\t\t <div class=\"progress\">\n" +
+    "\t\t\t\t\t  <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" ng-class=\"stats.atk.cssclass\" ng-style=\"{'width': evPercentage(pokemon, 'atk')}\">Attack ({{pokemon.basestats.atk}})\n" +
+    "\t\t\t\t\t  </div>\n" +
+    "\t\t\t\t\t </div>\n" +
+    "\t\t\t\t\t <div class=\"progress\">\n" +
+    "\t\t\t\t\t  <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" ng-class=\"stats.def.cssclass\" ng-style=\"{'width': evPercentage(pokemon, 'def')}\">Defense ({{pokemon.basestats.def}})\n" +
+    "\t\t\t\t\t  </div>\n" +
+    "\t\t\t\t\t </div>\n" +
+    "\t\t\t\t\t <div class=\"progress\">\n" +
+    "\t\t\t\t\t  <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" ng-class=\"stats.spa.cssclass\" ng-style=\"{'width': evPercentage(pokemon, 'spa')}\">Special Attack ({{pokemon.basestats.spa}})\n" +
+    "\t\t\t\t\t  </div>\n" +
+    "\t\t\t\t\t </div>\n" +
+    "\t\t\t\t\t <div class=\"progress\">\n" +
+    "\t\t\t\t\t  <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" ng-class=\"stats.spd.cssclass\" ng-style=\"{'width': evPercentage(pokemon, 'spd')}\">Special Defense ({{pokemon.basestats.spd}})\n" +
+    "\t\t\t\t\t  </div>\n" +
+    "\t\t\t\t\t </div>\n" +
+    "\t\t\t\t\t <div class=\"progress\">\n" +
+    "\t\t\t\t\t  <div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\" ng-class=\"stats.spe.cssclass\" ng-style=\"{'width': evPercentage(pokemon, 'spe')}\">Speed ({{pokemon.basestats.spe}})\n" +
+    "\t\t\t\t\t  </div>\n" +
+    "\t\t\t\t\t </div>\n" +
+    "\t\t\t\t\t</div>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t<div class=\"field-bar\">\n" +
+    "\t\t<hr/>\n" +
+    "\t\t<h3 class=\"text-center\">Movesets For {{pokemon.name}}</h3>\n" +
+    "\t\t<hr/>\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"col-xs-12\">\n" +
+    "\t\t\t\tSorry! We don't provide Movesets at the moment. Please consider using Smogon.com\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/pokedex/stat.progress.bars.html',
+    "{{pokemon.id}}"
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/card.html',
+    "<div class=\"col-md-4 col-sm-4\">\n" +
+    "    <div class=\"card-container\">\n" +
+    "        <div class=\"card\">\n" +
+    "            <div class=\"front\">\n" +
+    "                <div class=\"cover\">\n" +
+    "\n" +
+    "                </div>\n" +
+    "                <div class=\"user\">\n" +
+    "                    <img ng-src=\"{{pokemon.sprite}}\">\n" +
+    "                </div>\n" +
+    "                <div class=\"content\">\n" +
+    "                    <div class=\"main\">\n" +
+    "                        <h3 class=\"name\">{{pokemon.name}}</h3>\n" +
+    "                        <p class=\"typing\">\n" +
+    "                            <pokemon-typing />\n" +
+    "                        </p>\n" +
+    "                        <hr />\n" +
+    "                        <stat-distribution />\n" +
+    "                    </div>\n" +
+    "                    <div class=\"footer\">\n" +
+    "                        <div class=\"rating\">\n" +
+    "                            <i class=\"fa fa-star\"></i>\n" +
+    "                           \n" +
+    "                        </div>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div> <!-- end front panel -->\n" +
+    "            <div class=\"back\">\n" +
+    "                <div class=\"header\">\n" +
+    "                    <h5 class=\"motto\">\n" +
+    "                        <img ng-src=\"{{pokemon.sprite}}\" style=\"height: 25px; width: auto;\"><br/>\n" +
+    "                        {{pokemon.name}}\n" +
+    "                        </h5>\n" +
+    "                </div> \n" +
+    "                <div class=\"content\">\n" +
+    "                    <div class=\"main\">\n" +
+    "                        <div ng-if=\"pokemon.moveset.moves.length\">\n" +
+    "                            <table class=\"table move-table\">\n" +
+    "                                  <tr>\n" +
+    "                                    <td>\n" +
+    "                                        <div class=\"type text-center\" ng-class='pokemon.moveset.moves[0].type.toLowerCase()' >\n" +
+    "                                            {{pokemon.moveset.moves[0].name}}\n" +
+    "                                        </div>\n" +
+    "                                    </td>\n" +
+    "                                    <td>\n" +
+    "                                        <div  class=\"type text-center\" ng-class='pokemon.moveset.moves[1].type.toLowerCase()' >\n" +
+    "                                            {{pokemon.moveset.moves[1].name}}\n" +
+    "                                        </div>\n" +
+    "                                    </td>\n" +
+    "                                </tr>\n" +
+    "                                <tr>\n" +
+    "                                    <td>\n" +
+    "                                        <div  class=\"type text-center\" ng-class='pokemon.moveset.moves[2].type.toLowerCase()' >\n" +
+    "                                            {{pokemon.moveset.moves[2].name}}\n" +
+    "                                        </div>\n" +
+    "                                    </td>\n" +
+    "                                    <td>\n" +
+    "                                        <div  class=\"type text-center\" ng-class='pokemon.moveset.moves[3].type.toLowerCase()' >\n" +
+    "                                            {{pokemon.moveset.moves[3].name}}\n" +
+    "                                        </div>\n" +
+    "                                    </td>\n" +
+    "                                </tr>\n" +
+    "                            </table>\n" +
+    "                            <div ng-if=\"!!pokemon.moveset.item\">\n" +
+    "                                <span>{{pokemon.moveset.item.name}} <br/>\n" +
+    "                                    <small class=\"text-muted item-description\">{{pokemon.moveset.item.desc}}</small>\n" +
+    "                                </span>\n" +
+    "                            </div>\n" +
+    "                            \n" +
+    "                            <div ng-if=\"!!pokemon.moveset.ev_spread\">\n" +
+    "                                <table class=\"table table-tiny stat-table move-table\" style=\"border:none\">\n" +
+    "                                    <tbody>\n" +
+    "                                        <tr>\n" +
+    "                                            <td>HP</td>\n" +
+    "                                            <td>ATK</td>\n" +
+    "                                            <td>DEF</td>\n" +
+    "                                            <td>SATK</td>\n" +
+    "                                            <td>SDEF</td>\n" +
+    "                                            <td>SPE</td>\n" +
+    "                                        </tr>\n" +
+    "                                        <tr>\n" +
+    "                                            <td>\n" +
+    "                                                {{pokemon.moveset.ev_spread.hp}}\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                {{pokemon.moveset.ev_spread.atk}}<span ng-if=\"pokemon.moveset.nature.patk == 1.1\">+</span><span ng-if=\"pokemon.moveset.nature.patk == 0.9\">-</span>\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                {{pokemon.moveset.ev_spread.def}}<span ng-if=\"pokemon.moveset.nature.pdef == 1.1\">+</span><span ng-if=\"pokemon.moveset.nature.pdef == 0.9\">-</span>\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                {{pokemon.moveset.ev_spread.spa}}<span ng-if=\"pokemon.moveset.nature.spatk == 1.1\">+</span><span ng-if=\"pokemon.moveset.nature.spatk == 0.9\">-</span>\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                {{pokemon.moveset.ev_spread.spd}}<span ng-if=\"pokemon.moveset.nature.spdef == 1.1\">+</span><span ng-if=\"pokemon.moveset.nature.spdef == 0.9\">-</span>\n" +
+    "                                            </td>\n" +
+    "                                            <td>\n" +
+    "                                                {{pokemon.moveset.ev_spread.spe}}<span ng-if=\"pokemon.moveset.nature.spe == 1.1\">+</span><span ng-if=\"pokemon.moveset.nature.spe == 0.9\">-</span>\n" +
+    "                                            </td>\n" +
+    "                                            \n" +
+    "                                        </tr>\n" +
+    "                                    </tbody>\n" +
+    "                                </table>\n" +
+    "                            </div>\n" +
+    "                        </div>\n" +
+    "                        <div ng-if=\"!pokemon.moves\" class=\"text-center\">\n" +
+    "                            No moveset for {{pokemon.name}} yet.\n" +
+    "                            <br/><br/>\n" +
+    "                            <a ng-click=\"addMoveset()\" class=\"btn btn-xs btn-primary\">Add Moveset</a>\n" +
+    "                        </div>\n" +
+    "                        \n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"footer\">\n" +
+    "                    <div class=\"social-links text-center\">\n" +
+    "                       <a ng-click=\"editPokemon()\" class=\"btn btn-default btn-xs\">Edit Pokemon</a>\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div> <!-- end back panel -->\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/pokemon.evspread.html',
+    "<div class=\"pokemon-evspread\">\n" +
+    "\t<div ng-if=\"pokemon.moveset && pokemon.moveset.ev_spread\">\n" +
+    "\t\t<table ng-if=\"options && options.view == 'table'\" width=\"400px\" class=\"table table-bordered table-small table-evspread\">\n" +
+    "\t\t\t<thead>\n" +
+    "\t\t\t\t<tr>\n" +
+    "\t\t\t\t\t<th>HP</th>\n" +
+    "\t\t\t\t\t<th>ATK</th>\n" +
+    "\t\t\t\t\t<th>DEF</th>\n" +
+    "\t\t\t\t\t<th>SPA</th>\n" +
+    "\t\t\t\t\t<th>SPD</th>\n" +
+    "\t\t\t\t\t<th>SPE</th>\n" +
+    "\t\t\t\t</tr>\n" +
+    "\t\t\t</thead>\n" +
+    "\t\t\t<tbody>\n" +
+    "\t\t\t\t<tr>\n" +
+    "\t\t\t\t\t<td>{{pokemon.moveset.ev_spread.hp}}</td>\n" +
+    "\t\t\t\t\t<td>{{pokemon.moveset.ev_spread.atk}}</td>\n" +
+    "\t\t\t\t\t<td>{{pokemon.moveset.ev_spread.def}}</td>\n" +
+    "\t\t\t\t\t<td>{{pokemon.moveset.ev_spread.spa}}</td>\n" +
+    "\t\t\t\t\t<td>{{pokemon.moveset.ev_spread.spd}}</td>\n" +
+    "\t\t\t\t\t<td>{{pokemon.moveset.ev_spread.spe}}</td>\n" +
+    "\t\t\t\t</tr>\n" +
+    "\t\t\t</tbody>\n" +
+    "\t\t</table>\n" +
+    "\t\t<div ng-if=\"!options || options.view == 'small'\">\n" +
+    "\t\t\t<span ng-if=\"pokemon.moveset.ev_spread.hp != 0\">{{pokemon.moveset.ev_spread.hp}} HP / </span>\n" +
+    "\t\t\t<span ng-if=\"pokemon.moveset.ev_spread.atk != 0\">{{pokemon.moveset.ev_spread.atk}} ATK / </span>\n" +
+    "\t\t\t<span ng-if=\"pokemon.moveset.ev_spread.def != 0\">{{pokemon.moveset.ev_spread.def}} DEF / </span>\n" +
+    "\t\t\t<span ng-if=\"pokemon.moveset.ev_spread.spa != 0\">{{pokemon.moveset.ev_spread.spa}} SPA / </span>\n" +
+    "\t\t\t<span ng-if=\"pokemon.moveset.ev_spread.spd != 0\">{{pokemon.moveset.ev_spread.spd}} SPD / </span>\n" +
+    "\t\t\t<span ng-if=\"pokemon.moveset.ev_spread.spe != 0\">{{pokemon.moveset.ev_spread.spe}} SPE </span>\n" +
+    "\t\t</div>\n" +
+    "\t\t<a ng-click=\"changeEvSpread(pokemon)\">Change EVSpread for {{pokemon.name}}</a>\n" +
+    "\t</div>\n" +
+    "\t\n" +
+    "\t<div ng-if=\"!pokemon.moveset || !pokemon.moveset.ev_spread\">\n" +
+    "\t\tNo EVSpread exist for {{pokemon.name}} at the moment. <br/><a ng-click=\"changeEvSpread(pokemon)\">Add EvSpread</a>\n" +
+    "\t</div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/pokemon.html',
+    ""
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/pokemon.moves.html',
+    "<div>\n" +
+    "\t<div ng-if=\"pokemon.moveset\">\n" +
+    "\t\t<!-- move 1 -->\n" +
+    "\t\t<span ng-if=\"pokemon.moveset.moves[0]\">\n" +
+    "\t\t\t<input type=\"text\" pokemon-move-input=\"{slot: 1}\" value=\"{{pokemon.moveset.moves[0].name}}\" />\n" +
+    "\t\t</span>\n" +
+    "\t\t<!-- no move 1 -->\n" +
+    "\t\t<span ng-if=\"!pokemon.moveset.moves[0]\">\n" +
+    "\t\t\t<a ng-click=\"addMove(pokemon, 0)\">Add Move...</a>\n" +
+    "\t\t</span>\n" +
+    "\n" +
+    "\t\t<span ng-if=\"pokemon.moveset.moves[1]\">\n" +
+    "\t\t\t<input type=\"text\" pokemon-move-input value=\"{{pokemon.moveset.moves[1].name}}\" />\n" +
+    "\t\t</span>\n" +
+    "\t\t<!-- no move 2 -->\n" +
+    "\t\t<span ng-if=\"!pokemon.moveset.moves[1]\">\n" +
+    "\t\t\t<a ng-click=\"addMove(pokemon, 1)\">Add Move...</a>\n" +
+    "\t\t</span>\n" +
+    "\n" +
+    "\n" +
+    "\t\t<span ng-if=\"pokemon.moveset.moves[2]\">\n" +
+    "\t\t\t<input type=\"text\" pokemon-move-input value=\"{{pokemon.moveset.moves[2].name}}\" />\n" +
+    "\t\t</span>\n" +
+    "\t\t<!-- no move 3 -->\n" +
+    "\t\t<span ng-if=\"!pokemon.moveset.moves[2]\">\n" +
+    "\t\t\t<a ng-click=\"addMove(pokemon, 2)\">Add Move...</a>\n" +
+    "\t\t</span>\n" +
+    "\n" +
+    "\t\t<span ng-if=\"pokemon.moveset.moves[3]\">\n" +
+    "\t\t\t<input type=\"text\" pokemon-move-input value=\"{{pokemon.moveset.moves[3].name}}\" />\n" +
+    "\t\t</span>\n" +
+    "\t\t<!-- no move 4 -->\n" +
+    "\t\t<span ng-if=\"!pokemon.moveset.moves[3]\">\n" +
+    "\t\t\t<a ng-click=\"addMove(pokemon, 3)\">Add Move...</a>\n" +
+    "\t\t</span>\n" +
+    "\t</div>\n" +
+    "\t<div ng-if=\"!pokemon.moveset\">\n" +
+    "\t\t<a ng-click=\"addMoveset(pokemon)\">Add Moveset for {{pokemon.name}}</a>\n" +
+    "\n" +
+    "\t</div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/pokemon.typing.html',
+    "<div class=\"pokemon-type\">\n" +
+    "    <span class=\"type\" ng-class=\"pokemon.types[0].toLowerCase()\">{{pokemon.types[0]}}</span>\n" +
+    "    <span ng-if=\"!!pokemon.types[1]\">\n" +
+    "        <span class=\"type\" ng-class=\"pokemon.types[1].toLowerCase()\">{{pokemon.types[1]}}</span>\n" +
+    "    </span>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/pokemon_add.html',
+    ""
+  );
+
+
+  $templateCache.put('client/app/templates/pokemon/stats.html',
+    "<div>\n" +
+    "    <table class=\"stat-table\" style=\"width: 100%\">\n" +
+    "        <thead>\n" +
+    "            <tr>\n" +
+    "                <th></th>\n" +
+    "                <th>Base</th>\n" +
+    "                <th>Min</th>\n" +
+    "                <th>Max</th>\n" +
+    "                <th>Max+</th>\n" +
+    "            </tr>\n" +
+    "        </thead>\n" +
+    "        <tbody>\n" +
+    "            <tr ng-class=\"{'text-success': pokemon.baseStats.hp >= 100, 'text-danger': pokemon.baseStats.hp < 60}\">\n" +
+    "                <td>HP</td>\n" +
+    "                <td>{{pokemon.baseStats.hp}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.hp, 'hp', 0)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.hp, 'hp', 255)}}</td>\n" +
+    "                <td>-</td>\n" +
+    "            </tr>\n" +
+    "            <tr ng-class=\"{'text-success': pokemon.baseStats.atk >= 105, 'text-danger': pokemon.baseStats.atk < 50}\">\n" +
+    "                <td>ATK</td>\n" +
+    "               <td>{{pokemon.baseStats.atk}}</td>\n" +
+    "               <td>{{calcStat(pokemon.baseStats.atk, 'atk', 0)}}</td>\n" +
+    "               <td>{{calcStat(pokemon.baseStats.atk, 'atk', 255)}}</td>\n" +
+    "               <td>{{calcStat(pokemon.baseStats.atk, 'atk', 255, 1.1)}}</td>\n" +
+    "            </tr>\n" +
+    "            <tr ng-class=\"{'text-success': pokemon.baseStats.def >= 105, 'text-danger': pokemon.baseStats.def < 50}\">\n" +
+    "                <td>DEF</td>\n" +
+    "                <td>{{pokemon.baseStats.def}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.def, 'def', 0)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.def, 'def', 255)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.def, 'def', 255, 1.1)}}</td>\n" +
+    "            </tr>\n" +
+    "            <tr ng-class=\"{'text-success': pokemon.baseStats.spa >= 105, 'text-danger': pokemon.baseStats.spa < 50}\">\n" +
+    "                <td>SPA</td>\n" +
+    "                <td>{{pokemon.baseStats.spa}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spa, 'spa', 0)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spa, 'spa', 255)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spa, 'spa', 255, 1.1)}}</td>\n" +
+    "            </tr>\n" +
+    "            <tr ng-class=\"{'text-success': pokemon.baseStats.spd >= 105, 'text-danger': pokemon.baseStats.spd < 50}\">\n" +
+    "                <td>SPD</td>\n" +
+    "                <td>{{pokemon.baseStats.spd}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spd, 'spd', 0)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spd, 'spd', 255)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spd, 'spd', 255, 1.1)}}</td>\n" +
+    "            </tr>\n" +
+    "            <tr ng-class=\"{'text-success': pokemon.baseStats.spe >= 105, 'text-danger': pokemon.baseStats.spe < 50}\">\n" +
+    "                <td>SPE</td>\n" +
+    "                <td>{{pokemon.baseStats.spe}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spe, 'spe', 0)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spe, 'spe', 255)}}</td>\n" +
+    "                <td>{{calcStat(pokemon.baseStats.spe, 'spe', 255, 1.1)}}</td>\n" +
+    "            </tr>\n" +
+    "        </tbody>\n" +
+    "    </table>\n" +
+    "    \n" +
+    "    \n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/team/moveset_coverage.html',
+    "<div class=\"header-bar\">\n" +
+    "  <div class=\"container\">\n" +
+    "    <h2>Your teams moveset coverage</h2>\n" +
+    "  </div>\n" +
+    "</div>\n" +
+    "<div class=\"container\">\n" +
+    "  <div class=\"field-bar\">\n" +
+    "\n" +
+    "    \n" +
+    "    <div>\n" +
+    "      <table class=\"table table-bordered table-striped pokemon-table table-condensed\">\n" +
+    "        <thead>\n" +
+    "          <tr>\n" +
+    "            <th>Type</th>\n" +
+    "            <th>Physical</th>\n" +
+    "            <th>Special </th>\n" +
+    "          </tr>\n" +
+    "        </thead>   \n" +
+    "        <tbody>\n" +
+    "          <tr ng-repeat=\"type in types\" ng-if=\"type != 'Bird'\">\n" +
+    "            <td style=\"border-radius: 0;\" class=\"type {{type.toLowerCase()}}\">\n" +
+    "              <span>{{type}}</span>\n" +
+    "            </td> \n" +
+    "            <td class=\"cell-number\" ng-class='{\"success\": team.getMovesetCoverage(type, \"Physical\") > 0}'>\n" +
+    "              {{team.getMovesetCoverage(type, \"Physical\")}}\n" +
+    "            </td>\n" +
+    "            <td class=\"cell-number\" ng-class='{\"success\": team.getMovesetCoverage(type, \"Special\") > 0}'>\n" +
+    "              {{team.getMovesetCoverage(type, \"Special\")}}\n" +
+    "            </td>\n" +
+    "          </tr>\n" +
+    "        </tbody>\n" +
+    "      </table>\n" +
+    "\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/team/pokemon/add.html',
+    "<div class=\"header-bar\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h2>Let's see how <span class=\"highlight\">{{pokemon.species}}</span> fits your team</h2>\n" +
+    "\t</div>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('client/app/templates/team/pokemon/all.html',
+    "<div class=\"team-view\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"pokemon-list\">\n" +
+    "\t\t\t\t<div ui-sref=\"team.pokemon.view({ index: $index })\" class=\"pokemon-spot\" ng-repeat=\"pokemon in $parent.team.pokemons\">\n" +
+    "\t\t\t\t\t<img ng-src=\"{{pokemon.sprite}}\">\n" +
+    "\t\t\t\t\t<span>{{pokemon.name}}</span>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<ui-view></ui-view>"
+  );
+
+
+  $templateCache.put('client/app/templates/team/pokemon/list.html',
+    "<div class=\"header-bar\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h2>Here is a handfull of {{queryName}}</h2>\n" +
+    "\t</div>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('client/app/templates/team/pokemon/view.html',
+    "<div class=\"team-view pokemon-view\" ng-controller=\"TeamPokemonController\">\n" +
+    "\t<div ng-if=\"pokemon\" class=\"container\">\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"col-xs-3\">\n" +
+    "\t\t\t\t<img ng-src=\"{{pokemon.getSprite()}}\">\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-9\">\n" +
+    "\t\t\t\t<div class=\"col-xs-6\">\n" +
+    "\t\t\t\t\t<h3>{{pokemon.name}}</h3>\n" +
+    "\t\t\t\t\t<div><pokemon-typing></pokemon-typing></div>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t\t<h3>EV Spread</h3>\n" +
+    "\t\t\t\t<div class=\"col-xs-6\"><pokemon-evspread></pokemon-evspread></div>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t<hr />\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t<h4>Moveset</h4>\n" +
+    "\t\t\t\t<div class=\"well\">\n" +
+    "\t\t\t\t\t<pokemon-moves></pokemon-moves>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div ng-if=\"!pokemon\">\n" +
+    "\n" +
+    "\t</div>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('client/app/templates/team/publish.html',
+    "<div class=\"header-bar\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h2>Publish your team</h2>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "<div class=\"container\">\n" +
+    "\t<div class=\"field-bar\">\n" +
+    "\t\t<h3 class=\"text-primary text-center\">Make your team public!</h3>\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"col-xs-12\">\n" +
+    "\t\t\t\t<div class=\"text-center\"><b>Your team in a peak</b></div>\n" +
+    "\t\t\t\t<div class=\"spacer\"></div>\n" +
+    "\t\t\t\t<div class=\"row\">\n" +
+    "\t\t\t\t\t<div class=\"well col-xs-8 col-xs-offset-2\" style=\"text-align: center;padding-top: 5px; padding-bottom: 5px;\">\n" +
+    "\n" +
+    "\t\t\t\t\t\t<img class=\"publish-img\" style=\"max-height:64px\"   ng-src=\"{{pokemon.sprite}}\" ng-repeat=\"pokemon in team.pokemons\">\n" +
+    "\n" +
+    "\t\t\t\t\t</div>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t\t<hr />\n" +
+    "\t\t\t\t<div class=\"well col-xs-6 col-xs-offset-3\" style=\"text-align: justify\">\n" +
+    "\t\t\t\t\tYou are one step ahead to make your team public visible for the rest of the community.\n" +
+    "\t\t\t\t\tUsers may add suggestions to improve your team or give a star to let your team reach our <a ui-sref=\"help.most_wanted\">Most Wanted</a>.\n" +
+    "\t\t\t\t\t<strong>Remember</strong>, you can always change your mind and remove your team from the public list.\n" +
+    "\t\t\t\t\t<div class=\"spacer\">\n" +
+    "\t\t\t\t\t</div>\n" +
+    "\t\t\t\t\t<div class=\"btn btn-large btn-block btn-danger\">Make my team public</div>\n" +
+    "\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</div>\t"
+  );
+
+
+  $templateCache.put('client/app/templates/team/settings.html',
+    "<div class=\"header-bar\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h2>Settings</h2>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "\n" +
+    "\n" +
+    "<div class=\"container\">\n" +
+    "\t<div class=\"field-bar\">\n" +
+    "\t\t<div class=\"field-title\">Your team's name</div>\n" +
+    "\t\t<input type=\"text\" ng-model=\"team.name\" class=\"form-control\">\n" +
+    "\n" +
+    "\t\t<hr />\n" +
+    "\n" +
+    "\n" +
+    "\t\t\t<div class=\"field-title\">Tier</div>\n" +
+    "\t\t\t\n" +
+    "\t\t\t<select class=\"form-control\" ng-model=\"team.tier\">\n" +
+    "\t\t\t\t<option value=\"OU\">OU</option>\n" +
+    "\t\t\t\t<option value=\"BL\">BL</option>\n" +
+    "\t\t\t\t<option value=\"UU\">UU</option>\n" +
+    "\t\t\t\t<option value=\"RU\">RU</option>\n" +
+    "\t\t\t\t<option value=\"NU\">NU</option>\n" +
+    "\t\t\t\t<option value=\"Uber\">Uber</option>\n" +
+    "\t\t\t</select>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"field-bar\">\n" +
+    "\t<div class=\"field-title\">Privacy settings</div>\n" +
+    "\t\t<input type=\"checkbox\" ng-model=\"team.private\"> Private Team <span class=\"text-warning\">Do not list this team in the community teams tab</span>\n" +
+    "\t</div>\n" +
+    "\n" +
+    "\t<div class=\"field-bar\">\n" +
+    "\t<div class=\"field-title\">Demos</div>\n" +
+    "\t<h6 class=\"subtitle\">You can add Youtube Videos</h6>\n" +
+    "\t\t\n" +
+    "\t</div>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/team/team.html',
+    "<div>\n" +
+    "\n" +
+    "    <!-- ==========  Team Navigation  ========== -->\n" +
+    "    <div class=\"navbar navbar-white\" style=\"margin-bottom:0; border-bottom: 1px solid #ccc; border-radius: 0\">\n" +
+    "        <div class=\"container\">\n" +
+    "            <div class=\"row\">\n" +
+    "                <div class=\"col-xs-12\">\n" +
+    "                    <ul class=\"nav navbar-nav\">\n" +
+    "                        <li class=\"dropdown\">\n" +
+    "                          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Team <span class=\"caret\"></span></a>\n" +
+    "                          <ul class=\"dropdown-menu\" role=\"menu\">\n" +
+    "                            <li ui-sref=\"team.pokemon\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     <i class=\"fa fa-eye\"></i>\n" +
+    "                                     Show Team\n" +
+    "                                 </a>\n" +
+    "                            </li>\n" +
+    "                            <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"importTeam()\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     <i class=\"glyphicon glyphicon-import\"></i>\n" +
+    "                                     Import Team\n" +
+    "                                 </a>\n" +
+    "                            </li>\n" +
+    "                            <li ng-click=\"exportTeam()\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    <i class=\"glyphicon glyphicon-export\"></i>\n" +
+    "                                    Export Team\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                            <li ng-click=\"saveTeam()\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    <i class=\"glyphicon glyphicon-floppy-save\"></i>\n" +
+    "                                    Save Team\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                            <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"randomizeTeam()\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    <i class=\"glyphicon glyphicon-random\"></i>\n" +
+    "                                    Randomize Team\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                            <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"clearTeam()\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    <i class=\"glyphicon glyphicon-remove\"></i>\n" +
+    "                                    Clear Team\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                          </ul>\n" +
+    "                        </li> <!-- team -->\n" +
+    "                        <li class=\"dropdown\">\n" +
+    "                          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Pokemon<span class=\"caret\"></span></a>\n" +
+    "                          <ul class=\"dropdown-menu\" role=\"menu\">\n" +
+    "                           <li ng-click=\"addPokemon()\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     Add Pokemon ...\n" +
+    "                                 </a>\n" +
+    "                            </li>\n" +
+    "                             <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"addPokemon({format: 'OU'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     OU Pokemon\n" +
+    "                                 </a>\n" +
+    "                            </li>\n" +
+    "                             <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"addPokemon({group: 'setupsweeper'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Setup Sweeper (Physical / Special)\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                            <li ng-click=\"addPokemon({ group: 'specialwall'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Special Wall\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                            <li ng-click=\"addPokemon({ group: 'physicalwall'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Physical Wall\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                            <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"addPokemon({group: 'spinner'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Spinner (Rapid Spin / Defog)\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "\n" +
+    "\n" +
+    "                            <li ng-click=\"addPokemon({ group: 'voltturn'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     U-Turn / Volt Switch / Parting Shot\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                           \n" +
+    "                            <li ng-click=\"addPokemon({group: 'mega'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Mega Pokemon\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "\n" +
+    "                            \n" +
+    "                             <li class=\"divider\"></li>\n" +
+    "                            <li ng-click=\"addPokemon({ group: 'stealthrocker'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     Stealth Rocker\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                             <li ng-click=\"addPokemon({group: 'dualscreener'})\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Dual Screener\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "\n" +
+    "                          </ul>\n" +
+    "                        </li>\n" +
+    "                        \n" +
+    "                        <li class=\"dropdown\">\n" +
+    "                          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Team Details <span class=\"caret\"></span></a>\n" +
+    "                          <ul class=\"dropdown-menu\" role=\"menu\">\n" +
+    "                            <li ui-sref=\"team.typechart\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                     Type Resistances\n" +
+    "                                 </a>\n" +
+    "                            </li>\n" +
+    "                          \n" +
+    "                            <li ui-sref=\"team.moveset_coverage\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Moveset Coverage\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "\n" +
+    "                            <li ui-sref=\"team.playfield\">\n" +
+    "                                <a href=\"#\">\n" +
+    "                                    Simulate Common Threats\n" +
+    "                                </a>\n" +
+    "                            </li>\n" +
+    "                        </ul>\n" +
+    "                    </li>\n" +
+    "                    <li>\n" +
+    "                        <a href=\"#\" ui-sref=\"team.publish\">\n" +
+    "                            Publish\n" +
+    "                        </a>\n" +
+    "                    </li>\n" +
+    "                    <li>\n" +
+    "                        <a href=\"#\" ui-sref=\"team.settings\">\n" +
+    "                            Settings\n" +
+    "                        </a>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "                <ul class=\"pull-right nav navbar-nav\"  style=\"padding-top: 10px\">\n" +
+    "                    <li class=\"team-name\">\n" +
+    "                        <strong><i ng-if=\"team.private\" class=\"fa fa-lock\"></i> {{team.name}} <span class=\"text-warning\"><small>Format: {{team.tier}}</small></span></strong>\n" +
+    "                    </li>\n" +
+    "                </ul>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
+    "    <!-- ==========  End Team Navigation  ========== -->\n" +
+    "    <ui-view>\n" +
+    "        <div class=\"content\">\n" +
+    "            <div class=\"container\">\n" +
+    "                <div class=\"row\">\n" +
+    "                    <div class=\"col-xs-12 col-sm-4\">\n" +
+    "                        <h2>{{team.name}}</h2>\n" +
+    "                        <h3>Tier: {{team.tier}}</h3>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"col-xs-12 col-sm-8\">\n" +
+    "\n" +
+    "                    </div>\n" +
+    "                </div>\n" +
+    "            </div>\n" +
+    "        </div>\n" +
+    "     </ui-view>\n" +
+    "\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/app/templates/team/typechart.html',
+    "<div class=\"header-bar\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h2>Your teams type chart</h2>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "<div class=\"container\">\n" +
+    "\t<div class=\"field-bar\">\n" +
+    "\t\t<div class=\"alert alert-info\" role=\"alert\">\n" +
+    "\t\t\t<strong>Hey</strong>, did you know that you can personalize your table chart? <br/>Your changes will be saved to your computer, so when you visit us next time, you don't have to reconfigure all over again. :)\n" +
+    "\t\t</div>\n" +
+    "\t\t\n" +
+    "\t\t\n" +
+    "\t\t<div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n" +
+    "\t\t\t<div class=\"panel panel-default\">\n" +
+    "\t\t\t\t<div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n" +
+    "\t\t\t\t\t<h4 class=\"panel-title text-center\">\n" +
+    "\t\t\t\t\t<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n" +
+    "\t\t\t\t\t\tConfigure your type chart\n" +
+    "\t\t\t\t\t</a>\n" +
+    "\t\t\t\t\t</h4>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t\t<div id=\"collapseOne\" class=\"panel-collapse collapse out\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n" +
+    "\t\t\t\t\t<div class=\"panel-body\">\n" +
+    "\t\t\t\t\t\t<form>\n" +
+    "\t\t\t\t\t\t\t<div class=\"row\">\n" +
+    "\t\t\t\t\t\t\t\t\n" +
+    "\t\t\t\t\t\t\t\t\n" +
+    "\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t\t\t\t\t\t<b>Table options</b>\n" +
+    "\t\t\t\t\t\t\t\t\t<ul class=\"no-list checkbox-list\">\n" +
+    "\t\t\t\t\t\t\t\t\t\t<li>Table Mode: <ul class=\"no-list\">\n" +
+    "\t\t\t\t\t\t\t\t\t\t\t<li><input type=\"radio\" name=\"tableMode\" ng-model=\"customSettings.typeChart.tableMode\" value=\"types\"> Prioritize Types</li>\n" +
+    "\t\t\t\t\t\t\t\t\t\t\t<li><input type=\"radio\" name=\"tableMode\" ng-model=\"customSettings.typeChart.tableMode\" value=\"pokemon\"> Prioritize Pokemon</li>\n" +
+    "\t\t\t\t\t\t\t\t\t\t</ul>\n" +
+    "\t\t\t\t\t\t\t\t\t</li>\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.showPokemon\"> Show Pokemon images</li>\n" +
+    "\t\t\t\t\t\t\t\t</ul>\n" +
+    "\t\t\t\t\t\t\t</div>\n" +
+    "\t\t\t\t\t\t\t\n" +
+    "\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t\t\t\t\t<b>Configure Types Table</b>\n" +
+    "\t\t\t\t\t\t\t\t<ul class=\"no-list checkbox-list\">\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.rows.immunity\"> Immunity</li>\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.rows.quadResistant\"> Quad Resistant</li>\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.rows.resistant\"> Resistant</li>\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.rows.neutral\"> Neutral</li>\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.rows.effective\"> Effective</li>\n" +
+    "\t\t\t\t\t\t\t\t\t<li><input type=\"checkbox\" ng-model=\"customSettings.typeChart.rows.superEffective\"> Super Effective</li>\n" +
+    "\t\t\t\t\t\t\t\t</ul>\n" +
+    "\t\t\t\t\t\t\t</div>\n" +
+    "\t\t\t\t\t\t\t\n" +
+    "\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t\t\t\t\t<b>Configure Pokemon Table</b>\n" +
+    "\t\t\t\t\t\t\t\t- no settings yet\n" +
+    "\t\t\t\t\t\t\t</div>\n" +
+    "\t\t\t\t\t\t</div>\n" +
+    "\t\t\t\t\t\t<a ng-click=\"saveSettings(customSettings)\" class=\"btn btn-success btn-xs\">Save settings</a>\n" +
+    "\t\t\t\t\t</form>\n" +
+    "\t\t\t\t</div>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "\t\n" +
+    "\t<weakness-table team=\"{{team}}\"></weakness-table>\n" +
+    "</div>\n"
+  );
+
+
+  $templateCache.put('client/app/templates/team/weakness_table.html',
+    "<div>\n" +
+    "  <table class=\"pokemon-table table table-bordered\">\n" +
+    "    <thead>\n" +
+    "      <tr>\n" +
+    "        <th>Type</th>\n" +
+    "        <th ng-repeat=\"pokemon in team.pokemons\">\n" +
+    "         <img class=\"pokemon_sprite\" ng-src=\"{{pokemon.getSprite()}}\" />\n" +
+    "        </th>\n" +
+    "        <th>Weakness</th>\n" +
+    "        <th>Resistance</th>\n" +
+    "      </tr>\n" +
+    "    </thead>   \n" +
+    "    <tbody>\n" +
+    "      <tr class=\"type {{type.toLowerCase()}}\" ng-if=\"type != 'Bird'\" ng-repeat=\"type in types\">\n" +
+    "        <td>{{type}}</td>\n" +
+    "        <td class=\"cell-number\" ng-repeat=\"pokemon in team.pokemons\">\n" +
+    "        <span ng-if=\"pokemon.typingDetails[type].multiplier != 0\">{{pokemon.typingDetails[type].typechart[1]}}</span>\n" +
+    "        </td>\n" +
+    "        <td class=\"cell-number\" ng-class=\"{'danger-cell': (team.getWeaknesses(type) > team.getResistances(type))}\">{{team.getWeaknesses(type)}}</td>\n" +
+    "        <td class=\"cell-number\">{{team.getResistances(type)}}</td>\n" +
+    "      </tr>\n" +
+    "    </tbody>\n" +
+    "  </table>\n" +
+    "\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/components/modal/pokemon.add.modal.html',
+    "<div class=\"modal-header\">\n" +
+    "  <button ng-if=\"modal.dismissable\" type=\"button\" ng-click=\"$dismiss()\" class=\"close\">&times;</button>\n" +
+    "  <h4>Add Pokemon</h4>\n" +
+    "</div>\n" +
+    "<div class=\"modal-body\">\n" +
+    "  <table st-table=\"addPokemonsCollection\"  st-pipe=\"addPokemonServer\" class=\"table table-striped\">\n" +
+    "    <thead>\n" +
+    "    <tr>\n" +
+    "      <th></th>\n" +
+    "      <th>Pokedex</th>\n" +
+    "      <th st-sort=\"species\">Pokemon</th>\n" +
+    "      <th>Typing</th>\n" +
+    "      <th>Tier</th>\n" +
+    "      <th></th>\n" +
+    "    </tr>\n" +
+    "    </thead>\n" +
+    "    <tbody ng-hide=\"addPokemonIsLoading\">\n" +
+    "    <tr ng-repeat=\"pokemon in addPokemonsCollection\">\n" +
+    "      <td><img height=\"25px\" ng-src=\"{{pokemon.sprite}}\"></td>\n" +
+    "      <td>{{pokemon.pokedex}}</td>\n" +
+    "      <td>{{pokemon.name}}</td>\n" +
+    "      <td><pokemon-typing /></pokemon-typing>\n" +
+    "      <td>{{pokemon.format}}</td>\n" +
+    "      <td><a ng-click=\"addPokemon({pokemon:pokemon})\" class=\"btn btn-info\">Add Pokemon</a></td>\n" +
+    "    </tr>\n" +
+    "    </tbody>\n" +
+    "    <tbody ng-show=\"addPokemonIsLoading\">\n" +
+    "        <tr>\n" +
+    "          <td colspan=\"6\" class=\"loader text-center\">\n" +
+    "          <h5>Loading... Be patient</h5>\n" +
+    "          <ul class=\"bokeh\">\n" +
+    "          <li></li>\n" +
+    "          <li></li>\n" +
+    "          <li></li>\n" +
+    "          <li></li>\n" +
+    "        </ul></td>\n" +
+    "        </tr>\n" +
+    "    </tbody>\n" +
+    "  </table>\n" +
+    "\n" +
+    "</div>\n" +
+    "<div class=\"modal-footer\">\n" +
+    "  <button class=\"btn btn-success\" ng-click=\"addPokemon(activePokemon)\">Add Pokemon</button>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/components/modal/team.import.modal.html',
+    "<div class=\"modal-header\">\n" +
+    "  <button ng-if=\"modal.dismissable\" type=\"button\" ng-click=\"$dismiss()\" class=\"close\">&times;</button>\n" +
+    "  <h4>Import a Team</h4>\n" +
+    "</div>\n" +
+    "<div class=\"modal-body\">\n" +
+    "     <p>\n" +
+    "         You can import teams from <span class=\"highlight\">Pokemon Showdown</span> and many other Pokemon Simulators as long as they follow<br/>\n" +
+    "         the default convention to describe Pokemon teams. (Check here for an <a href=\"/help/example_import.txt\" target=\"_blank\">example team</a>).\n" +
+    "     </p>\n" +
+    "     \n" +
+    "     <b>Paste your team here.</b>\n" +
+    "     <textarea ng-change=\"tempTeamPreview = text2team(tempTeam)\" ng-model=\"tempTeam\" rows=\"8\" class=\"form-control\"></textarea>\n" +
+    "     \n" +
+    "     <div ng-if=\"tempTeamPreview\">\n" +
+    "         <hr/>\n" +
+    "         <b>Team Preview:</b>\n" +
+    "         \n" +
+    "         <ul class=\"pokemon-list\" ng-repeat=\"pokemon in tempTeamPreview\">\n" +
+    "             <li>{{pokemon.name}}</li>\n" +
+    "         </ul>\n" +
+    "     </div>\n" +
+    "</div>\n" +
+    "<div class=\"modal-footer\">\n" +
+    "  <button class=\"btn btn-success\" ng-click=\"setTeam()\">Import Team</button>\n" +
+    "</div>"
+  );
+
+
+  $templateCache.put('client/components/navbar/navbar.html',
+    "<div class=\"navbar navbar-default navbar-static-top\" ng-controller=\"NavbarController\">\n" +
+    "  <div class=\"container\">\n" +
+    "    <div class=\"navbar-header\">\n" +
+    "      <button class=\"navbar-toggle\" type=\"button\" ng-click=\"isCollapsed = !isCollapsed\">\n" +
+    "        <span class=\"sr-only\">Toggle navigation</span>\n" +
+    "        <span class=\"icon-bar\"></span>\n" +
+    "        <span class=\"icon-bar\"></span>\n" +
+    "        <span class=\"icon-bar\"></span>\n" +
+    "      </button>\n" +
+    "      <a href=\"/\" class=\"navbar-brand\">\n" +
+    "          <img src=\"/assets/images/logo.png\" style=\"height: 42px; margin-top: -25px\">\n" +
+    "      </a>\n" +
+    "    </div>\n" +
+    "    <div collapse=\"isCollapsed\" class=\"navbar-collapse collapse\" id=\"navbar-main\">\n" +
+    "      <ul class=\"nav navbar-nav\">\n" +
+    "        <li ng-repeat=\"item in menu\" ng-class=\"{active: isActive(item.link)}\">\n" +
+    "            <a ng-href=\"{{item.link}}\">{{item.title}}</a>\n" +
+    "        </li>\n" +
+    "        \n" +
+    "      </ul>\n" +
+    "      <ul class=\"nav navbar-nav subnav pull-right\">\n" +
+    "          <li ng-if=\"!user.signedIn\" class=\"dropdown\">\n" +
+    "            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Login / Sign Up <span class=\"caret\"></span></a>\n" +
+    "            <ul class=\"dropdown-menu\" role=\"menu\">\n" +
+    "              <li ng-click=\"$auth.authenticate('facebook')\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <i class=\"fa fa-facebook-square\"></i> Sign In with Facebook\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li ng-click=\"$auth.authenticate('twitter')\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <i class=\"fa fa-twitter-square\"></i> Sign In with Twitter\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
+    "          </li>\n" +
+    "          <li ng-if=\"!!user.signedIn\" class=\"dropdown\">\n" +
+    "            <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">My Account <span class=\"caret\"></span></a>\n" +
+    "            <ul class=\"dropdown-menu\" role=\"menu\">\n" +
+    "               <li ui-sref=\"main.teams\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <i class=\"fa fa-info\"></i> Your Teams\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li ng-click=\"$auth.signOut()\">\n" +
+    "                <a href=\"#\">\n" +
+    "                  <i class=\"fa fa-sign-out\"></i> Sign Out\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
+    "          </li>\n" +
+    "\n" +
+    "          <li>\n" +
+    "              <a target=\"_blank\" href=\"//github.com/posixpascal/TeamBrewery\"><i class=\"fa fa-github\"></i> Source Code</a>\n" +
+    "          </li>\n" +
+    "          <li>\n" +
+    "              <a target=\"_blank\" href=\"//twitter.com/ninetyfourJS\"><i class=\"fa fa-twitter\"></i> @ninetyfourJS</a>\n" +
+    "          </li>\n" +
+    "      </ul>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+}]);
