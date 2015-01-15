@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                 app: {
 
                     cwd: '<%= yeoman.app %>/templates/',
-                    src: '*/**.html',
+                    src: '**/**.html',
                     dest: '<%= yeoman.app %>/templates.js',
                     options: {
                         bootstrap: function(module, script){
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                 app: {
 
                     cwd: '<%= yeoman.app %>/templates/',
-                    src: '*/**.html',
+                    src: '**/**.html',
                     dest: '<%= yeoman.app %>/templates.js',
                     options: {
                         bootstrap: function(module, script){

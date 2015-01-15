@@ -5,11 +5,11 @@ angular.module('pokemon')
     $stateProvider
       .state('pokemon', {
         url: '/pokemon',
-        templateUrl: 'app/templates/pokemon/pokemon.html',
+        templateUrl: 'pokemon/pokemon.html',
         controller: 'PokemonController'
       }).state('pokemon.add', {
           url: '/add',
-          templateUrl: 'app/templates/pokemon/pokemon.add.html',
+          templateUrl: 'pokemon/pokemon.add.html',
           controller: 'AddPokemonController'
       });
   });

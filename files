@@ -125,7 +125,7 @@ angular.module('files').run(['$templateCache', function($templateCache) {
     "               <img src=\"/assets/images/teaser.png\" />\n" +
     "          </div>\n" +
     "        </header>\n" +
-    "        <div class=\"block\">\n" +
+    "       <!-- <div class=\"block\">\n" +
     "        \t<div class=\"row\">\n" +
     "        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
     "        \t\tWhat is\n" +
@@ -134,7 +134,7 @@ angular.module('files').run(['$templateCache', function($templateCache) {
     "        \t\tup\n" +
     "        \t\t</div>\n" +
     "       \t \t</div>\n" +
-    "        </div>\n" +
+    "        </div>-->\n" +
     "</ui-view>"
   );
 
@@ -524,7 +524,6 @@ angular.module('files').run(['$templateCache', function($templateCache) {
     "\t</div>\n" +
     "\t<div ng-if=\"!pokemon.moveset\">\n" +
     "\t\t<a ng-click=\"addMoveset(pokemon)\">Add Moveset for {{pokemon.name}}</a>\n" +
-    "\n" +
     "\t</div>\n" +
     "</div>"
   );
@@ -705,7 +704,7 @@ angular.module('files').run(['$templateCache', function($templateCache) {
     "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
     "\t\t\t<h4>Moveset</h4>\n" +
     "\t\t\t\t<div class=\"well\">\n" +
-    "\t\t\t\t\t<pokemon-moves></pokemon-moves>\n" +
+    "\t\t\t\t\t<div><pokemon-moves></pokemon-moves></div>\n" +
     "\t\t\t\t</div>\n" +
     "\t\t\t</div>\n" +
     "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +

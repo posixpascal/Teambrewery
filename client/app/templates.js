@@ -6,7 +6,22 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCa
 
 
   $templateCache.put('main/main.html',
-    "<ui-view><header class=\"hero-unit\" id=\"banner\"><div class=\"container\"><img src=\"/assets/images/teaser.png\"></div></header><div class=\"block\"><div class=\"row\"><div class=\"col-xs-12 col-sm-4\">What is</div><div class=\"col-xs-12 col-sm-8\">up</div></div></div></ui-view>"
+    "<ui-view><header class=\"hero-unit\" id=\"banner\"><div class=\"container\"><img src=\"/assets/images/teaser.png\"></div></header></ui-view>"
+  );
+
+
+  $templateCache.put('main/teams/community.html',
+    "<ui-view><h2>Community teams</h2></ui-view>"
+  );
+
+
+  $templateCache.put('main/teams/list.html',
+    "<ui-view><div class=\"header-bar\"><div class=\"container\"><h2>Your <span class=\"highlight\">Pokemon Teams</span><span class=\"pull-right\">New Team</span></h2></div></div><div class=\"container content-container\"><div class=\"field-bar\" ng-repeat=\"team in teams\"><div>{{team.name}} {{team.format}} <span style=\"float:right\"><a ng-click=\"editTeam(team.id)\" class=\"btn btn-info\">Edit team</a> <a ng-click=\"deleteTeam(team.id)\" class=\"btn btn-danger\">Delete team</a></span></div><hr><img ng-src=\"{{pokemon.getSprite()}}\" ng-repeat=\"pokemon in team.pokemons\"></div></div></ui-view>"
+  );
+
+
+  $templateCache.put('main/teams/new.html',
+    "<ui-view><div class=\"header-bar\"><div class=\"container\"><h2>Create a new <span class=\"highlight\">Pokemon Team</span></h2></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Team Name</b> <input ng-model=\"newTeam.name\" class=\"form-control\"></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Tier</b><select class=\"form-control\" ng-model=\"newTeam.tier\"><option value=\"OU\">OU (Most Used / Overused)</option><option value=\"BL\">BL (Things to good for UU but too weak for OU)</option><option value=\"UU\">UU (Commonly Used / Under Used)</option><option value=\"RU\">RU (Sometimes Used / Rarely Used)</option><option value=\"NU\">NU (Poorly Used / Never Used)</option><option value=\"Uber\">Uber (Things too strong for OU)</option></select></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Options</b><div class=\"well\"><input type=\"checkbox\" ng-model=\"newTeam.populate\"> Populate team on creation<br><br><input type=\"checkbox\" ng-model=\"newTeam.private\"> Private? <span class=\"text-muted\">Do not list this team</span></div></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Actions</b><div class=\"well\"><a href=\"#\" ng-click=\"createTeam(newTeam)\" class=\"btn btn-block btn-success\">Create &amp; Edit</a></div></div></div><div class=\"spacer\"></div></ui-view>"
   );
 
 
@@ -62,6 +77,26 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCa
 
   $templateCache.put('team/moveset_coverage.html',
     "<div class=\"header-bar\"><div class=\"container\"><h2>Your teams moveset coverage</h2></div></div><div class=\"container\"><div class=\"field-bar\"><div><table class=\"table table-bordered table-striped pokemon-table table-condensed\"><thead><tr><th>Type</th><th>Physical</th><th>Special</th></tr></thead><tbody><tr ng-repeat=\"type in types\" ng-if=\"type != 'Bird'\"><td style=\"border-radius: 0\" class=\"type {{type.toLowerCase()}}\"><span>{{type}}</span></td><td class=\"cell-number\" ng-class=\"{&quot;success&quot;: team.getMovesetCoverage(type, &quot;Physical&quot;) > 0}\">{{team.getMovesetCoverage(type, \"Physical\")}}</td><td class=\"cell-number\" ng-class=\"{&quot;success&quot;: team.getMovesetCoverage(type, &quot;Special&quot;) > 0}\">{{team.getMovesetCoverage(type, \"Special\")}}</td></tr></tbody></table></div></div></div>"
+  );
+
+
+  $templateCache.put('team/pokemon/add.html',
+    "<div class=\"header-bar\"><div class=\"container\"><h2>Let's see how <span class=\"highlight\">{{pokemon.species}}</span> fits your team</h2></div></div>"
+  );
+
+
+  $templateCache.put('team/pokemon/all.html',
+    "<div class=\"team-view\"><div class=\"container\"><div class=\"row\"><div class=\"pokemon-list\"><div ui-sref=\"team.pokemon.view({ index: $index })\" class=\"pokemon-spot\" ng-repeat=\"pokemon in $parent.team.pokemons\"><img ng-src=\"{{pokemon.sprite}}\"> <span>{{pokemon.name}}</span></div></div></div></div></div><ui-view></ui-view>"
+  );
+
+
+  $templateCache.put('team/pokemon/list.html',
+    "<div class=\"header-bar\"><div class=\"container\"><h2>Here is a handfull of {{queryName}}</h2></div></div>"
+  );
+
+
+  $templateCache.put('team/pokemon/view.html',
+    "<div class=\"team-view pokemon-view\" ng-controller=\"TeamPokemonController\"><div ng-if=\"pokemon\" class=\"container\"><div class=\"row\"><div class=\"col-xs-3\"><img ng-src=\"{{pokemon.getSprite()}}\"></div><div class=\"col-xs-9\"><div class=\"col-xs-6\"><h3>{{pokemon.name}}</h3><div><pokemon-typing></pokemon-typing></div></div><h3>EV Spread</h3><div class=\"col-xs-6\"><pokemon-evspread></pokemon-evspread></div></div></div><hr><div class=\"row\"><div class=\"col-xs-12 col-sm-6\"><h4>Moveset</h4><div class=\"well\"><div><pokemon-moves></pokemon-moves></div></div></div><div class=\"col-xs-12 col-sm-6\"></div></div></div><div ng-if=\"!pokemon\"></div></div>"
   );
 
 

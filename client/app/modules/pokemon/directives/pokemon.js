@@ -6,7 +6,8 @@
                 restrict: 'E',
                 scope: true,
                 replace: true,
-                templateUrl: "app/pokemon/templates/pokemon.typing.html",
+
+                templateUrl: "pokemon/pokemon.typing.html",
                 link: function(scope, element, attrs) {
                     if (attrs.pokemon) {
                         scope.pokemon = attrs.pokemon;
@@ -22,7 +23,7 @@
                 restrict: 'E',
                 scope: true,
                 replace: true,
-                templateUrl: 'app/pokemon/templates/pokemon.evspread.html',
+                templateUrl: 'pokemon/pokemon.evspread.html',
                 link: function(scope, element, attrs){
                     if (attrs.pokemon){
                         scope.pokemon = attrs.pokemon;
@@ -37,7 +38,7 @@
                 restrict: 'E',
                 scope: true,
                 replace: true,
-                templateUrl: 'app/pokemon/templates/pokemon.moves.html',
+                templateUrl: 'pokemon/pokemon.moves.html',
                 link: function(scope, element, attrs){
                     if (attrs.pokemon){
                         scope.pokemon = attrs.pokemon;
