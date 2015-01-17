@@ -1,21 +1,8 @@
-
-
 module.exports = function(grunt) {
     'use strict';
 
-    // measure time
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
-    /*require('jit-grunt')(grunt, {
-        express: 'grunt-express-server',
-        useminPrepare: 'grunt-usemin',
-        ngtemplates: 'grunt-angular-templates',
-        cdnify: 'grunt-google-cdn',
-        protractor: 'grunt-protractor-runner',
-        injector: 'grunt-asset-injector',
-        buildcontrol: 'grunt-build-control'
-    });*/
-
 
     grunt.initConfig({
 
@@ -26,10 +13,6 @@ module.exports = function(grunt) {
             temp: '.tmp',
             app: 'client/app'
         },
-
-
-
-
 
         watch: {
             bower: {
@@ -47,13 +30,14 @@ module.exports = function(grunt) {
                     livereload: false
                 }
             },
+
             jsUnitTest: {
                 files: ['<%= yeoman.app %>/modules/*/tests/unit/*.js'],
                 tasks: ['karma:unit']
             },
 
             styles: {
-                files: ['<%= yeoman.app %>/css/**/*.css', '<%= yeoman.app %>/scss/**/*.scss'],
+                files: ['<%= yeoman.app %>/*.css', '<%= yeoman.app %>/scss/**/*.scss'],
                 tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
             },
 
@@ -61,54 +45,35 @@ module.exports = function(grunt) {
                 files: ['Gruntfile.js']
             },
 
-           ngtemplates: {
+            ngtemplates: {
                 files: ['{<%= yeoman.app %>,<%=yeoman.client%>/components/**/*.html'],
-                app: {
+                tasks: ['ngtemplates']
+            }
+        },
 
-                    cwd: '<%= yeoman.app %>/templates/',
-                    src: '**/**.html',
-                    dest: '<%= yeoman.app %>/templates.js',
-                    options: {
-                        bootstrap: function(module, script){
-                            return 'angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCache", function($templateCache){' + script + '}]);';
-                        },
-                        angular: 'teambrewery',
-                        usemin: 'scripts/custom.js',
-                        htmlmin: {
-                            removeComments: true,
-                            removeRedundantAttributes: true,
-                            removeScriptTypeAttributes: true,
-                            removeStyleLinkTypeAttributes: true,
-                            collapseWhitespace: true
-                        }
+        ngtemplates: {
+            files: ['<%= yeoman.app %>/templates/**/*.html', '<%= yeoman.client %>/components/**/*.html'],
+            app: {
+
+                cwd: '<%= yeoman.app %>/templates/',
+                src: '**/*.html',
+                dest: '<%= yeoman.app %>/templates.js',
+                options: {
+                    bootstrap: function(module, script) {
+                        return 'angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCache", function($templateCache){' + script + '}]);';
+                    },
+                    angular: 'teambrewery',
+                    usemin: 'scripts/custom.js',
+                    htmlmin: {
+                        removeComments: true,
+                        removeRedundantAttributes: true,
+                        removeScriptTypeAttributes: true,
+                        removeStyleLinkTypeAttributes: true,
+                        collapseWhitespace: true
                     }
                 }
             }
-
         },
-         ngtemplates: {
-                files: ['<%= yeoman.app %>/templates/**/*.html', '<%= yeoman.client %>/components/**/*.html'],
-                app: {
-
-                    cwd: '<%= yeoman.app %>/templates/',
-                    src: '**/*.html',
-                    dest: '<%= yeoman.app %>/templates.js',
-                    options: {
-                        bootstrap: function(module, script){
-                            return 'angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCache", function($templateCache){' + script + '}]);';
-                        },
-                        angular: 'teambrewery',
-                        usemin: 'scripts/custom.js',
-                        htmlmin: {
-                            removeComments: true,
-                            removeRedundantAttributes: true,
-                            removeScriptTypeAttributes: true,
-                            removeStyleLinkTypeAttributes: true,
-                            collapseWhitespace: true
-                        }
-                    }
-                }
-            },
 
 
         connect: {
@@ -154,7 +119,7 @@ module.exports = function(grunt) {
                 }
             },
             options: {
-     
+
             },
             files: {
                 '<%= yeoman.client %>/app/app.scss': [
@@ -175,8 +140,7 @@ module.exports = function(grunt) {
             }
         },
 
-
-         // Copies remaining files to places other tasks can use
+        // Copies remaining files to places other tasks can use
         copy: {
             dist: {
                 files: [{
@@ -222,7 +186,6 @@ module.exports = function(grunt) {
             }
         },
 
-        
         autoprefixer: {
             options: {
                 browsers: ['last 1 version']
@@ -286,11 +249,10 @@ module.exports = function(grunt) {
             }
         },
 
-
         injector: {
             options: {
                 addRootSlash: false,
-                
+
             },
 
             'local_dependencies': {
@@ -328,7 +290,7 @@ module.exports = function(grunt) {
                 files: {
                     src: [
                         '<%= yeoman.dist %>/app/**/*.{js, css}',
-                        
+
                     ]
                 }
             }
@@ -434,7 +396,6 @@ module.exports = function(grunt) {
             }
         },
 
-
         ngmin: {
             dist: {
                 files: [{
@@ -467,7 +428,7 @@ module.exports = function(grunt) {
             ],
             dist: [
                 'copy:styles',
-               // 'imagemin',
+                // 'imagemin',
                 'svgmin'
             ]
         },
@@ -487,28 +448,22 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-git');
     grunt.loadNpmTasks('grunt-shell');
 
+
     grunt.registerTask('server', []);
-
-
-
     grunt.registerTask('build', [
         'clean:dist',
         'ngtemplates',
         'bowerInstall',
-                'sass',
-           'injector',
-
-        
+        'sass',
+        'injector',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
         'concat',
         'ngmin',
-
         'copy:dist',
         'cdnify',
         'cssmin',
-        
         'usemin',
         'htmlmin',
         'removelogging',
