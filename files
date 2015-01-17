@@ -962,7 +962,7 @@ angular.module('files').run(['$templateCache', function($templateCache) {
     "        </div>\n" +
     "    </div>\n" +
     "    <!-- ==========  End Team Navigation  ========== -->\n" +
-    "    <ui-view>\n" +
+    "    <div ui-view=\"team\">\n" +
     "        <div class=\"content\">\n" +
     "            <div class=\"container\">\n" +
     "                <div class=\"row\">\n" +
@@ -976,7 +976,7 @@ angular.module('files').run(['$templateCache', function($templateCache) {
     "                </div>\n" +
     "            </div>\n" +
     "        </div>\n" +
-    "     </ui-view>\n" +
+    "     </div>\n" +
     "\n" +
     "</div>"
   );

@@ -4441,3 +4441,1460 @@ Processing by Api::PokemonController#random_format as
   [1m[36mAbility Load (0.8ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 741]]
   [1m[35mMoveset Load (6.3ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 741]]
 Completed 200 OK in 43ms (Views: 26.8ms | ActiveRecord: 12.8ms)
+
+
+Started OPTIONS "/api/teams/create" for 127.0.0.1 at 2015-01-16 18:12:31 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started POST "/api/teams/create" for 127.0.0.1 at 2015-01-16 18:12:31 +0100
+Processing by Api::TeamController#create as HTML
+  Parameters: {"name"=>"Untitled", "tier"=>"OU", "team"=>{"name"=>"Untitled", "tier"=>"OU"}}
+  [1m[35mFormat Load (0.7ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (7.3ms)[0m  INSERT INTO "teams" ("created_at", "name", "options", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-01-16 17:12:31.948106"], ["name", "Untitled"], ["options", nil], ["updated_at", "2015-01-16 17:12:31.948106"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "team_formats" ("created_at", "format_id", "team_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-01-16 17:12:31.963566"], ["format_id", 3], ["team_id", 21], ["updated_at", "2015-01-16 17:12:31.963566"]]
+  [1m[35m (152.8ms)[0m  commit transaction
+  [1m[36mTeamPokemon Load (1.5ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 275ms (Views: 22.3ms | ActiveRecord: 165.3ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.2ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:32 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:36 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:36 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:37 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:37 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:37 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:37 +0100
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:37 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.3ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (31.5ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (12.7ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 525]]
+  [1m[35mType Load (28.1ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 525]]
+  [1m[36mMove Load (128.2ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 525]]
+  [1m[35mType Load (0.3ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mTypeDetail Load (6.3ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (1.3ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mBasestat Load (15.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 525]]
+  [1m[35mAbility Load (21.2ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?  [["pokemon_id", 525]]
+  [1m[36mMoveset Load (643.6ms)[0m  [1mSELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?[0m  [["pokemon_id", 525]]
+  [1m[35mItem Load (12.0ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 703]]
+  [1m[36mMove Load (105.1ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 703]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mEvSpread Load (2.5ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 703]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 703]]
+  [1m[35mNature Load (0.4ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 704]]
+  [1m[35mMove Load (6.1ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 704]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mEvSpread Load (0.2ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 704]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 704]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mItem Load (1.6ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 705]]
+  [1m[36mMove Load (6.5ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 705]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mEvSpread Load (0.3ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 705]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 705]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 2]]
+Completed 200 OK in 1449ms (Views: 388.8ms | ActiveRecord: 1032.2ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:38 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (0.7ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (0.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 318]]
+  [1m[35mType Load (0.4ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 318]]
+  [1m[36mMove Load (1.3ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 318]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mTypeDetail Load (0.3ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.2ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 318]]
+  [1m[36mAbility Load (1.5ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 318]]
+  [1m[35mMoveset Load (6.9ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 318]]
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 467]]
+  [1m[35mMove Load (9.2ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 467]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mEvSpread Load (0.3ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 467]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 467]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mItem Load (0.6ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 468]]
+  [1m[36mMove Load (7.6ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 468]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mEvSpread Load (0.3ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 468]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 468]]
+  [1m[35mNature Load (0.1ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mItem Load (0.6ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 469]]
+  [1m[35mMove Load (7.8ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 469]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mEvSpread Load (0.3ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 469]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 469]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 4]]
+Completed 200 OK in 218ms (Views: 172.7ms | ActiveRecord: 41.8ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:39 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[35mFormat Load (0.3ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36mPokemon Load (0.7ms)[0m  [1mSELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?[0m  [["format_id", 3]]
+  [1m[35mTyping Load (0.3ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 430]]
+  [1m[36mType Load (0.4ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 430]]
+  [1m[35mMove Load (1.5ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?  [["pokemon_id", 430]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.3ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 430]]
+  [1m[36mAbility Load (0.5ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 430]]
+  [1m[35mMoveset Load (8.1ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 430]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 556]]
+  [1m[35mMove Load (15.6ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 556]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mEvSpread Load (0.3ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 556]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 556]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 557]]
+  [1m[36mMove Load (11.1ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mEvSpread Load (0.2ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 557]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 557]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 558]]
+  [1m[35mMove Load (7.2ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 558]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.5ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mEvSpread Load (0.2ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 558]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 558]]
+  [1m[35mNature Load (0.1ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 559]]
+  [1m[35mMove Load (14.8ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 559]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mEvSpread Load (0.2ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 559]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 559]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 173ms (Views: 101.3ms | ActiveRecord: 67.2ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:39 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[35mFormat Load (0.3ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36mPokemon Load (0.8ms)[0m  [1mSELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?[0m  [["format_id", 3]]
+  [1m[35mTyping Load (0.3ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 239]]
+  [1m[36mType Load (0.4ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 239]]
+  [1m[35mMove Load (1.4ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?  [["pokemon_id", 239]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.5ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mBasestat Load (0.2ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 239]]
+  [1m[35mAbility Load (0.4ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?  [["pokemon_id", 239]]
+  [1m[36mMoveset Load (6.6ms)[0m  [1mSELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?[0m  [["pokemon_id", 239]]
+  [1m[35mItem Load (2.4ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 335]]
+  [1m[36mMove Load (11.1ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 335]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mEvSpread Load (0.2ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 335]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 335]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 6]]
+Completed 200 OK in 114ms (Views: 77.7ms | ActiveRecord: 27.1ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:39 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36mPokemon Load (0.7ms)[0m  [1mSELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?[0m  [["format_id", 3]]
+  [1m[35mTyping Load (0.2ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 419]]
+  [1m[36mType Load (0.5ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 419]]
+  [1m[35mMove Load (1.6ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?  [["pokemon_id", 419]]
+  [1m[36mType Load (0.4ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.5ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 419]]
+  [1m[36mAbility Load (0.4ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 419]]
+  [1m[35mMoveset Load (4.4ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 419]]
+Completed 200 OK in 42ms (Views: 27.5ms | ActiveRecord: 11.4ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:39 +0100
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:12:39 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (0.6ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (1.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 738]]
+  [1m[35mType Load (0.4ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 738]]
+  [1m[36mMove Load (2.3ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 738]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (1.2ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 738]]
+  [1m[36mAbility Load (0.5ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 738]]
+  [1m[35mMoveset Load (7.1ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 738]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 1070]]
+  [1m[35mMove Load (8.6ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 1070]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mEvSpread Load (1.3ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 1070]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 1070]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mItem Load (0.3ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 1071]]
+  [1m[36mMove Load (9.4ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 1071]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEvSpread Load (0.3ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 1071]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 1071]]
+  [1m[35mNature Load (0.1ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 1072]]
+  [1m[35mMove Load (7.9ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 1072]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mEvSpread Load (0.4ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 1072]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 1072]]
+  [1m[35mNature Load (0.1ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 8]]
+Completed 200 OK in 102ms (Views: 52.5ms | ActiveRecord: 46.0ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:12:39 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.5ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:13:41 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.7ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.9ms)
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+
+
+Started OPTIONS "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[35mFormat Load (0.3ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36mPokemon Load (0.9ms)[0m  [1mSELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?[0m  [["format_id", 3]]
+  [1m[35mTyping Load (0.2ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 346]]
+  [1m[36mType Load (0.4ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 346]]
+  [1m[35mMove Load (1.4ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?  [["pokemon_id", 346]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mTypeDetail Load (0.3ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 346]]
+  [1m[36mAbility Load (0.6ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 346]]
+  [1m[35mMoveset Load (25.1ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 346]]
+Completed 200 OK in 71ms (Views: 28.7ms | ActiveRecord: 31.0ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.3ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (0.9ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (0.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 93]]
+  [1m[35mType Load (0.5ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 93]]
+  [1m[36mMove Load (1.7ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 93]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 18]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mBasestat Load (0.2ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 93]]
+  [1m[35mAbility Load (0.5ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?  [["pokemon_id", 93]]
+  [1m[36mMoveset Load (7.9ms)[0m  [1mSELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?[0m  [["pokemon_id", 93]]
+Completed 200 OK in 56ms (Views: 36.9ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36mPokemon Load (0.8ms)[0m  [1mSELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?[0m  [["format_id", 3]]
+  [1m[35mTyping Load (0.2ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 739]]
+  [1m[36mType Load (0.3ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 739]]
+  [1m[35mMove Load (2.5ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?  [["pokemon_id", 739]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (2.9ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.2ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 739]]
+  [1m[36mAbility Load (0.4ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 739]]
+  [1m[35mMoveset Load (8.2ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 739]]
+Completed 200 OK in 47ms (Views: 22.0ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:52 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (0.7ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (0.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 172]]
+  [1m[35mType Load (0.5ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 172]]
+  [1m[36mMove Load (1.3ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 172]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 172]]
+  [1m[36mAbility Load (0.5ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 172]]
+  [1m[35mMoveset Load (5.2ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 172]]
+  [1m[36mItem Load (0.5ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 228]]
+  [1m[35mMove Load (11.1ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 228]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mEvSpread Load (0.2ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 228]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 228]]
+  [1m[36mNature Load (0.1ms)[0m  [1mSELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mItem Load (0.2ms)[0m  SELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?  [["moveset_id", 229]]
+  [1m[36mMove Load (9.3ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?[0m  [["moveset_id", 229]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mEvSpread Load (0.2ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 229]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 229]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 7]]
+Completed 200 OK in 89ms (Views: 50.7ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:53 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (2.0ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (0.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 239]]
+  [1m[35mType Load (0.9ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 239]]
+  [1m[36mMove Load (1.2ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 239]]
+  [1m[35mType Load (0.2ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mTypeDetail Load (1.0ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 239]]
+  [1m[36mAbility Load (0.5ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?[0m  [["pokemon_id", 239]]
+  [1m[35mMoveset Load (6.5ms)[0m  SELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?  [["pokemon_id", 239]]
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT "items"."name", "items"."desc" FROM "items" INNER JOIN "moveset_items" ON "items"."id" = "moveset_items"."item_id" WHERE "moveset_items"."moveset_id" = ?[0m  [["moveset_id", 335]]
+  [1m[35mMove Load (11.2ms)[0m  SELECT "moves".* FROM "moves" INNER JOIN "moveslot_moves" ON "moves"."id" = "moveslot_moves"."move_id" INNER JOIN "moveslots" ON "moveslot_moves"."moveslot_id" = "moveslots"."id" WHERE "moveslots"."moveset_id" = ?  [["moveset_id", 335]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mEvSpread Load (0.2ms)[0m  SELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1  [["moveset_id", 335]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "ev_spreads".* FROM "ev_spreads"  WHERE "ev_spreads"."moveset_id" = ?  ORDER BY "ev_spreads"."id" ASC LIMIT 1[0m  [["moveset_id", 335]]
+  [1m[35mNature Load (0.1ms)[0m  SELECT  "natures".* FROM "natures"  WHERE "natures"."id" = ? LIMIT 1  [["id", 6]]
+Completed 200 OK in 201ms (Views: 166.9ms | ActiveRecord: 27.2ms)
+
+
+Started GET "/api/pokemon/random/format/OU" for 127.0.0.1 at 2015-01-16 18:13:53 +0100
+Processing by Api::PokemonController#random_format as 
+  [1m[36mFormat Load (0.3ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35mPokemon Load (0.8ms)[0m  SELECT "pokemons".* FROM "pokemons" INNER JOIN "format_pokemons" ON "pokemons"."id" = "format_pokemons"."pokemon_id" WHERE "format_pokemons"."format_id" = ?  [["format_id", 3]]
+  [1m[36mTyping Load (0.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 739]]
+  [1m[35mType Load (1.7ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 739]]
+  [1m[36mMove Load (1.5ms)[0m  [1mSELECT "moves".* FROM "moves" INNER JOIN "random_battle_moves" ON "moves"."id" = "random_battle_moves"."move_id" WHERE "random_battle_moves"."pokemon_id" = ?[0m  [["pokemon_id", 739]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mTypeDetail Load (0.2ms)[0m  [1mSELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?[0m  [["type_id", 11]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mType Load (1.5ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 8]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 15]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mType Load (0.1ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 17]]
+  [1m[36mType Load (0.1ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mTypeDetail Load (0.2ms)[0m  SELECT "type_details".* FROM "type_details"  WHERE "type_details"."type_id" = ?  [["type_id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 16]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "types".* FROM "types"  WHERE "types"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mBasestat Load (0.3ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 739]]
+  [1m[35mAbility Load (0.4ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "pokemon_abilities" ON "abilities"."id" = "pokemon_abilities"."ability_id" WHERE "pokemon_abilities"."pokemon_id" = ?  [["pokemon_id", 739]]
+  [1m[36mMoveset Load (8.5ms)[0m  [1mSELECT "movesets".* FROM "movesets"  WHERE "movesets"."pokemon_id" = ?[0m  [["pokemon_id", 739]]
+Completed 200 OK in 53ms (Views: 29.9ms | ActiveRecord: 17.3ms)
+
+
+Started OPTIONS "/api/pokemon/all" for 127.0.0.1 at 2015-01-16 18:14:01 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:14:01 +0100
+
+
+Started GET "/api/pokemon/all" for 127.0.0.1 at 2015-01-16 18:14:01 +0100
+Processing by Api::PokemonController#all as HTML
+  [1m[35mPokemon Load (0.6ms)[0m  SELECT  "pokemons".* FROM "pokemons"  LIMIT 50 OFFSET 0
+  [1m[36mBasestat Load (0.2ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 1]]
+  [1m[35mTyping Load (0.3ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 1]]
+  [1m[36mType Load (1.4ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 1]]
+  [1m[35mBasestat Load (0.2ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 2]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 2]]
+  [1m[35mType Load (0.3ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 2]]
+  [1m[36mBasestat Load (0.2ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 3]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 3]]
+  [1m[36mType Load (0.5ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 3]]
+  [1m[35mBasestat Load (0.2ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 4]]
+  [1m[36mTyping Load (0.2ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 4]]
+  [1m[35mType Load (0.4ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 4]]
+  [1m[36mBasestat Load (0.2ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 5]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 5]]
+  [1m[36mType Load (0.3ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 5]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 6]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 6]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 6]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 7]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 7]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 7]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 8]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 8]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 8]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 9]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 9]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 9]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 10]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 10]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 10]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 11]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 11]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 11]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 12]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 12]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 12]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 13]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 13]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 13]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 14]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 14]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 14]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 15]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 15]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 15]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 16]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 16]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 16]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 17]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 17]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 17]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 18]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 18]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 18]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 19]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 19]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 19]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 20]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 20]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 20]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 21]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 21]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 21]]
+  [1m[35mBasestat Load (0.2ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 22]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 22]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 22]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 23]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 23]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 23]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 24]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 24]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 24]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 25]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 25]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 25]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 26]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 26]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 26]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 27]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 27]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 27]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 28]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 28]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 28]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 29]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 29]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 29]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 30]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 30]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 30]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 31]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 31]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 31]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 32]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 32]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 32]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 33]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 33]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 33]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 34]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 34]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 34]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 35]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 35]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 35]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 36]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 36]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 36]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 37]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 37]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 37]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 38]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 38]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 38]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 39]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 39]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 39]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 40]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 40]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 40]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 41]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 41]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 41]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 42]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 42]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 42]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 43]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 43]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 43]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 44]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 44]]
+  [1m[35mType Load (0.6ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 44]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 45]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 45]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 45]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 46]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 46]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 46]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 47]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 47]]
+  [1m[36mType Load (0.2ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 47]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 48]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 48]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 48]]
+  [1m[36mBasestat Load (0.1ms)[0m  [1mSELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 49]]
+  [1m[35mTyping Load (0.1ms)[0m  SELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 49]]
+  [1m[36mType Load (0.3ms)[0m  [1mSELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?[0m  [["typing_id", 49]]
+  [1m[35mBasestat Load (0.1ms)[0m  SELECT  "basestats".* FROM "basestats"  WHERE "basestats"."pokemon_id" = ? LIMIT 1  [["pokemon_id", 50]]
+  [1m[36mTyping Load (0.1ms)[0m  [1mSELECT  "typings".* FROM "typings"  WHERE "typings"."pokemon_id" = ? LIMIT 1[0m  [["pokemon_id", 50]]
+  [1m[35mType Load (0.2ms)[0m  SELECT "types".* FROM "types" INNER JOIN "typing_types" ON "types"."id" = "typing_types"."type_id" WHERE "typing_types"."typing_id" = ?  [["typing_id", 50]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pokemons"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "pokemons"
+Completed 200 OK in 510ms (Views: 7.3ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:14:02 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.3ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:12 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:13 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:13 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:13 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:34 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:35 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:36 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:15:36 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:17:03 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:17:03 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:17:04 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:17:04 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:18:08 +0100
+
+
+Started OPTIONS "/api/team/21" for 127.0.0.1 at 2015-01-16 18:18:09 +0100
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:18:09 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 21]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 21]]
+  [1m[35mTeamPokemon Load (0.4ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 21]]
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/team/21" for 127.0.0.1 at 2015-01-16 18:18:09 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 21]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 21]]
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started OPTIONS "/api/teams/create" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+
+
+Started POST "/api/teams/create" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+Processing by Api::TeamController#create as HTML
+  Parameters: {"name"=>"Untitled", "tier"=>"OU", "team"=>{"name"=>"Untitled", "tier"=>"OU"}}
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "teams" ("created_at", "name", "options", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-01-16 17:20:04.389905"], ["name", "Untitled"], ["options", nil], ["updated_at", "2015-01-16 17:20:04.389905"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "team_formats" ("created_at", "format_id", "team_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-01-16 17:20:04.391675"], ["format_id", 3], ["team_id", 22], ["updated_at", "2015-01-16 17:20:04.391675"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 22]]
+Completed 200 OK in 9ms (Views: 1.4ms | ActiveRecord: 2.4ms)
+
+
+Started OPTIONS "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+
+
+Started OPTIONS "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+
+
+Started OPTIONS "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+
+
+Started OPTIONS "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+
+
+Started OPTIONS "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+
+
+Started GET "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 22]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 22]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 22]]
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 22]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 22]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 22]]
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 22]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 22]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 22]]
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:04 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 22]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 22]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 22]]
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/team/22" for 127.0.0.1 at 2015-01-16 18:20:05 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 22]]
+  [1m[36mFormat Load (0.1ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 22]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 22]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/api/teams/create" for 127.0.0.1 at 2015-01-17 14:06:38 +0100
+
+
+Started POST "/api/teams/create" for 127.0.0.1 at 2015-01-17 14:06:39 +0100
+Processing by Api::TeamController#create as HTML
+  Parameters: {"name"=>"Untitled", "tier"=>"OU", "team"=>{"name"=>"Untitled", "tier"=>"OU"}}
+  [1m[36mFormat Load (1.1ms)[0m  [1mSELECT  "formats".* FROM "formats"  WHERE "formats"."name" = 'OU' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "teams" ("created_at", "name", "options", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2015-01-17 13:06:39.213813"], ["name", "Untitled"], ["options", nil], ["updated_at", "2015-01-17 13:06:39.213813"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "team_formats" ("created_at", "format_id", "team_id", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2015-01-17 13:06:39.219694"], ["format_id", 3], ["team_id", 23], ["updated_at", "2015-01-17 13:06:39.219694"]]
+  [1m[36m (107.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTeamPokemon Load (0.2ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 23]]
+Completed 200 OK in 169ms (Views: 10.5ms | ActiveRecord: 110.2ms)
+
+
+Started OPTIONS "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:39 +0100
+
+
+Started OPTIONS "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:39 +0100
+
+
+Started OPTIONS "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:39 +0100
+
+
+Started OPTIONS "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:39 +0100
+
+
+Started GET "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:39 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 23]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 23]]
+Completed 200 OK in 43ms (Views: 14.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mTeam Load (0.1ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mFormat Load (0.3ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 23]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 23]]
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.5ms)
+
+
+Started OPTIONS "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:40 +0100
+
+
+Started GET "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35mFormat Load (0.2ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 23]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 23]]
+Completed 200 OK in 67ms (Views: 4.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1  [["id", 23]]
+  [1m[36mFormat Load (0.2ms)[0m  [1mSELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1[0m  [["team_id", 23]]
+  [1m[35mTeamPokemon Load (0.1ms)[0m  SELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?  [["team_id", 23]]
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/team/23" for 127.0.0.1 at 2015-01-17 14:06:40 +0100
+Processing by Api::TeamController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mTeam Load (56.4ms)[0m  [1mSELECT  "teams".* FROM "teams"  WHERE "teams"."id" = ? LIMIT 1[0m  [["id", 23]]
+  [1m[35mFormat Load (0.1ms)[0m  SELECT  "formats".* FROM "formats" INNER JOIN "team_formats" ON "formats"."id" = "team_formats"."format_id" WHERE "team_formats"."team_id" = ? LIMIT 1  [["team_id", 23]]
+  [1m[36mTeamPokemon Load (0.1ms)[0m  [1mSELECT "team_pokemons".* FROM "team_pokemons"  WHERE "team_pokemons"."team_id" = ?[0m  [["team_id", 23]]
+Completed 200 OK in 66ms (Views: 3.3ms | ActiveRecord: 56.7ms)

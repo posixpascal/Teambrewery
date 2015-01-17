@@ -5,15 +5,15 @@ angular.module('teambrewery')
 
     $scope.menu = [{
       'title': 'Teambuilder',
-      'link': '/teams/new'
+      'link': '#!/teams/new'
     },
     {
         'title': 'Community Teams',
-        'link': '/teams/community'
+        'link': '#!/teams/community'
     },
     {
       'title': 'Pokedex',
-      'link': '/pokedex'
+      'link': '#!/pokedex'
     }
     
     ];
