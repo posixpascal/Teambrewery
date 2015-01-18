@@ -3,117 +3,114 @@ angular.module('files').run(['$templateCache', function($templateCache) {
 
   $templateCache.put('client/app/templates/main/intro.html',
     "<ui-view>\n" +
-    "        <header class=\"hero-unit\" id=\"banner\">\n" +
-    "          <div class=\"container\">\n" +
-    "               <img src=\"/assets/images/teaser.png\" style=\"width: 100%; max-height: 694px; max-width: 694px;\" />\n" +
-    "               <div class=\"text-center\">\n" +
-    "               \t<p>Teambrewery is a modern Teambuilder for competetive Pokémon players</p>\n" +
+    "<header class=\"hero-unit\" id=\"banner\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<img src=\"/assets/images/teaser.png\" style=\"width: 100%; max-height: 694px; max-width: 694px;\" />\n" +
+    "\t\t<div class=\"text-center\">\n" +
+    "\t\t\t<p>Teambrewery is a modern Teambuilder for competetive Pokémon players</p>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</header>\n" +
+    "<div class=\"block dark-blue\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<img class=\"thumbnail\" src=\"/assets/images/intro/typechart.png\" style=\"width: 100%;\">\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<h3 class=\"text-center\">Check your teams resistances</h3>\n" +
+    "\t\t\t\t<p class=\"big-padding\">\n" +
+    "\t\t\t\tThe most important point in teambuilding is synergy. We provide your with simple yet detailed charts which show you where your team needs improvement. Beside the <em>Type &amp; Resistances</em> table, we also show you your teams <em>Moveset Coverage</em>.\n" +
+    "\t\t\t\t<br/><br/>\n" +
+    "\t\t\t\tAlso checkout our Checklist, which shows you what kind of Pokémon your teams check (eg. Spinner, Stealth Rocker, Pivot, Sweeper etc.)\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t<div class=\"row row-margin\">\n" +
+    "\t\t\t\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<h3 class=\"text-center\">Add Pokemon with ease</h3>\n" +
+    "\t\t\t\t<p class=\"big-padding\">\n" +
+    "\t\t\t\tWe try to make teambuilding as simple and fun as possible. We already grouped common Pokémon to make it really easy to add individual Pokémon. You need a spinner? Just click on the <em>Add Pokemon &raquo; Spinner</em> link.\n" +
+    "\t\t\t\t<br/><br/>\n" +
+    "\t\t\t\tSometimes you need a strong sweeper but you don't remember what Pokémon is capable of doing it? Just... <em>you already know it. ;)</em>.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<img class=\"thumbnail\" src=\"/assets/images/intro/add-pokemon.png\" style=\"width: 100%;\">\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "<div class=\"block cinnamon-red\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<h3 class=\"text-center\">What we offer</h3>\n" +
+    "\t\t<div class=\"row\">\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t<h4><i class=\"fa fa-users\"></i> A community behind teams</h4>\n" +
+    "\t\t\t\t<p class=\"desc\">\n" +
+    "\t\t\t\tCreate and share your team with the community. Get tips on how to improve your team. Pick a team from the community and start adding your own flavour.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t<h4><i class=\"fa fa-line-chart\"></i> A whole new level of team creation</h4>\n" +
+    "\t\t\t\t<p class=\"desc\">\n" +
+    "\t\t\t\tWhile other teambuilder let you add Pokémon and show you their weaknesses and resistances, we go a step further providing detailed movesets. Our Pokémon are already set-up with the most up-to-date movesets and EVSpreads.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t<h4><i class=\"fa fa-youtube-play\"></i> Show your teams in action!</h4>\n" +
+    "\t\t\t\t<p class=\"desc\">\n" +
+    "\t\t\t\tIf you're using a team in a Youtube Video you can link these videos. Whenever someone views your team they have direct insight on how the team compares.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t\t<div class=\"row row-margin\">\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t<h4><i class=\"fa fa-lock\"></i> Everything is kept secret</h4>\n" +
+    "\t\t\t\t<p class=\"desc\">\n" +
+    "\t\t\t\tDon't worry about your privacy. You don't even need to login to use our service! If you want to save your teams you can simply login with any <em>Social Network</em>. No password required.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t<h4><i class=\"fa fa-code-fork\"></i> Export/Import your team</h4>\n" +
+    "\t\t\t\t<p class=\"desc\">\n" +
+    "\t\t\t\tYou can easily export your team to <em>Pokemon Showdown</em> or any other Pokemon Simulator. We also added the feature to import your existing Pokemon Simulator teams.<br/><br/>\n" +
+    "\t\t\t\tWe're working hard to provide you with <em>Browser Extension</em>, so you can use the teams you created on <em>Teambrewery</em>\n" +
+    "\t\t\t\ton Showdown with no effort.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-4\">\n" +
+    "\t\t\t\t<h4><i class=\"fa fa-database\"></i> Save your Pokémon!</h4>\n" +
+    "\t\t\t\t<p class=\"desc\">\n" +
+    "\t\t\t\tYou know that in the original games you can simply drop your Pokémon to a Box on your Computer and reuse it whenever want? Well, now you can do as well! You can save up to 200 Pokémon to your private Box and use them in any team. How convenient is that?\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
+    "<div class=\"block light-green\">\n" +
+    "\t<div class=\"container\">\n" +
+    "\t\t<div class=\"row row-margin\">\n" +
+    "\t\t\t\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<h3 class=\"text-center\">Extensive Tier support</h3>\n" +
+    "\t\t\t\t<p class=\"big-padding\">\n" +
+    "\t\t\t\tMost teambuilder don't check if your team is legit in a given tier<sup>*</sup>. We do! Every action adapts your tiers changes automatically. Don't ever worry that your team might be rejected.\n" +
+    "\t\t\t\tWe use the latest <em>Pokemon Showdown</em> tier rules.\n" +
+    "\t\t\t\t<br/><br/>\n" +
+    "\t\t\t\tAt the moment we support common tiers like: <strong>OU, Uber, UU, LC, RU, NU, BL</strong>. We plan to support more tiers in the future.\n" +
+    "\t\t\t\t<br/><br/>\n" +
+    "\t\t\t\t*) This reflects to tier clauses as well. For example <em>Species Clause</em>.\n" +
+    "\t\t\t\t</p>\n" +
+    "\t\t\t</div>\n" +
+    "\t\t\t<div class=\"col-xs-12 col-sm-6\">\n" +
+    "\t\t\t\t<img src=\"/assets/images/intro/xernias.png\" style=\"width: 100%;\">\n" +
+    "\t\t\t</div>\n" +
+    "\t\t</div>\n" +
+    "\t</div>\n" +
+    "</div>\n" +
     "\n" +
-    "\n" +
-    "               </div>\n" +
-    "          </div>\n" +
-    "        </header>\n" +
-    "        <div class=\"block dark-blue\">\n" +
-    "        \t<div class=\"container\">\n" +
-    "\t        \t<div class=\"row\">\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
-    "\t        \t\t\t<img class=\"thumbnail\" src=\"/assets/images/intro/typechart.png\" style=\"width: 100%;\">\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
-    "\t        \t\t\t<h3 class=\"text-center\">Check your teams resistances</h3>\n" +
-    "\t        \t\t\t<p class=\"big-padding\">\n" +
-    "\t        \t\t\tThe most important point in teambuilding is synergy. We provide your with simple yet detailed charts which show you where your team needs improvement. Beside the <em>Type &amp; Resistances</em> table, we also show you your teams <em>Moveset Coverage</em>.\n" +
-    "\t        \t\t\t<br/><br/>\n" +
-    "\t        \t\t\tAlso checkout our Checklist, which shows you what kind of Pokémon your teams check (eg. Spinner, Stealth Rocker, Pivot, Sweeper etc.)\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t       \t \t</div>\n" +
-    "\t       \t \t<div class=\"row row-margin\">\n" +
-    "\t        \t\t\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
-    "\t        \t\t\t<h3 class=\"text-center\">Add Pokemon with ease</h3>\n" +
-    "\t        \t\t\t<p class=\"big-padding\">\n" +
-    "\t        \t\t\tWe try to make teambuilding as simple and fun as possible. We already grouped common Pokémon to make it really easy to add individual Pokémon. You need a spinner? Just click on the <em>Add Pokemon &raquo; Spinner</em> link. \n" +
-    "\t        \t\t\t<br/><br/>\n" +
-    "\t        \t\t\tSometimes you need a strong sweeper but you don't remember what Pokémon is capable of doing it? Just... <em>you already know it. ;)</em>.\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
-    "\t        \t\t\t<img class=\"thumbnail\" src=\"/assets/images/intro/add-pokemon.png\" style=\"width: 100%;\">\n" +
-    "\t        \t\t</div>\n" +
-    "\t       \t \t</div>\n" +
-    "\n" +
-    "\t        </div>\n" +
-    "\t    </div>\n" +
-    "\t    <div class=\"block cinnamon-red\">\n" +
-    "        \t<div class=\"container\">\n" +
-    "        \t\t<h3 class=\"text-center\">What we offer</h3>\n" +
-    "\t        \t<div class=\"row\">\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
-    "\t        \t\t\t<h4><i class=\"fa fa-users\"></i> A community behind teams</h4>\n" +
-    "\t        \t\t\t<p class=\"desc\">\n" +
-    "\t        \t\t\t\tCreate and share your team with the community. Get tips on how to improve your team. Pick a team from the community and start adding your own flavour.\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
-    "\t        \t\t\t<h4><i class=\"fa fa-line-chart\"></i> A whole new level of team creation</h4>\n" +
-    "\t        \t\t\t<p class=\"desc\">\n" +
-    "\t        \t\t\tWhile other teambuilder let you add Pokémon and show you their weaknesses and resistances, we go a step further providing detailed movesets. Our Pokémon are already set-up with the most up-to-date movesets and EVSpreads.\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
-    "\t        \t\t\t<h4><i class=\"fa fa-youtube-play\"></i> Show your teams in action!</h4>\n" +
-    "\t        \t\t\t<p class=\"desc\">\n" +
-    "\t        \t\t\tIf you're using a team in a Youtube Video you can link these videos. Whenever someone views your team they have direct insight on how the team compares. \n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t       \t \t</div>\n" +
-    "\t       \t \t<div class=\"row row-margin\">\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
-    "\t        \t\t\t<h4><i class=\"fa fa-lock\"></i> Everything is kept secret</h4>\n" +
-    "\t        \t\t\t<p class=\"desc\">\n" +
-    "\t        \t\t\t\tDon't worry about your privacy. You don't even need to login to use our service! If you want to save your teams you can simply login with any <em>Social Network</em>. No password required. \n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
-    "\t        \t\t\t<h4><i class=\"fa fa-code-fork\"></i> Export/Import your team</h4>\n" +
-    "\t        \t\t\t<p class=\"desc\">\n" +
-    "\t        \t\t\tYou can easily export your team to <em>Pokemon Showdown</em> or any other Pokemon Simulator. We also added the feature to import your existing Pokemon Simulator teams.<br/><br/>\n" +
-    "\t        \t\t\tWe're working hard to provide you with <em>Browser Extension</em>, so you can use the teams you created on <em>Teambrewery</em>\n" +
-    "\t        \t\t\ton Showdown with no effort.\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-4\">\n" +
-    "\t        \t\t\t<h4><i class=\"fa fa-database\"></i> Save your Pokémon!</h4>\n" +
-    "\t        \t\t\t<p class=\"desc\">\n" +
-    "\t        \t\t\tYou know that in the original games you can simply drop your Pokémon to a Box on your Computer and reuse it whenever want? Well, now you can do as well! You can save up to 200 Pokémon to your private Box and use them in any team. How convenient is that?\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t       \t \t</div>\n" +
-    "\t        </div>\n" +
-    "\t    </div>\n" +
-    "\t    <div class=\"block light-green\">\n" +
-    "        \t<div class=\"container\">\n" +
-    "\t       \t \t<div class=\"row row-margin\">\n" +
-    "\t        \t\t\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
-    "\t        \t\t\t<h3 class=\"text-center\">Extensive Tier support</h3>\n" +
-    "\t        \t\t\t<p class=\"big-padding\">\n" +
-    "\t        \t\t\tMost teambuilder don't check if your team is legit in a given tier<sup>*</sup>. We do! Every action adapts your tiers changes automatically. Don't ever worry that your team might be rejected.\n" +
-    "\t        \t\t\tWe use the latest <em>Pokemon Showdown</em> tier rules.\n" +
-    "\t        \t\t\t<br/><br/>\n" +
-    "\t        \t\t\tAt the moment we support common tiers like: <strong>OU, Uber, UU, LC, RU, NU, BL</strong>. We plan to support more tiers in the future.\n" +
-    "\t        \t\t\t<br/><br/>\n" +
-    "\t        \t\t\t*) This reflects to tier clauses as well. For example <em>Species Clause</em>.\n" +
-    "\t        \t\t\t</p>\n" +
-    "\t        \t\t</div>\n" +
-    "\t        \t\t<div class=\"col-xs-12 col-sm-6\">\n" +
-    "\t        \t\t\t<img src=\"/assets/images/intro/xernias.png\" style=\"width: 100%;\">\n" +
-    "\t        \t\t</div>\n" +
-    "\t       \t \t</div>\n" +
-    "\t        </div>\n" +
-    "\t    </div>\n" +
-    "\t    \n" +
     "</ui-view>"
   );
 

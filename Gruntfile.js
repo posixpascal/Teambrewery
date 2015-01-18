@@ -37,7 +37,7 @@ module.exports = function(grunt) {
             },
 
             styles: {
-                files: ['<%= yeoman.app %>/*.css', '<%= yeoman.app %>/scss/**/*.scss'],
+                files: ['<%= yeoman.app %>/*.css', '<%= yeoman.app %>/scss/**/*.scss', '<%= yeoman.app %>/scss/*.scss'],
                 tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
             },
 
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
             },
 
             ngtemplates: {
-                files: ['{<%= yeoman.app %>,<%=yeoman.client%>/components/**/*.html'],
+                files: ['{<%= yeoman.app %>','<%=yeoman.client%>/components/**/*.html', '<%= yeoman.app%>/templates/**/*.html'],
                 tasks: ['ngtemplates']
             }
         },
@@ -105,27 +105,14 @@ module.exports = function(grunt) {
 
         // compile sass scripts
         sass: {
-            server: {
-                options: {
-                    loadPath: [
-                        '<%= yeoman.client %>/bower_components',
-                        '<%= yeoman.client %>/app',
-                        '<%= yeoman.client %>/components'
-                    ],
-                    compass: false
-                },
+            
+            dist: {
                 files: {
-                    '<%= yeoman.client %>/app/app.css': '<%= yeoman.client %>/app/app.css'
-                }
-            },
-            options: {
-
-            },
-            files: {
-                '<%= yeoman.client %>/app/app.scss': [
-                    '<%= yeoman.client %>/app/{scss,components}/**/*.{scss,sass}',
-                    '!<%= yeoman.client %>/app/scss/app.{scss,sass}'
-                ]
+                    '<%= yeoman.client %>/app/app.css': '<%= yeoman.client %>/app/scss/app.scss'
+                },
+                options: {
+                    includePaths: ['<%= yeoman.client %>/bower_components/', '<%= yeoman.client %>/components/', '<%= yeoman.app %>/scss/']
+                },
             }
         },
 
@@ -442,7 +429,7 @@ module.exports = function(grunt) {
     });
 
     // load required grunt modules
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-git');
