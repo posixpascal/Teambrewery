@@ -1,25 +1,36 @@
 module.exports = function(grunt) {
     'use strict';
-
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
-
     grunt.initConfig({
-
         // initial config
         yeoman: {
             client: require('./bower.json').appPath || 'client',
             dist: 'dist',
             temp: '.tmp',
-            app: 'client/app'
+            app: 'client/app',
+            name: "teambrewery"
         },
-
+        filerev: {
+            options: {
+                algorithm: 'md5',
+                length: 8
+            },
+            dist: {
+                files: [{
+                    src: [
+                        '<%= yeoman.dist %>/img/{,**/}*.{jpg,jpeg,png,gif,webp}',
+                        '<%= yeoman.dist %>/scripts/*.js',
+                        '<%= yeoman.dist %>/styles/*.css'
+                    ]
+                }]
+            }
+        },
         watch: {
             bower: {
                 files: ['bower.json'],
                 tasks: ['bowerInstall']
             },
-
             js: {
                 files: [
                     '<%= yeoman.app %>/{modules,components}/**/*.js',
@@ -30,31 +41,25 @@ module.exports = function(grunt) {
                     livereload: false
                 }
             },
-
             jsUnitTest: {
                 files: ['<%= yeoman.app %>/modules/*/tests/unit/*.js'],
                 tasks: ['karma:unit']
             },
-
             styles: {
                 files: ['<%= yeoman.app %>/*.css', '<%= yeoman.app %>/scss/**/*.scss', '<%= yeoman.app %>/scss/*.scss'],
                 tasks: ['sass', 'newer:copy:styles', 'autoprefixer']
             },
-
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-
             ngtemplates: {
-                files: ['{<%= yeoman.app %>','<%=yeoman.client%>/components/**/*.html', '<%= yeoman.app%>/templates/**/*.html'],
+                files: ['{<%= yeoman.app %>', '<%=yeoman.client%>/components/**/*.html', '<%= yeoman.app%>/templates/**/*.html'],
                 tasks: ['ngtemplates']
             }
         },
-
         ngtemplates: {
             files: ['<%= yeoman.app %>/templates/**/*.html', '<%= yeoman.client %>/components/**/*.html'],
             app: {
-
                 cwd: '<%= yeoman.app %>/templates/',
                 src: '**/*.html',
                 dest: '<%= yeoman.app %>/templates.js',
@@ -74,8 +79,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
-
         connect: {
             options: {
                 port: 9000,
@@ -102,10 +105,9 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         // compile sass scripts
         sass: {
-            
+
             dist: {
                 files: {
                     '<%= yeoman.client %>/app/app.css': '<%= yeoman.client %>/app/scss/app.scss'
@@ -115,7 +117,6 @@ module.exports = function(grunt) {
                 },
             }
         },
-
         ngAnnotate: {
             dist: {
                 files: [{
@@ -126,27 +127,19 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
         // Copies remaining files to places other tasks can use
         copy: {
             dist: {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= yeoman.app %>',
+                    cwd: '<%= yeoman.client %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
                         'index.html',
-                        'img/{,*/}*.{webp}',
-                        'fonts/*'
                     ]
-                }, {
-                    expand: true,
-                    cwd: '.tmp/images',
-                    dest: '<%= yeoman.dist %>/img',
-                    src: ['generated/*']
                 }]
             },
             styles: {
@@ -156,7 +149,6 @@ module.exports = function(grunt) {
                 src: '**/*.css'
             }
         },
-
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
@@ -172,7 +164,6 @@ module.exports = function(grunt) {
                 src: ['<%= yeoman.app %>/modules/*/tests/unit/*.js']
             }
         },
-
         autoprefixer: {
             options: {
                 browsers: ['last 1 version']
@@ -186,17 +177,17 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
         uglify: {
-            options: {},
-            app: {
+            options: {
+                banner: '/*! <%= yeoman.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+             app: {
                 files: {
                     '<%= yeoman.dist %>/scripts/custom.js': ['<%= yeoman.dist %>/scripts/custom.js'],
                     '<%= yeoman.dist %>/scripts/vendor.js': ['<%= yeoman.dist %>/scripts/vendor.js']
                 }
             }
         },
-
         ngdocs: {
             options: {
                 dest: 'docs',
@@ -225,7 +216,6 @@ module.exports = function(grunt) {
                 title: 'App Documentation'
             }
         },
-
         comments: {
             dist: {
                 options: {
@@ -235,13 +225,10 @@ module.exports = function(grunt) {
                 src: ['<%= yeoman.dist %>/scripts/custom.js']
             }
         },
-
         injector: {
             options: {
                 addRootSlash: false,
-
             },
-
             'local_dependencies': {
                 files: {
                     'client/index.html': [
@@ -263,26 +250,22 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         bowerInstall: {
             app: {
                 src: ['<%= yeoman.client %>/index.html'],
                 ignorePath: '<%= yeoman.client %>'
             }
         },
-
         // Renames files for browser caching purposes
         rev: {
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/app/**/*.{js, css}',
-
+                        '<%= yeoman.dist %>/**/*.{js, css}',
                     ]
                 }
             }
         },
-
         // minifiers
         useminPrepare: {
             html: '<%= yeoman.client %>/index.html',
@@ -299,34 +282,31 @@ module.exports = function(grunt) {
                 }
             }
         },
-
         usemin: {
-            html: ['<%= yeoman.dist%>/**/*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            html: ['<%= yeoman.dist %>/*.html'],
+            css: ['<%= yeoman.dist %>/styles/*.css'],
+            //js: ['<%= yeoman.dist %>/scripts/*.js'],
             options: {
                 assetsDirs: [
-                    '<%= yeoman.dist %>'
+                    '<%= yeoman.dist %>/img'
                 ]
             }
         },
-
         cssmin: {
             options: {
-                root: 'client/app/scss/**/*.css'
+                root: 'client/app/*.css'
             }
         },
-
         imagemin: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.client %>/assets/',
-                    src: '{,*,**/}*.{png,jpg,jpeg,gif}',
+                    src: ['images/{,**/}*.{png,jpg,jpeg,gif}', 'pokemon_sprites/*.{png,jpg,jpeg,gif}'],
                     dest: '<%= yeoman.dist %>/img'
                 }]
             }
         },
-
         svgmin: {
             dist: {
                 files: [{
@@ -337,22 +317,17 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
         htmlmin: {
             dist: {
                 options: {
+                    removeComments: true,
                     collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeCommentsFromCDATA: true
                 },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.dist %>',
-                    src: ['*.html', '<%= yeoman.app %>/modules/*/views/*.html']
-                }]
+                files: {
+                    'dist/index.html': 'dist/index.html'
+                }
             }
         },
-
         shell: {
             options: {
                 stderr: true
@@ -361,7 +336,6 @@ module.exports = function(grunt) {
                 command: '' // add rails build tool maybe? :)
             }
         },
-
         clean: {
             dist: {
                 files: [{
@@ -382,7 +356,6 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
         ngmin: {
             dist: {
                 files: [{
@@ -393,19 +366,16 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
         cdnify: {
             dist: {
-                html: ['<%= yeoman.dist %>/app/index.html']
+                html: ['<%= yeoman.dist %>/index.html']
             }
         },
-
         removelogging: {
             dist: {
                 src: '<%= yeoman.dist %>/scripts/**.js'
             }
         },
-
         concurrent: {
             server: [
                 'copy:styles'
@@ -415,11 +385,9 @@ module.exports = function(grunt) {
             ],
             dist: [
                 'copy:styles',
-                // 'imagemin',
-                'svgmin'
+
             ]
         },
-
         karma: {
             unit: {
                 configFile: 'karma.conf.js',
@@ -427,42 +395,31 @@ module.exports = function(grunt) {
             }
         }
     });
-
     // load required grunt modules
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-angular-templates');
     grunt.loadNpmTasks('grunt-git');
     grunt.loadNpmTasks('grunt-shell');
-
-
-    grunt.registerTask('server', []);
     grunt.registerTask('build', [
         'clean:dist',
         'ngtemplates',
         'bowerInstall',
         'sass',
         'injector',
-        'useminPrepare',
-        'concurrent:dist',
         'autoprefixer',
-        'concat',
         'ngmin',
+        'useminPrepare',
+
+        'concat',
         'copy:dist',
-        'cdnify',
+        'copy:styles',
+        'imagemin',
+        'svgmin',
+
+        'uglify',
         'cssmin',
         'usemin',
         'htmlmin',
-        'removelogging',
-        'comments:dist',
-        'uglify',
-        'rev:dist',
-    ]);
-
-    grunt.registerTask('server', [
-        'bowerInstall',
-        'injector',
-        'autoprefixer',
-        'watch'
     ]);
 };

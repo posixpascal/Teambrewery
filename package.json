@@ -48,6 +48,7 @@
     "grunt-dom-munger": "^3.4.0",
     "grunt-env": "~0.4.1",
     "grunt-express-server": "~0.4.17",
+    "grunt-filerev": "^2.1.2",
     "grunt-git": "^0.3.3",
     "grunt-google-cdn": "~0.4.0",
     "grunt-karma": "~0.8.2",
