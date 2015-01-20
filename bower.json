@@ -6,8 +6,6 @@
     "json3": "~3.3.1",
     "es5-shim": "~3.0.1",
     "jquery": "~1.11.0",
-    "bootstrap-sass-official": "~3.1.1",
-    "bootstrap": "~3.3.1",
     "angular-resource": ">=1.2.*",
     "angular-cookies": ">=1.2.*",
     "angular-sanitize": ">=1.2.*",
@@ -20,7 +18,8 @@
     "ng-token-auth": "~0.0.24",
     "angular-notify": "~2.0.2",
     "toastr": "~2.1.0",
-    "angular-smart-table": "~1.4.5"
+    "angular-smart-table": "~1.4.5",
+    "normalize.css": "~3.0.2"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",

@@ -1,0 +1,31 @@
+/* line 2, ../../sass/modules/pokemon/table.scss */
+.pokemon-table thead tr th {
+  vertical-align: middle;
+  text-align: center;
+}
+/* line 5, ../../sass/modules/pokemon/table.scss */
+.pokemon-table thead tr th .pokemon_sprite {
+  max-height: 36px;
+}
+/* line 9, ../../sass/modules/pokemon/table.scss */
+.pokemon-table tr.type {
+  border: none;
+}
+/* line 11, ../../sass/modules/pokemon/table.scss */
+.pokemon-table tr.type td {
+  border-color: rgba(33, 33, 33, 0.1);
+  width: 11.11111%;
+}
+/* line 16, ../../sass/modules/pokemon/table.scss */
+.pokemon-table tr:nth-last-child(0) {
+  border-bottom: 1px solid rgba(33, 33, 33, 0.1);
+}
+/* line 19, ../../sass/modules/pokemon/table.scss */
+.pokemon-table .cell-number {
+  text-align: center;
+}
+/* line 21, ../../sass/modules/pokemon/table.scss */
+.pokemon-table .cell-number.danger-cell {
+  border: none;
+  box-shadow: inset 0px 0px 30px 0px rgba(255, 0, 0, 0.4);
+}

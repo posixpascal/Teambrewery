@@ -1,0 +1,27 @@
+/* line 1, ../../sass/modules/team/team.scss */
+.team-view {
+  width: 100%;
+  background-color: #fff;
+}
+/* line 5, ../../sass/modules/team/team.scss */
+.team-view .pokemon-list {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+/* line 8, ../../sass/modules/team/team.scss */
+.team-view .pokemon-list .pokemon-spot {
+  text-align: center;
+  display: inline-block;
+  width: 16.666666667%;
+}
+/* line 10, ../../sass/modules/team/team.scss */
+.team-view .pokemon-list .pokemon-spot img {
+  height: 30px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* line 16, ../../sass/modules/team/team.scss */
+.team-view .pokemon-list .pokemon-spot span {
+  display: block;
+}

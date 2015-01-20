@@ -1,0 +1,14 @@
+@include gridle_register_state(mobile, (
+	max-width: 480px
+));
+
+@include gridle_register_state(tablet, (
+	min-width: 481px,
+	max-width: 1024px
+));
+
+@include gridle_register_state(landscape, (
+	query: "(orientation: landscape)"
+));
+
+@include gridle_generate_classes();

@@ -1,0 +1,150 @@
+/* line 1, ../../sass/modules/pokemon/types.scss */
+.type {
+  padding: 3px 8px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  justify-content: center;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(33, 33, 33, 0.6);
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.bug {
+  background: -webkit-linear-gradient(#a8b820, #8d9a1b);
+  background: linear-gradient(#a8b820, #8d9a1b);
+  border-color: #616B13;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.dark {
+  background: -webkit-linear-gradient(#705848, #513435);
+  background: linear-gradient(#705848, #513435);
+  border-color: #362A23;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.dragon {
+  background: -webkit-linear-gradient(#7038F8, #4c08ef);
+  background: linear-gradient(#7038F8, #4c08ef);
+  border-color: #3D07C0;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.electric {
+  background: -webkit-linear-gradient(#f8d030, #f0c108);
+  background: linear-gradient(#f8d030, #f0c108);
+  border-color: #C19B07;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.fairy {
+  background: -webkit-linear-gradient(#f98cff, #f540ff);
+  background: linear-gradient(#f98cff, #f540ff);
+  border-color: #C10798;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.fighting {
+  background: -webkit-linear-gradient(#c03028, #9d2721);
+  background: linear-gradient(#c03028, #9d2721);
+  border-color: #82211B;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.fire {
+  background: -webkit-linear-gradient(#f08030, #dd6610);
+  background: linear-gradient(#f08030, #dd6610);
+  border-color: #B4530D;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.flying {
+  background: -webkit-linear-gradient(#a890f0, #9180c4);
+  background: linear-gradient(#a890f0, #9180c4);
+  border-color: #7762B6;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.ghost {
+  background: -webkit-linear-gradient(#705898, #554374);
+  background: linear-gradient(#705898, #554374);
+  border-color: #413359;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.grass {
+  background: -webkit-linear-gradient(#78c850, #5ca935);
+  background: linear-gradient(#78c850, #5ca935);
+  border-color: #4A892B;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.ground {
+  background: -webkit-linear-gradient(#e0c068, #d4a82f);
+  background: linear-gradient(#e0c068, #d4a82f);
+  border-color: #AA8623;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.ice {
+  background: -webkit-linear-gradient(#98d8d8, #69c6c6);
+  background: linear-gradient(#98d8d8, #69c6c6);
+  border-color: #45B6B6;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.normal {
+  background: -webkit-linear-gradient(#a8a878, #8a8a59);
+  background: linear-gradient(#a8a878, #8a8a59);
+  border-color: #79794E;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.poison {
+  background: -webkit-linear-gradient(#a040a0, #803380);
+  background: linear-gradient(#a040a0, #803380);
+  border-color: #662966;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.psychic {
+  background: -webkit-linear-gradient(#f85888, #f61c5d);
+  background: linear-gradient(#f85888, #f61c5d);
+  border-color: #D60945;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.rock {
+  background: -webkit-linear-gradient(#8ba038, #93802d);
+  background: linear-gradient(#8ba038, #93802d);
+  border-color: #746523;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.steel {
+  background: -webkit-linear-gradient(#b8b8d0, #9797ba);
+  background: linear-gradient(#b8b8d0, #9797ba);
+  border-color: #7A7AA7;
+}
+
+/* line 105, ../../sass/modules/pokemon/types.scss */
+.type.water {
+  background: -webkit-linear-gradient(#6890f0, #386ceb);
+  background: linear-gradient(#6890f0, #386ceb);
+  border-color: #1753E3;
+}
+
+/* line 115, ../../sass/modules/pokemon/types.scss */
+.type-table tr td {
+  vertical-align: middle;
+}
+/* line 118, ../../sass/modules/pokemon/types.scss */
+.type-table img {
+  height: 30px;
+  max-width: 50px;
+}
+
+/* line 125, ../../sass/modules/pokemon/types.scss */
+.type-table td {
+  text-align: center;
+}

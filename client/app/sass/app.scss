@@ -1,3 +1,17 @@
+@import "gridle/gridle";
+@import "lib/normalize";
+
+/** Import default settings. */
+@import "settings/colors";
+@import "settings/fonts";
+@import "settings/grid";
+@import "settings/settings";
+@import "settings/theme";
+
+@import "components/grid";
+@import "components/navigation";
+
+/*
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
@@ -8,7 +22,8 @@ $color-highlight: #40e509;
 @import '../assets/css/rotating-card';
 @import './modules/utils/loader.scss';
 @import "./modules/pokemon/table.scss";
-@import './modules/utils/shapes.scss';
+@import '.
+/modules/utils/shapes.scss';
 @import './modules/team/team.scss';
 
 .spacer {
@@ -142,7 +157,7 @@ table tr td {
 
 /**
  * App-wide Styles
- */
+ *
 
 .browsehappy {
     margin: 0.2em 0;
@@ -165,4 +180,4 @@ table tr td {
 
 #loading-bar {
     background: $color-highlight !important;
-}
+}*/

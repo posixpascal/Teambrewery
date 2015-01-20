@@ -1,0 +1,12 @@
+@include gridle_setup( (
+	context: 12,
+	gutter-width: 20px,
+	direction: ltr
+));
+
+
+.container {
+    @include gridle_container();
+    max-width:1100px;
+    margin:0 auto;
+}
