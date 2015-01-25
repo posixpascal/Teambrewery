@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                 tasks: ['karma:unit']
             },
             styles: {
-                files: ['<%= yeoman.app %>/*.css', '<%= yeoman.app %>/scss/**/*.scss', '<%= yeoman.app %>/scss/*.scss'],
+                files: ['<%= yeoman.app %>/*.css', '<%= yeoman.app %>/sass/**/*.scss', '<%= yeoman.app %>/sass/*.scss'],
                 tasks: ['newer:copy:styles', 'autoprefixer']
             },
             gruntfile: {
@@ -110,10 +110,10 @@ module.exports = function(grunt) {
 
             dist: {
                 files: {
-                    '<%= yeoman.client %>/app/app.css': '<%= yeoman.client %>/app/scss/app.scss'
+                    '<%= yeoman.client %>/app/app.css': '<%= yeoman.client %>/app/sass/app.scss'
                 },
                 options: {
-                    includePaths: ['<%= yeoman.client %>/bower_components/', '<%= yeoman.client %>/components/', '<%= yeoman.app %>/scss/']
+                    includePaths: ['<%= yeoman.client %>/bower_components/', '<%= yeoman.client %>/components/', '<%= yeoman.app %>/sass/']
                 },
             }
         },
