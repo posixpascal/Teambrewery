@@ -29,6 +29,10 @@ angular.module('team').factory("Team", ["$http", "api", "$q", "Pokemon", functio
         return $http.get(api('teams/list'));
     };
 
+    Team.prototype.setTier = function(tier){
+        this.tier = tier;
+    }
+
     Team.prototype.getMovesetCoverage = function(type, category){
         var count = 0;
         _.each(this.pokemons, function(p){

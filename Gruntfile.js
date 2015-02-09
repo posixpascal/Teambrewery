@@ -9,7 +9,7 @@ module.exports = function(grunt) {
             dist: 'dist',
             temp: '.tmp',
             app: 'client/app',
-            name: "teambrewery"
+            name: 'teambrewery'
         },
         filerev: {
             options: {

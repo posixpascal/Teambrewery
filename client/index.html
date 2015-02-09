@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
   <link rel="stylesheet" href="bower_components/angular-notify/dist/angular-notify.css" />
   <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+  <link rel="stylesheet" href="bower_components/normalize.css/normalize.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css styles/custom.css -->
@@ -36,7 +38,7 @@
   <div><ui-view></ui-view></div>
 
 
-  <footer ng-include="'components/footer/footer.html'"></footer>
+  <!--<footer ng-include="'components/footer/footer.html'"></footer>-->
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -66,6 +68,10 @@
     <script src="bower_components/angular-notify/dist/angular-notify.js"></script>
     <script src="bower_components/toastr/toastr.js"></script>
     <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -78,13 +84,16 @@
     <script src="client/app/modules/pokedex/pokedex.js"></script>
     <script src="client/app/modules/pokemon/pokemon.js"></script>
     <script src="client/app/modules/team/team.js"></script>
+    <script src="client/app/modules/teambuilder/teambuilder.js"></script>
     <script src="client/app/modules/core/config/routes.js"></script>
     <script src="client/app/modules/pokedex/config/routes.js"></script>
     <script src="client/app/modules/pokemon/config/routes.js"></script>
     <script src="client/app/modules/team/config/routes.js"></script>
+    <script src="client/app/modules/teambuilder/config/routes.js"></script>
     <script src="client/app/modules/core/services/api.js"></script>
     <script src="client/app/modules/pokemon/services/pokemon.js"></script>
     <script src="client/app/modules/team/services/team.js"></script>
+    <script src="client/app/modules/teambuilder/services/tierlist.js"></script>
     <script src="client/app/modules/pokedex/directives/statProgressBars.js"></script>
     <script src="client/app/modules/pokemon/directives/pokemon.js"></script>
     <script src="client/app/modules/pokemon/directives/stats.js"></script>
@@ -97,6 +106,7 @@
     <script src="client/app/modules/team/controllers/team.js"></script>
     <script src="client/app/modules/team/controllers/team.pokemon.js"></script>
     <script src="client/app/modules/team/controllers/team.pokemon.view.js"></script>
+    <script src="client/app/modules/teambuilder/controllers/teambuilder.js"></script>
     <script src="client/app/modules/team/importer/import.js"></script>
     <script src="client/components/modal/modal.service.js"></script>
     <script src="client/components/navbar/navbar.controller.js"></script>

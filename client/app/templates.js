@@ -21,7 +21,7 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCa
 
 
   $templateCache.put('main/teams/new.html',
-    "<ui-view><div class=\"header-bar\"><div class=\"container\"><h2>Create a new <span class=\"highlight\">Pokemon Team</span></h2></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Team Name</b> <input ng-model=\"newTeam.name\" class=\"form-control\"></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Tier</b><select class=\"form-control\" ng-model=\"newTeam.tier\"><option value=\"OU\">OU (Most Used / Overused)</option><option value=\"BL\">BL (Things to good for UU but too weak for OU)</option><option value=\"UU\">UU (Commonly Used / Under Used)</option><option value=\"RU\">RU (Sometimes Used / Rarely Used)</option><option value=\"NU\">NU (Poorly Used / Never Used)</option><option value=\"Uber\">Uber (Things too strong for OU)</option></select></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Options</b><div class=\"well\"><input type=\"checkbox\" ng-model=\"newTeam.populate\"> Populate team on creation<br><br><input type=\"checkbox\" ng-model=\"newTeam.private\"> Private? <span class=\"text-muted\">Do not list this team</span></div></div></div><div class=\"container content-container\"><div class=\"field-bar\"><b>Actions</b><div class=\"well\"><a href=\"#\" ng-click=\"createTeam(newTeam)\" class=\"btn btn-block btn-success\">Create &amp; Edit</a></div></div></div><div class=\"spacer\"></div></ui-view>"
+    "<ui-view><md-button class=\"md-raised md-primary\">Primary</md-button></ui-view>"
   );
 
 
@@ -122,5 +122,10 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(["$templateCa
 
   $templateCache.put('team/weakness_table.html',
     "<div><table class=\"pokemon-table table table-bordered\"><thead><tr><th>Type</th><th ng-repeat=\"pokemon in team.pokemons\"><img class=\"pokemon_sprite\" ng-src=\"{{pokemon.getSprite()}}\"></th><th>Weakness</th><th>Resistance</th></tr></thead><tbody><tr class=\"type {{type.toLowerCase()}}\" ng-if=\"type != 'Bird'\" ng-repeat=\"type in types\"><td>{{type}}</td><td class=\"cell-number\" ng-repeat=\"pokemon in team.pokemons\"><span ng-if=\"pokemon.typingDetails[type].multiplier != 0\">{{pokemon.typingDetails[type].typechart[1]}}</span></td><td class=\"cell-number\" ng-class=\"{'danger-cell': (team.getWeaknesses(type) > team.getResistances(type))}\">{{team.getWeaknesses(type)}}</td><td class=\"cell-number\">{{team.getResistances(type)}}</td></tr></tbody></table></div>"
+  );
+
+
+  $templateCache.put('teambuilder/main.html',
+    "<div class=\"teambuilder\"><div class=\"teambuilder__canvas\"></div><div class=\"teambuilder__team-modal magictime swashIn\"><div class=\"teambuilder__team-modal__title\">Create A New Team</div><div class=\"teambuilder__team-modal__content\"><h4>Select a tier</h4><div class=\"teambuilder__team-modal__tier-list\"><ul><li ng-repeat=\"tier in TierList\" class=\"teambuilder__team-modal__tier-list__tier\" ng-class=\"{'teambuilder__team-modal__tier-list__tier--active': (team.tier.name == tier.name)}\" ng-click=\"setTier(tier)\"><div class=\"tier-card\"><div class=\"tier-card__headline\">{{tier.name}}</div><div class=\"tier-card__image\"><img ng-src=\"{{tier.image}}\"></div><div ng-if=\"team.tier.name == tier.name\" class=\"tier-card__toggle\">{{tier.description}}</div></div></li></ul></div></div><div class=\"teambuilder__team-modal__toolbar\">toolbar</div></div></div>"
   );
 }]);

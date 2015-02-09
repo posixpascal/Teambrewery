@@ -2,6 +2,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 @import "gridle/gridle";
 @import "lib/normalize";
+@import "lib/magic.min";
 @import 'font-awesome/scss/font-awesome';
 
 /** Import default settings. */
@@ -11,18 +12,15 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import "settings/settings";
 @import "settings/theme";
 
+
 @import "components/grid";
 @import "components/navigation";
 @import "components/footer";
 
-a {
-    color: $color-default;
-    text-decoration: none;
-    &:hover {
-        color: $color-highlight;
-    }
-}
 
-h1, h2, h3, h4, h5, h6 {
-    color: $color-white;
+
+@import "modules/teambuilder/teambuilder";
+
+a {
+	text-decoration: none;
 }

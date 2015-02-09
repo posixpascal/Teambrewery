@@ -1,0 +1,40 @@
+<div class="teambuilder">
+	<div class="teambuilder__canvas">
+
+	</div>
+
+
+
+
+	<!-- modals -->
+	<div class="teambuilder__team-modal magictime swashIn">
+		<div class="teambuilder__team-modal__title">
+			Create A New Team
+		</div>
+		<div class="teambuilder__team-modal__content">
+			<h4>Select a tier</h4>
+			<div class="teambuilder__team-modal__tier-list">
+				<ul>
+					<li ng-repeat="tier in TierList" class="teambuilder__team-modal__tier-list__tier" 
+						ng-class="{'teambuilder__team-modal__tier-list__tier--active': (team.tier.name == tier.name)}"
+						ng-click="setTier(tier)">
+						<div class="tier-card">
+							<div class="tier-card__headline">
+								{{tier.name}}
+							</div>
+							<div class="tier-card__image">
+								<img ng-src="{{tier.image}}">
+							</div>
+							<div ng-if="team.tier.name == tier.name" class="tier-card__toggle">
+								{{tier.description}}
+							</div>
+						</div>
+					</li>				
+				</ul>
+			</div>
+		</div>
+		<div class="teambuilder__team-modal__toolbar">
+			toolbar
+		</div>
+	</div>
+</div>

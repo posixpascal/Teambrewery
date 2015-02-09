@@ -3,13 +3,13 @@
   <div class="container">
     <div class="navbar__header grid-4">
       <a href="/" class="navbar__header__brand">
-          <img src="/assets/images/logo.png" style="height: 42px;">
+          <h1 class="navbar__header__brand__headline">TeamBrewery</h1>
       </a>
     </div>
     <div class="navbar__nav grid-8">
       <ul class="navbar__nav__list">
-        <li ng-repeat="item in menu" class="navbar__nav__list__item" ng-class="{'active': isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
+        <li ng-repeat="item in menu" class="navbar__nav__list__item" ng-class="{'navbar__nav__list__item--active': isActive(item.link)}">
+            <a class="{{item.color}}" ng-href="{{item.link}}">{{item.title}}</a>
         </li>
       </ul>
     </div>

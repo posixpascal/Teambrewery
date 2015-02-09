@@ -11,9 +11,6 @@ angular.module('core')
       	url: 'teams',
       	templateUrl: 'main/teams/list.html',
       	controller: 'TeamsController'
-      }).state('main.teams.new', {
-      	url: '/new',
-      	templateUrl: 'main/teams/new.html',
       }).state('main.teams.community', {
       	url: '/community',
       	templateUrl: 'main/teams/community.html'

@@ -26,7 +26,8 @@ var ApplicationConfiguration = (function() {
                 'core',
                 'team',
                 'pokedex',
-                'pokemon'
+                'pokemon',
+                'teambuilder'
             ]);
 
         // Add the module to the AngularJS configuration file
